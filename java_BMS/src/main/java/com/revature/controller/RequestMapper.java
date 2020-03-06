@@ -57,23 +57,7 @@ public class RequestMapper {
 
 	{
 		delegateMap = new HashMap<String, FrontControllerDelegate>();
-		delegateMap.put("books", new BookDelegate());
-		delegateMap.put("genres", new GenreDelegate());
-		delegateMap.put("authors", new AuthorDelegate());
 		delegateMap.put("login", new LoginDelegate());
-		delegateMap.put("purchases", new PurchaseDelegate());
-		delegateMap.put("getBooks", (req, resp) -> {
-			req.getRequestDispatcher("/static/books.html")
-				.forward(req, resp);
-		});
-		delegateMap.put("addBook", (req, resp) -> {
-			req.getRequestDispatcher("/static/addbook.html")
-				.forward(req, resp);
-		});
-		delegateMap.put("editBook", (req, resp) -> {
-			req.getRequestDispatcher("/static/editbook.html")
-				.forward(req, resp);
-		});
 
 	}
 
