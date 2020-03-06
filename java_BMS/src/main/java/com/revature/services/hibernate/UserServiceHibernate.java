@@ -9,8 +9,8 @@ import com.revature.data.EmployeeDAO;
 import com.revature.data.hibernate.EmployeeHibernate;
 import com.revature.services.EmployeeService;
 
-public class EmployeeServiceHibernate implements EmployeeService {
-	private Logger log = Logger.getLogger(EmployeeServiceHibernate.class);
+public class UserServiceHibernate implements EmployeeService {
+	private Logger log = Logger.getLogger(UserServiceHibernate.class);
 	private EmployeeDAO ed = new EmployeeHibernate();
 	
 	@Override
