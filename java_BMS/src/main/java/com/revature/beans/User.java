@@ -33,12 +33,13 @@ public class User {
 	
 
 
-	
-	public User(Integer id, String username, String password) {
+
+
+
+
+	public User() {
 		super();
-		this.id = id;
-		this.username = username;
-		this.userPassword = password;
+		// TODO Auto-generated constructor stub
 	}
 
 

@@ -50,7 +50,7 @@ public class UserHibernate implements UserDAO {
 			String query = "from User u where u.username=:username and u.password=:password";
 			Query<User> q = s.createQuery(query, User.class);
 			q.setParameter("username", u.getUsername());
-			q.setParameter("password", u.getPassword());
+			q.setParameter("password", u.getUserPassword());
 			ret = q.uniqueResult();
 		}
 		s.close();
