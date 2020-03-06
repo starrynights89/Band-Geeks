@@ -1,6 +1,7 @@
 package com.revature.controller;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,12 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.delegates.AuthorDelegate;
-import com.revature.delegates.BookDelegate;
+
 import com.revature.delegates.FrontControllerDelegate;
-import com.revature.delegates.GenreDelegate;
 import com.revature.delegates.LoginDelegate;
-import com.revature.delegates.PurchaseDelegate;
 
 public class RequestMapper {
 	private Logger log = Logger.getLogger(RequestDispatcher.class);
