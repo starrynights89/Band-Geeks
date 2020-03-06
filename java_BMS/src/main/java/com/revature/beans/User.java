@@ -13,111 +13,167 @@ import javax.persistence.Table;
 @Entity
 @Table(name="login")
 @Inheritance(strategy=InheritanceType.JOINED)
+
+
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
 	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
 	private Integer id;
 	private String username;
-	@Column(name="pswd")
-	private String password;
-	@Column(name="first_name")
-	private String first;
-	@Column(name="last_name")
-	private String last;
-	public User() {
-		super();
-	}
-	public User(Integer id) {
-		super();
-		this.id = id;
-	}
+	@Column(name="user_password")
+	private String userPassword;
+	private String firstname;
+	private String lastname;
+	@Column(name="user_level")
+	private String userLevel;
+	
+	
+	
+	
+
+
+	
 	public User(Integer id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
-		this.password = password;
+		this.userPassword = password;
 	}
+
+
+
+
+
+
+
 	public Integer getId() {
 		return id;
 	}
+
+
+
+
+
+
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+
+
+
+
+
+
 	public String getUsername() {
 		return username;
 	}
+
+
+
+
+
+
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
-		return password;
+
+
+
+
+
+
+
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+
+
+
+
+
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public String getFirst() {
-		return first;
+
+
+
+
+
+
+
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setFirst(String first) {
-		this.first = first;
+
+
+
+
+
+
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getLast() {
-		return last;
+
+
+
+
+
+
+
+	public String getLastname() {
+		return lastname;
 	}
-	public void setLast(String last) {
-		this.last = last;
+
+
+
+
+
+
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((first == null) ? 0 : first.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((last == null) ? 0 : last.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
-		return result;
+
+
+
+
+
+
+
+	public String getUserLevel() {
+		return userLevel;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (first == null) {
-			if (other.first != null)
-				return false;
-		} else if (!first.equals(other.first))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (last == null) {
-			if (other.last != null)
-				return false;
-		} else if (!last.equals(other.last))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
+
+
+
+
+
+
+
+	public void setUserLevel(String userLevel) {
+		this.userLevel = userLevel;
 	}
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", first=" + first + ", last="
-				+ last + "]";
+		return "User [id=" + id + ", username=" + username + ", userPassword=" + userPassword + ", firstname="
+				+ firstname + ", lastname=" + lastname + ", userLevel=" + userLevel + "]";
 	}
+	
+	
+	
+
 }

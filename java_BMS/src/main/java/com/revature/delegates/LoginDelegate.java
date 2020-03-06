@@ -15,12 +15,12 @@ import com.revature.beans.Employee;
 import com.revature.services.CustomerService;
 import com.revature.services.EmployeeService;
 import com.revature.services.hibernate.CustomerServiceHibernate;
-import com.revature.services.hibernate.EmployeeServiceHibernate;
+import com.revature.services.hibernate.UserServiceHibernate;
 
 public class LoginDelegate implements FrontControllerDelegate {
 	private Logger log = Logger.getLogger(LoginDelegate.class);
 	private CustomerService cs = new CustomerServiceHibernate();
-	private EmployeeService es = new EmployeeServiceHibernate();
+	private EmployeeService es = new UserServiceHibernate();
 	private ObjectMapper om = new ObjectMapper();
 
 	@Override

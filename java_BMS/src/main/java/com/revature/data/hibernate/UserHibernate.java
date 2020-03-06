@@ -1,12 +1,12 @@
 package com.revature.data.hibernate;
 
 import org.hibernate.HibernateException;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.revature.beans.User;
-import com.revature.data.UserDAO;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 
