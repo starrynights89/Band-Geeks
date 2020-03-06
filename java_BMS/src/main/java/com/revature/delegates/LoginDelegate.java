@@ -2,6 +2,7 @@ package com.revature.delegates;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,18 +11,15 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.beans.Customer;
-import com.revature.beans.Employee;
-import com.revature.services.CustomerService;
-import com.revature.services.EmployeeService;
-import com.revature.services.hibernate.CustomerServiceHibernate;
+
+import com.revature.beans.User;
+import com.revature.services.hibernate.UserService;
 import com.revature.services.hibernate.UserServiceHibernate;
 
 public class LoginDelegate implements FrontControllerDelegate {
 	private Logger log = Logger.getLogger(LoginDelegate.class);
-	private CustomerService cs = new CustomerServiceHibernate();
-	private EmployeeService es = new UserServiceHibernate();
-	private ObjectMapper om = new ObjectMapper();
+	private UserService uServ = new UserServiceHibernate();
+	private ObjectMapper objMapr = new ObjectMapper();
 
 	@Override
 	public void process(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -33,10 +31,9 @@ public class LoginDelegate implements FrontControllerDelegate {
 			break;
 		case "POST":
 			// logging in
-			Employee emp = (Employee) session.getAttribute("loggedEmployee");
-			Customer cust = (Customer) session.getAttribute("loggedCustomer");
-			if (emp != null || cust != null) {
-				respondWithUser(resp, emp, cust);
+			User usr = (User) session.getAttribute("loggedUser");
+			if (usr != null) {
+				respondWithUser(resp, usr);
 			} else {
 				checkLogin(req, resp);
 			}
@@ -56,44 +53,38 @@ public class LoginDelegate implements FrontControllerDelegate {
 	private void checkLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		log.trace("Logging in!");
 		HttpSession session = req.getSession();
-		Customer c = (Customer) session.getAttribute("loggedCustomer");
-		Employee e = (Employee) session.getAttribute("loggedEmployee");
-		if (c != null || e != null) {
-			respondWithUser(resp, e, c);
+		
+		User usr = (User) session.getAttribute("loggedUser");
+		if (usr != null) {
+			respondWithUser(resp, usr);
 		} else {
 
 			// Need to see if we are an employee. Then we need to see if we are a customer.
 			// Then we need to store that information in the session object.
 			String username = req.getParameter("user");
 			String password = req.getParameter("pass");
+			
 			log.trace((username + " " + password));
-			c = cs.getCustomer(username, password);
-			e = es.getEmployee(username, password);
+			usr = uServ.getUser(username, password);
 
-			if (c != null) {
+			if (usr != null) {
 				log.trace("customer being added to session");
-				session.setAttribute("loggedCustomer", c);
+				session.setAttribute("loggedUser", usr);
 			}
-			if (e != null) {
-				log.trace("employee being added to session");
-				session.setAttribute("loggedEmployee", e);
-			}
-			if (c == null && e == null) {
+	
+			if (usr == null) {
 				resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "No user found with those credentials");
 			} else {
-				respondWithUser(resp, e, c);
+				respondWithUser(resp, usr);
 			}
 		}
 	}
 
-	private void respondWithUser(HttpServletResponse resp, Employee emp, Customer cust) throws IOException {
+	private void respondWithUser(HttpServletResponse resp, User usr) throws IOException {
 		resp.setStatus(HttpServletResponse.SC_OK);
-		String c = om.writeValueAsString(cust);
-		String e = om.writeValueAsString(emp);
-		StringBuilder sb = new StringBuilder("{\"customer\":");
-		sb.append(c);
-		sb.append(", \"employee\":");
-		sb.append(e);
+		String u = objMapr.writeValueAsString(usr);
+		StringBuilder sb = new StringBuilder("{\"user\":");
+		sb.append(u);
 		sb.append("}");
 		resp.getWriter().write(sb.toString());
 	}
