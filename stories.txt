@@ -1,11 +1,13 @@
-1. as a user I can login
+1. as a user I can login/logout
 2. as a student I can request to rent a instrument
-3. as a band direc I can view requests for rents
-4. as a band direc I can approve or reject requests
-5. as a band direc I can assign assignments
-6. as a band direc I can comment on students assignments and requests for insterments
+3. as a band director I can view requests for rents
+4. as a band director I can approve or reject requests
+5. as a band director I can assign assignments
+6. as a band director I can comment on students assignments and requests for insterments
 7. as a student I can view and responed to comments from other students and band direc
 8. as a student I can view my progress
 9. as a student I can view my assignments
-10. as the system I can store requests, assginments and comments
+10. as the system I can store requests, assignments and comments
 11. as the system I can calculate the average scores of a students assignments
+12. as a system I can have a check in and expect a check out date
+13. as a system I can calculate late fees for late check ins
