@@ -26,8 +26,7 @@ public class UserServiceHibernate implements UserService {
 	@Override
 	public User getUserById(int id) {
 		// TODO Auto-generated method stub
-		User m = new User();
-		return m;
+		return null;
 	}
 
 
