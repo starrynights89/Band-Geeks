@@ -11,5 +11,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  pageName = "Welcome to Band Geeks"
 
 }
