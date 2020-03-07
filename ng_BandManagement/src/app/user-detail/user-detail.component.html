@@ -1,0 +1,14 @@
+<!-- *ngIf conditionally includes or excludes a block of HTML-->
+<!-- *ngIf removes the user detail from the DOM-->
+<!-- When the user is picked, selectedUser has a value and ngIf puts the user
+detail into the DOM-->
+<div *ngIf="user">
+  <h2>{{ user.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ user.id }}</div>
+  <div>
+    <label
+      >name:
+      <input [(ngModel)]="user.name" placeholder="name" />
+    </label>
+  </div>
+</div>
