@@ -1,1 +1,19 @@
-<p>users works!</p>
+<h2>Band Users</h2>
+
+<ul class="heroes">
+  <!-- *ngFor dispalys the list-->
+  <!-- *ngFor iterates through the list of users -->
+  <!-- *ngFor is repeater directive. Reepeats the host element for
+  each element in a list -->
+  <!--[class.selected binds] the li to each individual selected user-->
+  <li
+    *ngFor="let user of users"
+    [class.selected]="user === selectedUser"
+    (click)="onSelect(user)"
+  >
+    <span class="badge">{{ user.id }}</span> {{ user.name }}
+  </li>
+</ul>
+
+<!-- App user detail component -->
+<app-user-detail [user]="selectedUser"></app-user-detail>
