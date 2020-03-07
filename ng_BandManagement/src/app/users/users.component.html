@@ -1,7 +1,25 @@
-<h2>{{user.name | uppercase}} Details</h2>
-<div><span>id: </span>{{user.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)] = "user.name" placeholder="name"/>
-  </label>
+<h2>Band Users</h2>
+<ul class="heroes">
+  <!-- *ngFor iterates through the list of users -->
+  <!-- *ngFor is repeater directive. Reepeats the host element for
+  each element in a list -->
+  <!--[class.selected binds] the li to each individual selected user-->
+  <li *ngFor="let user of users"
+    [class.selected]="user === selectedUser"
+    (click)="onSelect(user)">
+    <span class="badge">{{user.id}}</span> {{user.name}}
+  </li>
+</ul>
+
+<!-- *ngIf removes the user detail from the DOM-->
+<!-- When the user is picked, selectedUser has a value and ngIf puts the user
+detail into the DOM-->
+<div *ngIf="selectedUser">
+  <h2>{{selectedUser.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedUser.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)] = "selectedUser.name" placeholder="name"/>
+    </label>
+  </div>
 </div>
