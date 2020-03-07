@@ -20,7 +20,7 @@ create table login(
     user_password varchar2(20),
     user_level varchar2(20)
 );
-
+/*
 create table assignment(
     student_id number(3),
     instructor_id varchar2(20),
@@ -96,12 +96,12 @@ create table grade_level(
 
 
 
-
+*/
 
 
 --------INSERTS----------------
 insert into login (firstname, lastname, username, user_password, user_level)
-        values('Ibrahim', 'Hamadi', 'IHamadi', 'password', 'Director');
+        values('Ibrahim', 'Hamadi', 'IHamadi', 'password', 'Instructor');
         
 
 
