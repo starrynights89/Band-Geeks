@@ -86,6 +86,8 @@ public class LoginDelegate implements FrontControllerDelegate {
 		StringBuilder sb = new StringBuilder("{\"user\":");
 		sb.append(u);
 		sb.append("}");
+		
+		
 		resp.getWriter().write(sb.toString());
 	}
 
