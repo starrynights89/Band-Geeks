@@ -1,4 +1,5 @@
 <h2>Band Users</h2>
+
 <ul class="heroes">
   <!-- *ngFor dispalys the list-->
   <!-- *ngFor iterates through the list of users -->
@@ -14,17 +15,4 @@
   </li>
 </ul>
 
-<!-- *ngIf conditionally includes or excludes a block of HTML-->
-<!-- *ngIf removes the user detail from the DOM-->
-<!-- When the user is picked, selectedUser has a value and ngIf puts the user
-detail into the DOM-->
-<div *ngIf="selectedUser">
-  <h2>{{ selectedUser.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedUser.id }}</div>
-  <div>
-    <label
-      >name:
-      <input [(ngModel)]="selectedUser.name" placeholder="name" />
-    </label>
-  </div>
-</div>
+<app-user-detail [user]="selectedUser"></app-user-detail>
