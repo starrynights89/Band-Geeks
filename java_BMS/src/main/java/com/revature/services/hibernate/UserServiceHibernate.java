@@ -19,14 +19,14 @@ public class UserServiceHibernate implements UserService {
 	@Override
 	public User getUser(String username, String password) {
 		// TODO Auto-generated method stub
-		return null;
+		return uDAO.getUser(username, password);
 	}
 	
 	
 	@Override
 	public User getUserById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return uDAO.getUserById(id);
 	}
 
 
