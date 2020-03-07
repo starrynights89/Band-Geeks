@@ -8,8 +8,8 @@ import { User } from '../user';
 })
 export class UserDetailComponent implements OnInit {
 
-  // Component receives a user object through its
-  // user property and displays it.
+  // @Input decorator to make the user property
+  // available for binding by the external UsersComponent
   @Input() user: User;
   constructor() { }
 
