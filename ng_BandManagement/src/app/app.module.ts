@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './services/login.service';
+import { UrlService } from './services/url.service';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,14 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UrlService,
+    LoginService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
