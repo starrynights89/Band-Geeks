@@ -33,7 +33,7 @@ public class UserHibernate implements UserDAO {
 	@Override
 	public User getUser(String username, String password) {
 		Session s = hu.getSession();
-		String query = "from login where login.username=:username and login.user_password=:password";
+		String query = "from User u where u.username=:username and u.password=:password";
 		Query<User> q = s.createQuery(query, User.class);
 		q.setParameter("username", username);
 		q.setParameter("password", password);
@@ -50,7 +50,7 @@ public class UserHibernate implements UserDAO {
 			String query = "from User u where u.username=:username and u.password=:password";
 			Query<User> q = s.createQuery(query, User.class);
 			q.setParameter("username", u.getUsername());
-			q.setParameter("password", u.getUserPassword());
+			q.setParameter("password", u.getPassword());
 			ret = q.uniqueResult();
 		}
 		s.close();

@@ -22,7 +22,7 @@ public class User {
 	private Integer id;
 	private String username;
 	@Column(name="user_password")
-	private String userPassword;
+	private String password;
 	private String firstname;
 	private String lastname;
 	@Column(name="user_level")
@@ -88,8 +88,14 @@ public class User {
 
 
 
-	public String getUserPassword() {
-		return userPassword;
+
+
+
+
+
+
+	public String getPassword() {
+		return password;
 	}
 
 
@@ -98,8 +104,8 @@ public class User {
 
 
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 
@@ -170,10 +176,16 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", userPassword=" + userPassword + ", firstname="
-				+ firstname + ", lastname=" + lastname + ", userLevel=" + userLevel + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", userLevel=" + userLevel + "]";
 	}
-	
+
+
+
+
+
+
+
 	
 	
 
