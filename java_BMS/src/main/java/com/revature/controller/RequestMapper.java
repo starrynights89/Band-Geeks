@@ -56,6 +56,9 @@ public class RequestMapper {
 	{
 		delegateMap = new HashMap<String, FrontControllerDelegate>();
 		delegateMap.put("login", new LoginDelegate());
+		
+
+
 
 	}
 
