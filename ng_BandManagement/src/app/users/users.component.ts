@@ -23,6 +23,8 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
+  // TODO replace this function as it will not work with
+  // real database. Currently used to test mock data
   getUsers(): void {
     this.users = this.userService.getUsers();
   }
