@@ -13,10 +13,10 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  isEmployee(): boolean {
+  isStudent(): boolean {
     return this.loginService.isStudent();
   }
-  isCustomer(): boolean {
+  isInstructor(): boolean {
     return this.loginService.isInstructor();
   }
 
