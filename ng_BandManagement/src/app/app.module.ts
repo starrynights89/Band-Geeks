@@ -14,7 +14,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
