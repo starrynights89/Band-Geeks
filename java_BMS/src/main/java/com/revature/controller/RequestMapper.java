@@ -57,9 +57,7 @@ public class RequestMapper {
 		delegateMap = new HashMap<String, FrontControllerDelegate>();
 		delegateMap.put("login", new LoginDelegate());
 		
-		delegateMap.put("home", (req, resp) -> {
-			req.getRequestDispatcher("/static/books.html").forward(req, resp);
-		});
+
 
 
 	}
