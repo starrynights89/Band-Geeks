@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { UrlService } from './services/url.service';
 import { AppRoutingModule } from './app-routing-module/app-routing-module.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    SidebarComponent
     
   ],
   imports: [

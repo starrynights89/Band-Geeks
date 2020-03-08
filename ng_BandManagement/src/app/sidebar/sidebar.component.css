@@ -1,0 +1,7 @@
+#sidebar{
+    max-width: 33%;
+    float: left;
+    padding: 15px;
+    border-style: solid;
+    border-width: medium;
+}
