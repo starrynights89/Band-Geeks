@@ -1,0 +1,29 @@
+<div id = "sidebar">
+    <ul>
+        <li>
+            <a *ngIf="route.url!=='/inventory'" routerLink="/inventory">
+              Inventory
+            </a>
+            <span *ngIf="route.url==='/inventory'" routerLink="/inventory" style = "font-weight: strong;">
+              Inventory
+            </span>
+        </li>
+        <li>
+            <a *ngIf="route.url!=='/assignments'" routerLink="/books/edit">Assignments</a>
+            <span *ngIf="route.url==='/assignments'" style = "font-weight: strong;" routerLink="/books/edit">Assignments</span>
+        </li>
+        <li>
+            <a *ngIf="route.url!=='/contact'" routerLink="/contact">Contact Students/Instructors</a>
+            <span *ngIf="route.url==='/contact'" style = "font-weight: strong;" routerLink="/contact">Contact Students/Instructors</span>
+        </li>
+        <li>
+            <a *ngIf="route.url!=='/game'" routerLink="/game">Game</a>
+            <span *ngIf="route.url==='/game'" style = "font-weight: strong;" routerLink="/game">Game</span>
+        </li>
+        <li>
+            <a *ngIf="route.url!=='/home'" routerLink="/home">User Info</a>
+            <span *ngIf="route.url==='/home'" style = "font-weight: strong;" routerLink="/home">User Info/span>
+        </li>
+    </ul>
+    
+</div>
