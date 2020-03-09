@@ -10,8 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { UrlService } from './services/url.service';
 import { AppRoutingModule } from './app-routing-module/app-routing-module.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
@@ -29,7 +29,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     UrlService,
