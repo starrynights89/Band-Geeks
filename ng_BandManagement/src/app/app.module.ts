@@ -19,9 +19,11 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
   declarations: [
     AppComponent,
     NavBarComponent,
+    HeaderComponent,
     LoginComponent,
-    SidebarComponent
-    
+    SidebarComponent,
+    UsersComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
