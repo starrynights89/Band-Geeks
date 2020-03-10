@@ -1,6 +1,5 @@
 ---DROPS TABLES---
 drop table login cascade constraints;
-<<<<<<< HEAD
 drop table item_types cascade constraints;
 drop table instruments cascade constraints;
 drop table uniforms cascade constraints;
@@ -12,23 +11,6 @@ drop table assignment_types cascade constraints;
 drop table assignment cascade constraints;
 drop table comments cascade constraints;
 drop table inventory cascade constraints;
-
----DROP SEQ---
-
-
-=======
-DROP TABLE item_types CASCADE CONSTRAINTS;
-DROP TABLE instruments CASCADE CONSTRAINTS;
-DROP TABLE uniforms CASCADE CONSTRAINTS;
-DROP TABLE courses CASCADE CONSTRAINTS;
-DROP TABLE grade_levels CASCADE CONSTRAINTS;
-DROP TABLE students CASCADE CONSTRAINTS;
-DROP TABLE instructors CASCADE CONSTRAINTS;
-DROP TABLE assignment_types CASCADE CONSTRAINTS;
-DROP TABLE assignment CASCADE CONSTRAINTS;
-DROP TABLE comments CASCADE CONSTRAINTS;
-DROP TABLE inventory CASCADE CONSTRAINTS;
-
 
 ---DROP SEQ---
 drop sequence login_seq;
@@ -43,7 +25,6 @@ drop sequence grade_levels_seq;
 drop sequence students_seq;
 drop sequence instructors_seq;
 drop sequence assignment_types_seq;
->>>>>>> 2ff510af1bc78dea2f7a43694f4e8764e050f4ea
 
 -------Sequences-----
 
@@ -57,10 +38,6 @@ create table login(
     user_password varchar2(20)
 );
 
-<<<<<<< HEAD
-=======
-/*
->>>>>>> 2ff510af1bc78dea2f7a43694f4e8764e050f4ea
 create table item_types(
     item_type_id number(3) primary key,
     item_name varchar2(50)
@@ -141,34 +118,9 @@ create table inventory(
     foreign key (student_id) references students(student_id),
     foreign key (item_type_id) references item_types(item_type_id)
 );
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-*/
->>>>>>> 2ff510af1bc78dea2f7a43694f4e8764e050f4ea
 
 --------INSERTS----------------
 insert into login (firstname, lastname, username, user_password)
         values('Ibrahim', 'Hamadi', 'IHamadi', 'password');
         
-
-
 commit;
