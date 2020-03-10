@@ -35,11 +35,15 @@ create table item_types(
 );
 create table instruments(
     instrument_id number(3),
-    instrument_name varchar2(50)
+    item_type_id number(3),
+    instrument_name varchar2(50),
+    foreign key (item_type_id) references item_types(item_type_id)
 );
 create table uniforms(
     uniforms_id number(3),
-    uniforms_type varchar2(50)
+    item_type_id number(3),
+    uniforms_name varchar2(50),
+    foreign key (item_type_id) references item_types(item_type_id)
 );
 
 create table courses(
