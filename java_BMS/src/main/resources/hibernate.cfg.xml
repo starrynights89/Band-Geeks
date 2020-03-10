@@ -4,9 +4,9 @@
 	<session-factory>
 		<!-- JDBC set up -->
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-		<property name="hibernate.connection.username">bookapp</property>
-		<property name="hibernate.connection.password">p4ssw0rd</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@rev2001.cpqplqtczbwy.us-east-2.rds.amazonaws.com\:1521\:ORCL</property>
+		<property name="hibernate.connection.username">BMS</property>
+		<property name="hibernate.connection.password">blackichan</property>
 		
 		<!-- Hibernate set up -->
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
@@ -18,14 +18,10 @@
 		<!-- Tell Hibernate where our mappings are -->
 		
 		<!-- Annotation Mappings -->
-		<mapping class="com.revature.beans.Address"/>
-		<mapping class="com.revature.beans.Author"/>
-		<mapping class="com.revature.beans.Book"/>
-		<mapping class="com.revature.beans.Customer"/>
-		<mapping class="com.revature.beans.Employee"/>
-		<mapping class="com.revature.beans.Genre"/>
-		<mapping class="com.revature.beans.InvoiceLine"/>
-		<mapping class="com.revature.beans.Purchase"/>
-		<mapping class="com.revature.beans.User"/>
+		<mapping class="com.bandgeeks.beans.User"/>
+		<mapping class="com.bandgeeks.beans.Instructor"/>
+		<mapping class="com.bandgeeks.beans.Student"/>
+
+
 	</session-factory>
 </hibernate-configuration>

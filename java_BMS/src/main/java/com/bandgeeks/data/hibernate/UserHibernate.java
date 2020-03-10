@@ -1,16 +1,24 @@
 package com.bandgeeks.data.hibernate;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bandgeeks.beans.User;
+import com.bandgeeks.controller.LoginController;
 import com.bandgeeks.utils.HibernateUtil;
 import com.bandgeeks.utils.LogUtil;
 
+
+@Repository
 public class UserHibernate implements UserDAO {
+	private Logger log = Logger.getLogger(LoginController.class);
+
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	@Override
 	public int addUser(User user) {
