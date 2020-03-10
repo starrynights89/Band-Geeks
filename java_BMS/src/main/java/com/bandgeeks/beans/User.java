@@ -19,14 +19,14 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
 	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
+	@Column (name = "user_id")
 	private Integer id;
 	private String username;
 	@Column(name="user_password")
 	private String password;
 	private String firstname;
 	private String lastname;
-	@Column(name="user_level")
-	private String userLevel;
+
 	
 	
 	
