@@ -1,17 +1,16 @@
 ---DROPS TABLES---
 drop table login cascade constraints;
-DROP TABLE item_types CASCADE CONSTRAINTS;
-DROP TABLE instruments CASCADE CONSTRAINTS;
-DROP TABLE uniforms CASCADE CONSTRAINTS;
-DROP TABLE courses CASCADE CONSTRAINTS;
-DROP TABLE grade_levels CASCADE CONSTRAINTS;
-DROP TABLE students CASCADE CONSTRAINTS;
-DROP TABLE instructors CASCADE CONSTRAINTS;
-DROP TABLE assignment_types CASCADE CONSTRAINTS;
-DROP TABLE assignment CASCADE CONSTRAINTS;
-DROP TABLE comments CASCADE CONSTRAINTS;
-DROP TABLE inventory CASCADE CONSTRAINTS;
-
+drop table item_types cascade constraints;
+drop table instruments cascade constraints;
+drop table uniforms cascade constraints;
+drop table courses cascade constraints;
+drop table grade_levels cascade constraints;
+drop table students cascade constraints;
+drop table instructors cascade constraints;
+drop table assignment_types cascade constraints;
+drop table assignment cascade constraints;
+drop table comments cascade constraints;
+drop table inventory cascade constraints;
 
 ---DROP SEQ---
 drop sequence login_seq;
@@ -28,18 +27,7 @@ drop sequence instructors_seq;
 drop sequence assignment_types_seq;
 
 -------Sequences-----
-create sequence login_seq nocache;
-create sequence assignments_seq nocache;
-create sequence comments_seq nocache;
-create sequence inventory_seq nocache;
-create sequence item_types_seq nocache;
-create sequence instruments_seq nocache;
-create sequence uniforms_seq nocache;
-create sequence courses_seq nocache;
-create sequence grade_levels_seq nocache;
-create sequence students_seq nocache;
-create sequence instructors_seq nocache;
-create sequence assignment_types_seq nocache;
+
 
 -------TABLES---------
 create table login(
@@ -127,9 +115,6 @@ create table comments(
 );
 
 
-
-
-
 --------INSERTS----------------
 
 
@@ -165,10 +150,4 @@ insert into assignment_types(type_id, assignment_description, assignment_type_na
 insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(5, 'Students will be assigned the 2 pages of theory worksheet', 'Theory Worksheet');
        
-
-
-
-        
-
-
 commit;
