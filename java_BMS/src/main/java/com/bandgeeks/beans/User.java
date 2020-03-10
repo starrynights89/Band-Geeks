@@ -10,23 +10,25 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="login")
 @Inheritance(strategy=InheritanceType.JOINED)
 
-
+@Component
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login")
 	@SequenceGenerator(name="login", sequenceName="login_seq", allocationSize=1)
-	private Integer id;
+	@Column (name = "user_id")
+	private int id;
 	private String username;
 	@Column(name="user_password")
 	private String password;
 	private String firstname;
 	private String lastname;
-	@Column(name="user_level")
-	private String userLevel;
+
 	
 	
 	
@@ -48,7 +50,7 @@ public class User {
 
 
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -58,7 +60,7 @@ public class User {
 
 
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -154,30 +156,10 @@ public class User {
 
 
 
-	public String getUserLevel() {
-		return userLevel;
-	}
-
-
-
-
-
-
-
-	public void setUserLevel(String userLevel) {
-		this.userLevel = userLevel;
-	}
-
-
-
-
-
-
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
-				+ ", lastname=" + lastname + ", userLevel=" + userLevel + "]";
+				+ ", lastname=" + lastname + "]";
 	}
 
 
