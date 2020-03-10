@@ -1,10 +1,31 @@
 ---DROPS TABLES---
 drop table login cascade constraints;
+DROP TABLE item_types CASCADE CONSTRAINTS;
+DROP TABLE instruments CASCADE CONSTRAINTS;
+DROP TABLE uniforms CASCADE CONSTRAINTS;
+DROP TABLE courses CASCADE CONSTRAINTS;
+DROP TABLE grade_levels CASCADE CONSTRAINTS;
+DROP TABLE students CASCADE CONSTRAINTS;
+DROP TABLE instructors CASCADE CONSTRAINTS;
+DROP TABLE assignment_types CASCADE CONSTRAINTS;
+DROP TABLE assignment CASCADE CONSTRAINTS;
+DROP TABLE comments CASCADE CONSTRAINTS;
+DROP TABLE inventory CASCADE CONSTRAINTS;
 
 
 ---DROP SEQ---
 drop sequence login_seq;
-
+drop sequence assignments_seq;
+drop sequence comments_seq;
+drop sequence inventory_seq;
+drop sequence item_types_seq;
+drop sequence instruments_seq;
+drop sequence uniforms_seq;
+drop sequence courses_seq;
+drop sequence grade_levels_seq;
+drop sequence students_seq;
+drop sequence instructors_seq;
+drop sequence assignment_types_seq;
 
 -------Sequences-----
 create sequence login_seq nocache;
@@ -28,6 +49,7 @@ create table login(
     username varchar2(20),
     user_password varchar2(20)
 );
+
 /*
 create table item_types(
     item_type_id number(3),
@@ -105,26 +127,7 @@ create table inventory(
     foreign key (student_id) references students(student_id),
     foreign key (item_type_id) references item_types(item_type_id)
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 */
-
 
 --------INSERTS----------------
 insert into login (firstname, lastname, username, user_password, user_level)
