@@ -1,24 +1,23 @@
 ---DROPS TABLES---
 drop table login cascade constraints;
-
+drop table item_types cascade constraints;
+drop table instruments cascade constraints;
+drop table uniforms cascade constraints;
+drop table courses cascade constraints;
+drop table grade_levels cascade constraints;
+drop table students cascade constraints;
+drop table instructors cascade constraints;
+drop table assignment_types cascade constraints;
+drop table assignment cascade constraints;
+drop table comments cascade constraints;
+drop table inventory cascade constraints;
 
 ---DROP SEQ---
-drop sequence login_seq;
+
 
 
 -------Sequences-----
-create sequence login_seq nocache;
-create sequence assignments_seq nocache;
-create sequence comments_seq nocache;
-create sequence inventory_seq nocache;
-create sequence item_types_seq nocache;
-create sequence instruments_seq nocache;
-create sequence uniforms_seq nocache;
-create sequence courses_seq nocache;
-create sequence grade_levels_seq nocache;
-create sequence students_seq nocache;
-create sequence instructors_seq nocache;
-create sequence assignment_types_seq nocache;
+
 
 -------TABLES---------
 create table login(
@@ -28,16 +27,16 @@ create table login(
     username varchar2(20),
     user_password varchar2(20)
 );
-/*
+
 create table item_types(
-    item_type_id number(3),
+    item_type_id number(3) primary key,
     item_name varchar2(50)
 );
 create table instruments(
-    instrument_id number(3),
+    instrument_id number(3) primary key,
     item_type_id number(3),
     instrument_name varchar2(50),
-    foreign key (item_type_id) references item_types(item_type_id)
+    FOREIGN KEY (item_type_id) references item_types(item_type_id)
 );
 create table uniforms(
     uniforms_id number(3),
@@ -47,12 +46,12 @@ create table uniforms(
 );
 
 create table courses(
-    course_id number(3),
+    course_id number(3) primary key,
     course_name varchar2(50)
 );
 
 create table grade_levels(
-    grade_level_id number(3),
+    grade_level_id number(3) primary key,
     grade_level_name varchar2(50)
 );
 
@@ -84,8 +83,8 @@ create table assignment_types(
 create table assignment(
     assignment_id number(3) primary key,
     student_id number(3),
-    instructor_id varchar2(20),
-    assignment_type_id varchar2(20),
+    instructor_id number(3),
+    assignment_type_id number(3),
     date_assigned date,
     date_due date,
     foreign key (student_id) references students(student_id),
@@ -105,7 +104,7 @@ create table inventory(
     check_out timestamp,
     instructor_id number(3),
     student_id number(3),
-    item_type_id varchar2(50),
+    item_type_id number(3),
     foreign key (student_id) references students(student_id),
     foreign key (item_type_id) references item_types(item_type_id)
 );
@@ -127,12 +126,12 @@ create table inventory(
 
 
 
-*/
+
 
 
 --------INSERTS----------------
-insert into login (firstname, lastname, username, user_password, user_level)
-        values('Ibrahim', 'Hamadi', 'IHamadi', 'password', 'Instructor');
+insert into login (firstname, lastname, username, user_password)
+        values('Ibrahim', 'Hamadi', 'IHamadi', 'password');
         
 
 
