@@ -150,8 +150,4 @@ insert into assignment_types(type_id, assignment_description, assignment_type_na
 insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(5, 'Students will be assigned the 2 pages of theory worksheet', 'Theory Worksheet');
        
-
-
-
-        
 commit;
