@@ -134,9 +134,9 @@ create table inventory(
 */
 
 --------INSERTS----------------
-insert into login (firstname, lastname, username, user_password, user_level)
-        values('Ibrahim', 'Hamadi', 'IHamadi', 'password', 'Instructor');
-        
+insert into login (user_id, firstname, lastname, username, user_password)
+        values(1, 'Ibrahim', 'Hamadi', 'IHamadi', 'password');
+  
 
 
 commit;
