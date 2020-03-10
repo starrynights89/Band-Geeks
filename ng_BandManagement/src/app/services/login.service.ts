@@ -14,7 +14,10 @@ import { Currentuser } from '../classes/currentuser';
 })
 export class LoginService {
   private appUrl = this.urlService.getUrl() + 'login';
-  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  //private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded'
+  });
 
   private student: Student;
   private instructor: Instructor;
