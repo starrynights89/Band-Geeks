@@ -1,12 +1,12 @@
-package com.revature.services.hibernate;
+package com.bandgeeks.services.hibernate;
 
 
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.User;
-import com.revature.data.hibernate.UserDAO;
-import com.revature.data.hibernate.UserHibernate;
+import com.bandgeeks.beans.User;
+import com.bandgeeks.data.hibernate.UserDAO;
+import com.bandgeeks.data.hibernate.UserHibernate;
 
 
 

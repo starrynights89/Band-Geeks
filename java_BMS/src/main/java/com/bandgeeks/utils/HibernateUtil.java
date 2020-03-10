@@ -1,4 +1,4 @@
-package com.revature.utils;
+package com.bandgeeks.utils;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

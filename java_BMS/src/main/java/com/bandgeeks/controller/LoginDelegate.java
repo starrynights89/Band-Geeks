@@ -1,4 +1,4 @@
-package com.revature.delegates;
+package com.bandgeeks.controller;
 
 import java.io.IOException;
 
@@ -10,11 +10,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import com.bandgeeks.beans.User;
+import com.bandgeeks.services.hibernate.UserService;
+import com.bandgeeks.services.hibernate.UserServiceHibernate;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.revature.beans.User;
-import com.revature.services.hibernate.UserService;
-import com.revature.services.hibernate.UserServiceHibernate;
 
 public class LoginDelegate implements FrontControllerDelegate {
 	private Logger log = Logger.getLogger(LoginDelegate.class);

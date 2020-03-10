@@ -1,4 +1,4 @@
-package com.revature.utils;
+package com.bandgeeks.utils;
 
 import java.io.InputStream;
 import java.sql.Connection;

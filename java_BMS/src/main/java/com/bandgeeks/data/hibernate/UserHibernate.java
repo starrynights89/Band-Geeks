@@ -1,4 +1,4 @@
-package com.revature.data.hibernate;
+package com.bandgeeks.data.hibernate;
 
 import org.hibernate.HibernateException;
 
@@ -6,9 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import com.revature.beans.User;
-import com.revature.utils.HibernateUtil;
-import com.revature.utils.LogUtil;
+import com.bandgeeks.beans.User;
+import com.bandgeeks.utils.HibernateUtil;
+import com.bandgeeks.utils.LogUtil;
 
 public class UserHibernate implements UserDAO {
 	private HibernateUtil hu = HibernateUtil.getInstance();

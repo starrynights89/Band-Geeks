@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.bandgeeks.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

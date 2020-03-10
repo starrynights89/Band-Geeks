@@ -1,6 +1,6 @@
-package com.revature.services.hibernate;
+package com.bandgeeks.services.hibernate;
 
-import com.revature.beans.User;
+import com.bandgeeks.beans.User;
 
 public interface UserService {
 	

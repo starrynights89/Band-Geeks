@@ -1,6 +1,6 @@
-package com.revature.data.hibernate;
+package com.bandgeeks.data.hibernate;
 
-import com.revature.beans.User;
+import com.bandgeeks.beans.User;
 
 public interface UserDAO {
 	
