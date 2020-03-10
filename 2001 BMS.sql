@@ -50,29 +50,35 @@ create table login(
     user_password varchar2(20)
 );
 
-/*
+
+create table courses(
+    course_id number(3) PRIMARY KEY,
+    course_name varchar2(50)
+);
+
+create table grade_levels(
+    grade_level_id number(3) PRIMARY KEY,
+    grade_level_name varchar2(50)
+);
+create table inventory(
+    item_id number(3) PRIMARY KEY,
+    check_in timestamp,
+    check_out timestamp,
+    instructor_id number(3)
+);
 
 create table instruments(
-    instrument_id number(3),
+    instrument_id number(3) PRIMARY KEY,
     instruments_item_type_id number(3),
     instrument_name varchar2(50),
     foreign key (instruments_item_type_id) references inventory(item_id)
 );
+
 create table uniforms(
     uniforms_id number(3),
     uniforms_item_type_id number(3),
     uniforms_name varchar2(50),
     foreign key (uniforms_item_type_id) references inventory(item_id)
-);
-
-create table courses(
-    course_id number(3),
-    course_name varchar2(50)
-);
-
-create table grade_levels(
-    grade_level_id number(3),
-    grade_level_name varchar2(50)
 );
 
 create table students(
@@ -94,6 +100,7 @@ create table instructors(
     foreign key (instructor_id) references login(user_id)
 );
 
+
 create table assignment_types(
     type_id number(3) primary key,
     assignment_description varchar2(100),
@@ -103,8 +110,8 @@ create table assignment_types(
 create table assignment(
     assignment_id number(3) primary key,
     assignment_student_id number(3),
-    assignment_instructor_id varchar2(20),
-    assignment_type_id varchar2(20),
+    assignment_instructor_id number(3),
+    assignment_type_id number(3),
     date_assigned date,
     date_due date,
     foreign key (assignment_student_id) references students(student_id),
@@ -118,51 +125,44 @@ create table comments(
     time_stamp TIMESTAMP,
     cmmnt varchar2(100)
 );
-create table inventory(
-    item_id number(3) PRIMARY KEY,
-    check_in timestamp,
-    check_out timestamp,
-    instructor_id number(3),
-    inventory_student_id number(3),
-    inventory_item_type_id varchar2(50),
-    foreign key (inventory_student_id) references students(student_id),
-    foreign key (inventory_item_type_id) references item_types(item_type_id)
-);
-*/
+
+
+
+
 
 --------INSERTS----------------
 
 
 -------USERS-------------
-insert into login (firstname, lastname, username, user_password, user_level)
-        values('Ibrahim', 'Hamadi', 'IHamadi', 'password', 'Instructor');
+insert into login (user_id, firstname, lastname, username, user_password)
+        values(1,'Ibrahim', 'Hamadi', 'IHamadi', 'password');
         
         
         
         
 -------COURSES------------
 insert into courses (course_id, course_name)
-        values('1', 'Music Theory');
+        values(1, 'Music Theory');
 insert into courses (course_id, course_name)
-        values('2', 'Jazz Band');
+        values(2, 'Jazz Band');
 insert into courses (course_id, course_name)
-        values('3', 'Marching Band');
+        values(3, 'Marching Band');
 insert into courses (course_id, course_name)
-        values('4', 'Samba');
+        values(4, 'Samba');
 insert into courses (course_id, course_name)
-        values('5', 'Opera');
+        values(5, 'Opera');
         
         
 -------Assignment--Types------------
-insert into assignment_types(assignment_type_id, assignment_description, assignment_type_name)
+insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(1, 'Listen to a song and memorize the tune', 'Listening Activity');
-insert into assignment_types(assignment_type_id, assignment_description, assignment_type_name)
+insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(2, 'Learn to play specific song with no mistakes', 'Practice and Memorization');
-insert into assignment_types(assignment_type_id, assignment_description, assignment_type_name)
+insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(3, 'Learn to tune your instrument by ear', 'Ear Training');
-insert into assignment_types(assignment_type_id, assignment_description, assignment_type_name)
+insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(4, 'Students will warm up their instruments on 3 major scales, Bflat, E-flat, and A-flat.', 'Grand Major Scales');
-insert into assignment_types(assignment_type_id, assignment_description, assignment_type_name)
+insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(5, 'Students will be assigned the 2 pages of theory worksheet', 'Theory Worksheet');
        
 
