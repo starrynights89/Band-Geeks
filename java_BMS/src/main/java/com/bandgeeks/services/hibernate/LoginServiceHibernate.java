@@ -17,13 +17,13 @@ public class LoginServiceHibernate implements LoginService {
 	
 	
 	@Override
-	public Instructor loginAsInstructor(User user) {
+	public Instructor loginAsInstructor(String user, String pass) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Student loginAsStudent(User user) {
+	public Student loginAsStudent(String user, String pass) {
 		// TODO Auto-generated method stub
 		return null;
 	}
