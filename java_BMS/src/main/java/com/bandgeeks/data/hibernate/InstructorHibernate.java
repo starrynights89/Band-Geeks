@@ -1,6 +1,7 @@
 package com.bandgeeks.data.hibernate;
 
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,8 @@ import com.bandgeeks.beans.User;
 import com.bandgeeks.controller.LoginController;
 import com.bandgeeks.utils.HibernateUtil;
 
+
+@Repository
 public class InstructorHibernate implements InstructorDAO{
 	private Logger log = Logger.getLogger(LoginController.class);
 
@@ -27,11 +30,13 @@ public class InstructorHibernate implements InstructorDAO{
 		log.trace("Getting Instructor "+username+", "+password);
 
 		Session s = hu.getSession();
-		String query = "from User u where u.username=:username and u.password=:password";
-		Query<Instructor> q = s.createQuery(query, Instructor.class);
+		log.trace("Session"+s);
+		String query = "from Instructor u where u.username=:username and u.password=:password";
+		Query q = s.createQuery(query, Instructor.class);
+		log.trace("q"+q);
 		q.setParameter("username", username);
 		q.setParameter("password", password);
-		Instructor u = q.uniqueResult();
+		Instructor u = (Instructor) q.uniqueResult();
 		s.close();
 		return u;
 	}

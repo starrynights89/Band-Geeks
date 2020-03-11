@@ -29,6 +29,7 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService logServ;
+
 	
 	
 	@GetMapping(value="/login")
@@ -58,7 +59,10 @@ public class LoginController {
 	
 	
 	@PostMapping(value="/login")
-	public ResponseEntity<Boolean> postLogin(String user, String pass){
+	public ResponseEntity<Boolean> postLogin(String user, String pass, HttpSession session){
+		User usr = (User) session.getAttribute("loggedUser");
+		Instructor instr = (Instructor) session.getAttribute("loggedInstructor");
+
 		
 		log.trace("Attempting to log in as User "+user+", "+ pass);
 		
@@ -69,11 +73,17 @@ public class LoginController {
 		else {
 			//Check if Person is a user
 			log.trace("Logging in");
-			User usr = logServ.getUser(user, pass);
+			//instr = logServ.loginAsInstructor(user, pass);
+			Instructor id = logServ.getById(3);
 			
-			if(usr != null) {
-				log.trace("User : "+ usr);
+			if(instr != null) {
+				log.trace("Instructor : "+ instr);
+				session.setAttribute("loggedInstructor", instr);
+
 				return ResponseEntity.ok(true);
+			}
+			else {
+				log.trace("No instructor found");
 			}
 			return ResponseEntity.ok(false);
 			

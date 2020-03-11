@@ -19,78 +19,80 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="students")
-@PrimaryKeyJoinColumn(name="student_id")
+@PrimaryKeyJoinColumn(name="user_id")
 
-@Component
 public class Student extends User {
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="students")
-	@SequenceGenerator(name="students", sequenceName="students_seq", allocationSize=1)
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="instrument_type_id")
+	private InstrumentType instrumentTypeId;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="grade_level_id")
+	private GradeLevel gradeLevelId;
 	
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="student_id")
-	private int id;
+	@JoinColumn(name="course_id")
+	private Course courseId;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="student_instrument_id")
-	private int instrumentId;
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="student_grade_level_id")
-	private int gradeLevelId;
-	
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="student_course_id")
-	private int courseId;
+	@JoinColumn(name="uniform_type_id")
+	private UniformType uniformTypeId;
 
 
-	public int getId() {
-		return id;
+
+
+
+	public InstrumentType getInstrumentTypeId() {
+		return instrumentTypeId;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setInstrumentTypeId(InstrumentType instrumentTypeId) {
+		this.instrumentTypeId = instrumentTypeId;
 	}
 
 
-	public int getInstrumentId() {
-		return instrumentId;
-	}
-
-
-	public void setInstrumentId(int instrumentId) {
-		this.instrumentId = instrumentId;
-	}
-
-
-	public int getGradeLevelId() {
+	public GradeLevel getGradeLevelId() {
 		return gradeLevelId;
 	}
 
 
-	public void setGradeLevelId(int gradeLevelId) {
+	public void setGradeLevelId(GradeLevel gradeLevelId) {
 		this.gradeLevelId = gradeLevelId;
 	}
 
 
-	public int getCourseId() {
+	public Course getCourseId() {
 		return courseId;
 	}
 
 
-	public void setCourseId(int courseId) {
+	public void setCourseId(Course courseId) {
 		this.courseId = courseId;
+	}
+
+
+	
+	public UniformType getUniformTypeId() {
+		return uniformTypeId;
+	}
+
+
+	public void setUniformTypeId(UniformType uniformTypeId) {
+		this.uniformTypeId = uniformTypeId;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", instrumentId=" + instrumentId + ", gradeLevelId=" + gradeLevelId + ", courseId="
-				+ courseId + "]";
+		return "Student [instrumentTypeId=" + instrumentTypeId + ", gradeLevelId=" + gradeLevelId + ", courseId="
+				+ courseId + ", uniformTypeId=" + uniformTypeId + "]";
 	}
+
+
+
 	
 	
 	

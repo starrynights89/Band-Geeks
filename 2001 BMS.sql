@@ -13,6 +13,8 @@ drop table inventory cascade constraints;
 drop table requests cascade constraints;
 drop table instrument_type cascade constraints;
 drop table statuses cascade constraints;
+drop table uniform_type cascade constraints;
+
 
 
 
@@ -61,18 +63,22 @@ create table instrument_type(
     instrument_type_id number(3) primary key,
     instrument_type_name varchar2(50)
 );
+create table uniform_type(
+    uniform_type_id number(3) primary key,
+    uniform_type_name varchar2(50)
+);
 
 create table students(
     student_id number(3) primary key,
     student_grade_level_id number(3),
     student_course_id number(3),
     student_instrument_type_id number(3),
-    student_uniform_id number(3),
+    student_uniform_type_id number(3),
     foreign key (student_instrument_type_id) references instrument_type(instrument_type_id),
     foreign key (student_grade_level_id) references grade_levels(grade_level_id),
     foreign key (student_course_id) references courses(course_id),
     foreign key (student_id) references login(user_id),
-    foreign key (student_uniform_id) references instruments(instrument_id)
+    foreign key (student_uniform_type_id) references uniform_type(uniform_type_id)
 
 
 );
@@ -242,6 +248,17 @@ insert into grade_levels (grade_level_id, grade_level_name)
     values (3, 'Junior');
 insert into grade_levels (grade_level_id, grade_level_name)
     values (4, 'Senior');
+ 
+---------Uniform Type-----------   
+    
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (1, 'Marching Uniform');
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (2, 'Jazz Uniform');
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (3, 'Opera Uniform');
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (4, 'Samba Uniform');
 
 
 commit;

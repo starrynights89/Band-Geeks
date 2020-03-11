@@ -18,20 +18,10 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="instructors")
-@PrimaryKeyJoinColumn(name="instructor_id")
+@PrimaryKeyJoinColumn(name="user_id")
 
-@Component
 public class Instructor extends User {
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="instructors")
-	@SequenceGenerator(name="instructors", sequenceName="instructors_seq", allocationSize=1)
-	
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
-	private int id;
-	
-	
+		
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
 	@JoinColumn(name= "course_id")
@@ -43,17 +33,6 @@ public class Instructor extends User {
 
 
 
-
-
-	public int getId() {
-		return id;
-	}
-
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 
 
@@ -71,8 +50,10 @@ public class Instructor extends User {
 
 	@Override
 	public String toString() {
-		return "Instructor [id=" + id + ", courseId=" + courseId + "]";
+		return "Instructor [courseId=" + courseId + "]";
 	}
+
+
 
 
 
