@@ -28,16 +28,14 @@ public class Instructor extends User {
 	@SequenceGenerator(name="instructors", sequenceName="instructors_seq", allocationSize=1)
 	
 	
-	@Column (name = "instructor_id")
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="instructor_id")
 	private int id;
 	
 	
 	
-	@Column (name = "instructor_course_id")
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="course_id")
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
+	@JoinColumn(name= "instructor_course_id")
 	private int courseId;
 
 
