@@ -49,7 +49,7 @@ create table grade_levels(
 create table inventory(
     item_id number(3) PRIMARY KEY
 );
-create table check_out_requests(
+create table requests(
     request_id number(3),
     check_in timestamp,
     check_out timestamp,
@@ -151,9 +151,5 @@ insert into assignment_types(type_id, assignment_description, assignment_type_na
 insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(5, 'Students will be assigned the 2 pages of theory worksheet', 'Theory Worksheet');
        
-       select * from login l
-       join students s on s.student_id = l.user_id;
-       select * from login l
-       join instructors i on i.instructor_id = l.user_id;
-        
+
 commit;
