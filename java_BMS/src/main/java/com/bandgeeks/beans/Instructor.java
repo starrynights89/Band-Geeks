@@ -1,7 +1,6 @@
 package com.bandgeeks.beans;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,14 +28,20 @@ public class Instructor extends User {
 	
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="instructor_id")
+	@JoinColumn(name="user_id")
 	private int id;
 	
 	
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
-	@JoinColumn(name= "instructor_course_id")
-	private int courseId;
+	@JoinColumn(name= "course_id")
+	private Course courseId;
+
+
+
+	
+
+
 
 
 
@@ -52,13 +57,13 @@ public class Instructor extends User {
 
 
 
-	public int getCourseId() {
+	public Course getCourseId() {
 		return courseId;
 	}
 
 
 
-	public void setCourseId(int courseId) {
+	public void setCourseId(Course courseId) {
 		this.courseId = courseId;
 	}
 
@@ -68,6 +73,9 @@ public class Instructor extends User {
 	public String toString() {
 		return "Instructor [id=" + id + ", courseId=" + courseId + "]";
 	}
+
+
+
 
 
 
