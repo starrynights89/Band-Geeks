@@ -1,6 +1,5 @@
 ---DROPS TABLES---
 drop table login cascade constraints;
-drop table item_types cascade constraints;
 drop table instruments cascade constraints;
 drop table uniforms cascade constraints;
 drop table courses cascade constraints;
@@ -17,7 +16,6 @@ drop sequence login_seq;
 drop sequence assignments_seq;
 drop sequence comments_seq;
 drop sequence inventory_seq;
-drop sequence item_types_seq;
 drop sequence instruments_seq;
 drop sequence uniforms_seq;
 drop sequence courses_seq;
@@ -49,26 +47,28 @@ create table grade_levels(
     grade_level_name varchar2(50)
 );
 create table inventory(
-    item_id number(3) PRIMARY KEY,
+    item_id number(3) PRIMARY KEY
+);
+create table check_out_requests(
+    request_id number(3),
     check_in timestamp,
     check_out timestamp,
-    instructor_id number(3)
-);
+    instructor_id number(3),
+    status varchar2(20)
+    );
 
 create table instruments(
     instrument_id number(3) PRIMARY KEY,
-    instruments_item_type_id number(3),
+    instruments_inventory_id number(3),
     instrument_name varchar2(50),
-    foreign key (instruments_item_type_id) references inventory(item_id)
+    foreign key (instruments_inventory_id) references inventory(item_id)
 );
-
 create table uniforms(
     uniforms_id number(3),
-    uniforms_item_type_id number(3),
+    uniforms_inventory_id number(3),
     uniforms_name varchar2(50),
-    foreign key (uniforms_item_type_id) references inventory(item_id)
+    foreign key (uniforms_inventory_id) references inventory(item_id)
 );
-
 create table students(
     student_id number(3) primary key,
     student_instrument_id number(3),
@@ -115,6 +115,7 @@ create table comments(
 );
 
 
+
 --------INSERTS----------------
 
 
@@ -150,8 +151,9 @@ insert into assignment_types(type_id, assignment_description, assignment_type_na
 insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(5, 'Students will be assigned the 2 pages of theory worksheet', 'Theory Worksheet');
        
-
-
-
+       select * from login l
+       join students s on s.student_id = l.user_id;
+       select * from login l
+       join instructors i on i.instructor_id = l.user_id;
         
 commit;
