@@ -40,6 +40,9 @@ public class UserHibernate implements UserDAO {
 
 	@Override
 	public User getUser(String username, String password) {
+		log.trace("Trying to Find User "+username+", "+password);
+		log.trace("");
+
 		Session s = hu.getSession();
 		String query = "from User u where u.username=:username and u.password=:password";
 		Query<User> q = s.createQuery(query, User.class);
