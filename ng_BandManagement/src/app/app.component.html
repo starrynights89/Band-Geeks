@@ -9,9 +9,12 @@
         <br/>
         <!-- <app-user-detail></app-user-detail> -->
         <br/>
+        <nav>
+          <a routerLink="/users">Users</a>
+        </nav>
         <div class="center">
-          <app-users></app-users>
+          <router-outlet></router-outlet>
         </div>
-        <!-- <app-messages></app-messages> -->
+        <app-messages></app-messages>
     </div>
 </div>
