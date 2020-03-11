@@ -64,7 +64,6 @@ create table instruments(
 
 create table uniforms(
     uniforms_id number(3),
-    uniforms_item_type_id number(3),
     uniforms_name varchar2(50),
     foreign key (uniforms_item_type_id) references inventory(item_id)
 );

@@ -28,25 +28,21 @@ public class Student extends User {
 	@SequenceGenerator(name="students", sequenceName="students_seq", allocationSize=1)
 	
 	
-	@Column (name = "student_id")
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="student_id")
 	private int id;
 	
-	@Column (name = "student_instrument_id")
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="instrument_id")
+	@JoinColumn(name="student_instrument_id")
 	private int instrumentId;
 	
-	@Column (name = "student_grade_level_id")
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="grade_level_id")
+	@JoinColumn(name="student_grade_level_id")
 	private int gradeLevelId;
 	
 	
-	@Column (name = "student_course_id")
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="course_id")
+	@JoinColumn(name="student_course_id")
 	private int courseId;
 
 
