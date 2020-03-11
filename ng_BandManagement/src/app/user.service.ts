@@ -10,6 +10,8 @@ import { MessageService } from './message.service';
 export class UserService {
 
   getUsers(): Observable<User[]> {
+    // TODO: send the message after fetching the users
+    this.messageService.add('UserService: fetched users');
     return of(USERS);
   }
 
