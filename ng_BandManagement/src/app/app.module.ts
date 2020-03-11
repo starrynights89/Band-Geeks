@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { UrlService } from './services/url.service';
-import { AppRoutingModule } from './app-routing-module/app-routing-module.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UsersComponent } from './users/users.component';
