@@ -14,6 +14,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     LoginComponent,
     SidebarComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
