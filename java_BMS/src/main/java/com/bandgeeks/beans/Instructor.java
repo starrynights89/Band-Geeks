@@ -1,7 +1,6 @@
 package com.bandgeeks.beans;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,48 +18,31 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="instructors")
-@PrimaryKeyJoinColumn(name="instructor_id")
+@PrimaryKeyJoinColumn(name="user_id")
 
-@Component
 public class Instructor extends User {
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="instructors")
-	@SequenceGenerator(name="instructors", sequenceName="instructors_seq", allocationSize=1)
+		
 	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
+	@JoinColumn(name= "course_id")
+	private Course courseId;
+
+
+
 	
-	@Column (name = "instructor_id")
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="instructor_id")
-	private int id;
-	
-	
-	
-	@Column (name = "instructor_course_id")
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="course_id")
-	private int courseId;
 
 
 
-	public int getId() {
-		return id;
-	}
 
 
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-
-	public int getCourseId() {
+	public Course getCourseId() {
 		return courseId;
 	}
 
 
 
-	public void setCourseId(int courseId) {
+	public void setCourseId(Course courseId) {
 		this.courseId = courseId;
 	}
 
@@ -68,8 +50,13 @@ public class Instructor extends User {
 
 	@Override
 	public String toString() {
-		return "Instructor [id=" + id + ", courseId=" + courseId + "]";
+		return "Instructor [courseId=" + courseId + "]";
 	}
+
+
+
+
+
 
 
 
