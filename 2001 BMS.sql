@@ -10,19 +10,15 @@ drop table assignment_types cascade constraints;
 drop table assignment cascade constraints;
 drop table comments cascade constraints;
 drop table inventory cascade constraints;
+drop table requests cascade constraints;
+drop table instrument_type cascade constraints;
+drop table statuses cascade constraints;
+drop table uniform_type cascade constraints;
 
----DROP SEQ---
-drop sequence login_seq;
-drop sequence assignments_seq;
-drop sequence comments_seq;
-drop sequence inventory_seq;
-drop sequence instruments_seq;
-drop sequence uniforms_seq;
-drop sequence courses_seq;
-drop sequence grade_levels_seq;
-drop sequence students_seq;
-drop sequence instructors_seq;
-drop sequence assignment_types_seq;
+
+
+
+
 
 -------Sequences-----
 
@@ -49,13 +45,6 @@ create table grade_levels(
 create table inventory(
     item_id number(3) PRIMARY KEY
 );
-create table requests(
-    request_id number(3),
-    check_in timestamp,
-    check_out timestamp,
-    instructor_id number(3),
-    status varchar2(20)
-    );
 
 create table instruments(
     instrument_id number(3) PRIMARY KEY,
@@ -63,21 +52,34 @@ create table instruments(
     instrument_name varchar2(50),
     foreign key (instruments_inventory_id) references inventory(item_id)
 );
+
 create table uniforms(
     uniforms_id number(3),
     uniforms_inventory_id number(3),
     uniforms_name varchar2(50),
     foreign key (uniforms_inventory_id) references inventory(item_id)
 );
+create table instrument_type(
+    instrument_type_id number(3) primary key,
+    instrument_type_name varchar2(50)
+);
+create table uniform_type(
+    uniform_type_id number(3) primary key,
+    uniform_type_name varchar2(50)
+);
+
 create table students(
     student_id number(3) primary key,
-    student_instrument_id number(3),
     student_grade_level_id number(3),
     student_course_id number(3),
-    foreign key (student_instrument_id) references instruments(instrument_id),
+    student_instrument_type_id number(3),
+    student_uniform_type_id number(3),
+    foreign key (student_instrument_type_id) references instrument_type(instrument_type_id),
     foreign key (student_grade_level_id) references grade_levels(grade_level_id),
     foreign key (student_course_id) references courses(course_id),
-    foreign key (student_id) references login(user_id)
+    foreign key (student_id) references login(user_id),
+    foreign key (student_uniform_type_id) references uniform_type(uniform_type_id)
+
 
 );
 
@@ -93,6 +95,26 @@ create table assignment_types(
     type_id number(3) primary key,
     assignment_description varchar2(100),
     assignment_type_name varchar2(50)
+);
+
+
+create table statuses(
+    status_id number(3) primary key,
+    status_type varchar2(20)
+);
+
+create table requests(
+    request_id number(3) primary key,
+    req_inventory_id number(3),
+    req_student_id number(3),
+    req_instructor_id number(3),
+    req_status_id number(3),
+    check_in TIMESTAMP,
+    check_out TIMESTAMP,
+    foreign key (req_inventory_id) references inventory(item_id),
+    foreign key (req_student_id) references students(student_id),
+    foreign key (req_instructor_id) references instructors(instructor_id),
+    foreign key (req_status_id) references statuses(status_id)
 );
 
 create table assignment(
@@ -113,7 +135,6 @@ create table comments(
     time_stamp TIMESTAMP,
     cmmnt varchar2(100)
 );
-
 
 
 --------INSERTS----------------
@@ -151,5 +172,93 @@ insert into assignment_types(type_id, assignment_description, assignment_type_na
 insert into assignment_types(type_id, assignment_description, assignment_type_name)
         values(5, 'Students will be assigned the 2 pages of theory worksheet', 'Theory Worksheet');
        
+       
+       
+
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(1, 'Flute');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(2, 'Clarinet');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(3, 'Saxophone');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(4, 'French Horn');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(5, 'Trombone');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(6, 'Euphonium');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(7, 'Tuba');
+insert into instrument_type (instrument_type_id, instrument_type_name)
+        values(8, 'Percussion');
+-----------Inventory----------
+insert into inventory (item_id)
+        values(1);
+insert into inventory (item_id)
+        values(2);
+insert into inventory (item_id)
+        values(3);        
+insert into inventory (item_id)
+        values(4);
+insert into inventory (item_id)
+        values(5);
+insert into inventory (item_id)
+        values(6);
+insert into inventory (item_id)
+        values(7);
+----------Instruments-----------
+insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
+        values(1,1,'Old Tuba');
+insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
+        values(2,2,'New Tuba');
+insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
+        values(3,6,'Trombone 1');
+insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
+        values(4,7,'Grimy Bass Trombone');
+----------Uniform--------------
+insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
+    values (1, 3, 'Small Uniform');
+insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
+    values (2, 4, 'Large Uniform');
+insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
+    values (3, 5, 'Smelly Uniform');
+    
+    
+    
+------USER-----
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(2, 'Bob', 'Bob', 'Bob', 'pass');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(3, 'Ron', 'Swanson', 'Ron', 'pass');
+    
+-------INstructors------
+insert into instructors(instructor_id, Instructor_course_id) 
+    values(3, 3);
+insert into students(student_id, student_course_id) 
+    values(2,3);
+insert into students(student_id, student_course_id) 
+    values(1,2);
+    
+    ----------gradelevel--------------
+insert into grade_levels (grade_level_id, grade_level_name)
+    values (1, 'Freshman');
+insert into grade_levels (grade_level_id, grade_level_name)
+    values (2, 'Sophomore');
+insert into grade_levels (grade_level_id, grade_level_name)
+    values (3, 'Junior');
+insert into grade_levels (grade_level_id, grade_level_name)
+    values (4, 'Senior');
+ 
+---------Uniform Type-----------   
+    
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (1, 'Marching Uniform');
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (2, 'Jazz Uniform');
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (3, 'Opera Uniform');
+insert into uniform_type (uniform_type_id, uniform_type_name)
+    values (4, 'Samba Uniform');
+
 
 commit;
