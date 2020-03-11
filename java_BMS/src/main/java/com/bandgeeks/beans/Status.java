@@ -1,6 +1,55 @@
 package com.bandgeeks.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name = "statuses")
+
+@Component
 public class Status {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "statuses")
+	@SequenceGenerator(name = "statuses", sequenceName = "statuses_seq", allocationSize = 1)
+	@Column(name = "status_id")
+	private Integer statusId;
+	@Column(name = "status_id")
+	private String statusType;
+	
+	
+	public Status() {
+		super();
+		
+	}
+	public Status(Integer statusId) {
+		super();
+		this.statusId = statusId;
+	}
+	public Status(Integer statusId, String statusType) {
+		super();
+		this.statusId = statusId;
+		this.statusType = statusType;
+	}
+	public Integer getStatusId() {
+		return statusId;
+	}
+	public void setStatusId(Integer statusId) {
+		this.statusId = statusId;
+	}
+	public String getStatusType() {
+		return statusType;
+	}
+	public void setStatusType(String statusType) {
+		this.statusType = statusType;
+	}
+	
 	@Override
 	public String toString() {
 		return "Status [statusId=" + statusId + ", statusType=" + statusType + "]";
@@ -34,34 +83,5 @@ public class Status {
 			return false;
 		return true;
 	}
-	private Integer statusId;
-	private String statusType;
-	public Status() {
-		super();
-		
-	}
-	public Status(Integer statusId) {
-		super();
-		this.statusId = statusId;
-	}
-	public Status(Integer statusId, String statusType) {
-		super();
-		this.statusId = statusId;
-		this.statusType = statusType;
-	}
-	public Integer getStatusId() {
-		return statusId;
-	}
-	public void setStatusId(Integer statusId) {
-		this.statusId = statusId;
-	}
-	public String getStatusType() {
-		return statusType;
-	}
-	public void setStatusType(String statusType) {
-		this.statusType = statusType;
-	}
-	
-	
 
 }

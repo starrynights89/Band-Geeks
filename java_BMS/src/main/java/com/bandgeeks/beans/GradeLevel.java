@@ -1,9 +1,29 @@
 package com.bandgeeks.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name = "grade_levels")
+
+@Component
 public class GradeLevel {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "grade_levels")
+	@SequenceGenerator(name = "grade_levels", sequenceName = "grade_levels_seq", allocationSize = 1)
+	@Column(name = "grade_level_id")
 	private Integer gradeLevelId;
+	@Column(name = "grade_level_name")
 	private String gradeLevelName;
+	
+	//construc.
 	public GradeLevel() {
 		super();
 	

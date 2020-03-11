@@ -1,7 +1,27 @@
 package com.bandgeeks.beans;
 
-public class Inventory {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name = "inventory")
+@Inheritance(strategy = InheritanceType.JOINED)
+
+@Component
+public class Inventory {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inventory")
+	@SequenceGenerator(name = "inventory", sequenceName = "inventory_seq", allocationSize = 1)
+	@Column(name = "inventory_id")
 	private Integer inventoryId;
 
 	//constructos

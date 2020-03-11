@@ -1,8 +1,27 @@
 package com.bandgeeks.beans;
 
-public class Uniform extends Inventory{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="uniforms")
+
+
+@Component
+public class Uniform extends Inventory{
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "uniforms")
+	@SequenceGenerator(name = "uniforms", sequenceName = "uniforms_seq", allocationSize = 1)
+	@Column(name = "uniforms_id")
 	private Integer uniformId;
+	@Column(name = "uniforms_name")
 	private String uniformName;
 	
 	//constructores

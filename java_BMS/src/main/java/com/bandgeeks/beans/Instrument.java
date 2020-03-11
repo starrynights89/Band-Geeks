@@ -1,8 +1,28 @@
 package com.bandgeeks.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="instruments")
+
+
+@Component
 public class Instrument extends Inventory {
-	private String instrumentName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instruments")
+	@SequenceGenerator(name = "instruments", sequenceName = "instruments_seq", allocationSize = 1)
+	@Column(name = "instrument_id")
 	private Integer instrumentId;
+	@Column(name = "instrument_name")
+	private String instrumentName;
 
 	//constructos
 	public Instrument() {

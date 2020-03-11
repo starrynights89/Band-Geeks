@@ -2,14 +2,51 @@ package com.bandgeeks.beans;
 
 import java.sql.Timestamp;
 
-public class Request {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name = "requests")
+
+@Component
+public class Request {
+	@Id
+	@SequenceGenerator(name = "requests", sequenceName = "requests_seq", allocationSize = 1)
+	@GeneratedValue(generator = "requests", strategy = GenerationType.SEQUENCE)
+	@Column(name = "request_id")
 	private Integer requestId;
+	
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="req_inventory_id")
 	private Inventory inventory;
+	
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="req_student_id")
 	private Student student;
+	
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="req_status_id")
 	private Instructor instructor;
+	
+	@Column(name = "check_in")
 	private Timestamp checkIn;
+	
+	@Column(name = "check_out")
 	private Timestamp checkOut;
+	
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="req_status_id")
 	private Status status;
 	
 	public Request() {

@@ -1,5 +1,6 @@
 package com.bandgeeks.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,13 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name = "courses")
+
+@Component
 public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "courses")
-	@SequenceGenerator(name = "login", sequenceName = "login_seq", allocationSize = 1)
+	@SequenceGenerator(name = "courses", sequenceName = "courses_seq", allocationSize = 1)
+	@Column(name = "course_id")
 	private Integer courseId;
+	@Column(name = "course_name")
 	private String courseName;
 	
 	public Course() {
