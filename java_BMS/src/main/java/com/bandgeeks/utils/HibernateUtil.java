@@ -12,6 +12,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class HibernateUtil {
 	private static HibernateUtil hu;
 	private Logger log = Logger.getLogger(HibernateUtil.class);
+	
+	
 	private SessionFactory sessionFactory;
 
 	private HibernateUtil()

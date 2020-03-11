@@ -8,6 +8,7 @@ public interface LoginService {
 	public Instructor loginAsInstructor(String user, String pass);
 	public Student loginAsStudent(String user, String pass);
 	public User getUser (String username, String password);
+	public Instructor getById (int id);
 	
 
 }
