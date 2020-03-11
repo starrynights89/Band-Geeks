@@ -28,11 +28,25 @@ public class User {
 	private String password;
 	private String firstname;
 	private String lastname;
+	
+	
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public User(int id) {
+		super();
+		this.id = id;
+	}
+	public User(int id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+
 
 	public int getId() {
 		return id;

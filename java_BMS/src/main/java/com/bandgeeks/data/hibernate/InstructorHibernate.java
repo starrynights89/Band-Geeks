@@ -30,13 +30,12 @@ public class InstructorHibernate implements InstructorDAO{
 		log.trace("Getting Instructor "+username+", "+password);
 
 		Session s = hu.getSession();
-		log.trace("Session"+s);
+		log.trace(s);
 		String query = "from Instructor u where u.username=:username and u.password=:password";
-		Query q = s.createQuery(query, Instructor.class);
-		log.trace("q"+q);
+		Query<Instructor> q = s.createQuery(query, Instructor.class);
 		q.setParameter("username", username);
 		q.setParameter("password", password);
-		Instructor u = (Instructor) q.uniqueResult();
+		Instructor u = q.uniqueResult();
 		s.close();
 		return u;
 	}

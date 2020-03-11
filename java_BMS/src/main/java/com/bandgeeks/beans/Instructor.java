@@ -25,7 +25,7 @@ public class Instructor extends User {
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
 	@JoinColumn(name= "course_id")
-	private Course courseId;
+	private Course course;
 
 
 
@@ -36,21 +36,35 @@ public class Instructor extends User {
 
 
 
-	public Course getCourseId() {
-		return courseId;
+	public Instructor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	public Instructor(int id) {
+		super(id);
+	}
+	public Instructor(int id, String username, String password) {
+		super(id, username, password);
+	}
+
+
+	public Course getCourse() {
+		return course;
 	}
 
 
 
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
+	public void setCourseId(Course course) {
+		this.course = course;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Instructor [courseId=" + courseId + "]";
+		return "Instructor [course=" + course + "]";
 	}
 
 
