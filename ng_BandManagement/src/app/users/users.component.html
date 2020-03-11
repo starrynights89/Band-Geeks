@@ -1,6 +1,6 @@
 <h2>Band Users</h2>
 
-<ul class="heroes">
+<div class="users">
   <!-- *ngFor dispalys the list-->
   <!-- *ngFor iterates through the list of users -->
   <!-- *ngFor is repeater directive. Reepeats the host element for
@@ -13,7 +13,7 @@
   >
     <span class="badge">{{ user.id }}</span> {{ user.name }}
   </li>
-</ul>
+</div>
 
 <!-- App user detail component -->
 <app-user-detail [user]="selectedUser"></app-user-detail>
