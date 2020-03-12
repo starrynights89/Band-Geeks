@@ -2,6 +2,7 @@ package com.bandgeeks.data.hibernate;
 
 import org.hibernate.query.Query;
 
+
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;

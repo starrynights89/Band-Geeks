@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,74 +34,49 @@ public class LoginController {
 	
 	
 	@GetMapping(value="/login")
-	public ResponseEntity<Boolean> getlogin(HttpSession session, String user, String pass) {
-		Instructor instr = (Instructor) session.getAttribute("loggedInstructor");
-		Student stu = (Student) session.getAttribute("loggedStudent");
-
-		
-		
-		log.trace("Getting logged user"+ user);
-		
-		if(user == null || pass == null) {
-			return ResponseEntity.notFound().build();
-		}
-		else {
-			//Check if Instructor
-			instr = logServ.loginAsInstructor(user, pass);
-			session.setAttribute("loggedInstructor", instr);
-			//Check if Instructor
-			stu = logServ.loginAsStudent(user, pass);
-			session.setAttribute("loggedStudent", stu);
-
-			return ResponseEntity.ok(true);
-		}
-
-		
+	public ResponseEntity<Login> login(HttpSession session) {
+		Login loggedUser = (Login) session.getAttribute("loggedUser");
+		if(loggedUser == null)
+			return ResponseEntity.status(401).build();
+		return ResponseEntity.ok(loggedUser);
 	}
+
 	
 	
 	@PostMapping(value="/login")
-	public ResponseEntity<Boolean> postLogin(String user, String pass, HttpSession session){
-		Instructor instr = (Instructor) session.getAttribute("loggedInstructor");
-		Student stu = (Student) session.getAttribute("loggedStudent");
+	public ResponseEntity<Login> postLogin(String user, String pass, HttpSession session){
+		Instructor instr = logServ.loginAsInstructor(user, pass);
+		Student stu = logServ.loginAsStudent(user, pass);
 
 
 		
 		log.trace("Attempting to log in as User "+user+", "+ pass);
 		
-		if(user == null || pass == null) {
+		if(instr == null && stu == null) {
 			log.trace("Cannot login null user");
 			return ResponseEntity.notFound().build();
 		}
 		else {
 			//Check if Person is a user
 			log.trace("Logging in");
-			instr = logServ.loginAsInstructor(user, pass);
-			stu = logServ.loginAsStudent(user, pass);
-
+			Login loggedUser = new Login(stu, instr);
 			
-			if(instr != null) {
-				log.trace("Instructor : "+ instr);
-				session.setAttribute("loggedInstructor", instr);
+			session.setAttribute("loggedUser", loggedUser);
+			return ResponseEntity.ok(loggedUser);
+			
 
-				return ResponseEntity.ok(true);
-			}
-			else if (stu != null){
-				log.trace("Student : "+ stu);
-				session.setAttribute("loggedStudent", stu);
-
-				return ResponseEntity.ok(true);
-				
-			}
-			else {
-				log.trace("No User found");
-			}
-			return ResponseEntity.ok(false);
 			
 		}
 		
 		
 	}
+	
+	@DeleteMapping(value="/login")
+	public ResponseEntity<Void> logout(HttpSession session) {
+		session.invalidate();
+		return ResponseEntity.noContent().build();
+	}
+
 	
 	
 	

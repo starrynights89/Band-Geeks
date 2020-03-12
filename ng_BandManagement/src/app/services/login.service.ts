@@ -38,6 +38,7 @@ export class LoginService {
         map(resp => {
           const user: Currentuser = resp as Currentuser;
           if (user) {
+            console.log(user);
             this.student = user.student;
             this.instructor = user.instructor;
           }
@@ -53,6 +54,7 @@ export class LoginService {
             this.student = user.student;
             this.instructor = user.instructor;
           }
+          console.log("Got User "+user)
           return user;
         })
       );
