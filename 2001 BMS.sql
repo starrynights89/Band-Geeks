@@ -227,9 +227,9 @@ insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
     
 ------USER-----
 insert into login(user_id, firstname, lastname, username, user_password) 
-    values(2, 'Bob', 'Bob', 'Bob', 'pass');
+    values(2, 'Bob', 'Bob', 'BBob', 'password');
 insert into login(user_id, firstname, lastname, username, user_password) 
-    values(3, 'Ron', 'Swanson', 'Ron', 'pass');
+    values(3, 'Ron', 'Swanson', 'RSwanson', 'password');
     
 -------INstructors------
 insert into instructors(instructor_id, Instructor_course_id) 

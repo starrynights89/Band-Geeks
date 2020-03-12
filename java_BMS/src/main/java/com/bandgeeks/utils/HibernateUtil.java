@@ -1,6 +1,5 @@
 package com.bandgeeks.utils;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -11,9 +10,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class HibernateUtil {
 	private static HibernateUtil hu;
-	private Logger log = Logger.getLogger(HibernateUtil.class);
-	
-	
 	private SessionFactory sessionFactory;
 
 	private HibernateUtil()
@@ -42,7 +38,6 @@ public class HibernateUtil {
 			sessionFactory = meta.getSessionFactoryBuilder()
 					.build();
 		}
-		log.trace(sessionFactory);
 		return sessionFactory;
 	}
 	

@@ -13,14 +13,13 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "statuses")
 
-@Component
 public class Status {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "statuses")
 	@SequenceGenerator(name = "statuses", sequenceName = "statuses_seq", allocationSize = 1)
 	@Column(name = "status_id")
 	private Integer statusId;
-	@Column(name = "status_id")
+	@Column(name = "status_type")
 	private String statusType;
 	
 	

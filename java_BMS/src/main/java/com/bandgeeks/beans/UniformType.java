@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Table(name="uniform_type")
 
 
-@Component
 public class UniformType {
 
 	@Id
