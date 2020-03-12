@@ -15,13 +15,20 @@ export class AssignmentsComponent implements OnInit {
   public assignment: Assignment;
 
   constructor(
-    public route: Router
+    public route: Router,
+    private assignmentService: AssignmentService
 
-    
     ) { }
 
   ngOnInit(): void { 
   }
+  submit(): void {
+    this.assignmentService.updateAssignment(this.assignment).subscribe(
+      assignment => {
+        this.assignment = assignment;
+        this.route.navigate(['/assignments/instructor']);
+      }
+    );
 
 
   
