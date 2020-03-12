@@ -30,6 +30,7 @@ export class AssignmentService {
         resp => resp as Assignment
       ));
   }
+  
   updateAssignment(assignment: Assignment): Observable<Assignment> {
     const body = JSON.stringify(assignment);
     if (!assignment.id) {
