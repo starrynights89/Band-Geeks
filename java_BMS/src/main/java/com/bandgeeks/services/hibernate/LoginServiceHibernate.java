@@ -1,6 +1,7 @@
 package com.bandgeeks.services.hibernate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.bandgeeks.beans.Instructor;
@@ -8,6 +9,7 @@ import com.bandgeeks.beans.Student;
 import com.bandgeeks.beans.User;
 import com.bandgeeks.data.hibernate.InstructorDAO;
 import com.bandgeeks.data.hibernate.UserDAO;
+import com.bandgeeks.services.hibernate.LoginService;
 
 
 @Service

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Table(name="instrument_type")
 
 
-@Component
 public class InstrumentType {
 
 	@Id

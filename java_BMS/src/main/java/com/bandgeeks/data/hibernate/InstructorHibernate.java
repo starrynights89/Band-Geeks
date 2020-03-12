@@ -1,6 +1,8 @@
 package com.bandgeeks.data.hibernate;
 
 import org.hibernate.query.Query;
+
+
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
@@ -8,15 +10,22 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 
 import com.bandgeeks.beans.Instructor;
 import com.bandgeeks.beans.User;
 import com.bandgeeks.controller.LoginController;
 import com.bandgeeks.utils.HibernateUtil;
+import com.bandgeeks.utils.LogUtil;
+
 
 
 @Repository
+
 public class InstructorHibernate implements InstructorDAO{
 	private Logger log = Logger.getLogger(LoginController.class);
 
@@ -25,21 +34,19 @@ public class InstructorHibernate implements InstructorDAO{
 
 
 
-	@Override
-	public Instructor getInstructor(String username, String password) {
-		log.trace("Getting Instructor "+username+", "+password);
 
+	@Override
+	public Instructor getInstructor (String user, String pass) {
+		log.trace("Getting Instructor "+user+", "+pass);
 		Session s = hu.getSession();
-		log.trace("Session"+s);
-		String query = "from Instructor u where u.username=:username and u.password=:password";
-		Query q = s.createQuery(query, Instructor.class);
-		log.trace("q"+q);
-		q.setParameter("username", username);
-		q.setParameter("password", password);
-		Instructor u = (Instructor) q.uniqueResult();
+		Query<Instructor> q = s.createQuery("FROM Instructor where username =:username and password=:password", Instructor.class);
+		q.setParameter("username", user);
+		q.setParameter("password",  pass);
+		Instructor a = q.uniqueResult();
 		s.close();
-		return u;
+		return a;
 	}
+
 
 	@Override
 	public Instructor getInstructorById(int id) {
