@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { UsersComponent } from '../users/users.component';
+import { ChatHomeComponent } from '../chat-home/chat-home.component';
 
 // Routes tells the Router which view to display when a user clicks a
 // link or pases a URL into the browser
@@ -17,10 +18,13 @@ const routes: Routes = [
     component: UsersComponent
   },
   {
+    path: 'contact',
+    component: ChatHomeComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
-  }
-
+  },
 ];
 
 @NgModule({
