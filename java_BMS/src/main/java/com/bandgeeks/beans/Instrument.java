@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name="instruments")
 
-
 @Component
 public class Instrument extends Inventory {
 	@Id
