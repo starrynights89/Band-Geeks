@@ -260,5 +260,15 @@ insert into uniform_type (uniform_type_id, uniform_type_name)
 insert into uniform_type (uniform_type_id, uniform_type_name)
     values (4, 'Samba Uniform');
 
-
+-------Statuses------------
+insert into statuses (status_id, status_type)
+    values (1, 'PENDING');
+insert into statuses (status_id, status_type)
+    values (2, 'ACCEPTED');
+insert into statuses (status_id, status_type)
+    values (3, 'REJECTED');
+    
+    ----Test Request----------
+insert into requests (request_id, req_inventory_id, req_student_id)
+    values (1, 1, 1);
 commit;

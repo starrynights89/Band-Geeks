@@ -1,15 +1,14 @@
 package com.bandgeeks.services.hibernate;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import com.bandgeeks.beans.Instructor;
 import com.bandgeeks.beans.Student;
 import com.bandgeeks.beans.User;
 import com.bandgeeks.data.hibernate.InstructorDAO;
+import com.bandgeeks.data.hibernate.StudentDAO;
 import com.bandgeeks.data.hibernate.UserDAO;
-import com.bandgeeks.services.hibernate.LoginService;
 
 
 @Service
@@ -20,6 +19,8 @@ public class LoginServiceHibernate implements LoginService {
 	
 	@Autowired
 	private InstructorDAO instrDAO;
+	@Autowired
+	private StudentDAO stuDAO;
 	
 	
 	@Override
@@ -31,7 +32,7 @@ public class LoginServiceHibernate implements LoginService {
 	@Override
 	public Student loginAsStudent(String user, String pass) {
 		// TODO Auto-generated method stub
-		return null;
+		return stuDAO.getStudent(user, pass);
 	}
 
 	@Override
