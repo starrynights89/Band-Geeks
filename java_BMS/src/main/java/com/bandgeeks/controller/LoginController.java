@@ -60,7 +60,7 @@ public class LoginController {
 	
 	
 	@PostMapping(value="/login")
-	public ResponseEntity<Boolean> postLogin(String user, String pass, HttpSession session){
+	public ResponseEntity<Object> postLogin(String user, String pass, HttpSession session){
 		Instructor instr = (Instructor) session.getAttribute("loggedInstructor");
 		Student stu = (Student) session.getAttribute("loggedStudent");
 
@@ -83,13 +83,13 @@ public class LoginController {
 				log.trace("Instructor : "+ instr);
 				session.setAttribute("loggedInstructor", instr);
 
-				return ResponseEntity.ok(true);
+				return ResponseEntity.ok(instr);
 			}
 			else if (stu != null){
 				log.trace("Student : "+ stu);
 				session.setAttribute("loggedStudent", stu);
 
-				return ResponseEntity.ok(true);
+				return ResponseEntity.ok(stu);
 				
 			}
 			else {
