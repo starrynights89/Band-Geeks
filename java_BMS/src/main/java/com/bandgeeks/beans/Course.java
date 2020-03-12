@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "courses")
 
-@Component
 public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "courses")

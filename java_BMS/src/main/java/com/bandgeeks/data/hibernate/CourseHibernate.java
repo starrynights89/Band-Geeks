@@ -7,11 +7,13 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.bandgeeks.beans.Course;
 import com.bandgeeks.utils.HibernateUtil;
 import com.bandgeeks.utils.LogUtil;
 
+@Repository
 public class CourseHibernate implements CourseDAO{
 
 private HibernateUtil hu = HibernateUtil.getInstance();

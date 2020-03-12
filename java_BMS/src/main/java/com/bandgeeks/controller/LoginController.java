@@ -73,8 +73,8 @@ public class LoginController {
 		else {
 			//Check if Person is a user
 			log.trace("Logging in");
-			//instr = logServ.loginAsInstructor(user, pass);
-			Instructor id = logServ.getById(3);
+			instr = logServ.loginAsInstructor(user, pass);
+			//Instructor id = logServ.getById(3);
 			
 			if(instr != null) {
 				log.trace("Instructor : "+ instr);

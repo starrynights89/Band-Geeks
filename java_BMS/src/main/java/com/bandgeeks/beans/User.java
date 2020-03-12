@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 @Table(name = "login")
 @Inheritance(strategy = InheritanceType.JOINED)
 
-@Component
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "login")

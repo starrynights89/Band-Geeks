@@ -2,7 +2,6 @@ package com.bandgeeks.beans;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class Login {
 	private String user;
 	private String pass;

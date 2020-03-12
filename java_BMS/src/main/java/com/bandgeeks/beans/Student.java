@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="students")
-@PrimaryKeyJoinColumn(name="user_id")
+@PrimaryKeyJoinColumn(name="student_id")
 
 public class Student extends User {
 	

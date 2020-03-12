@@ -18,13 +18,13 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="instructors")
-@PrimaryKeyJoinColumn(name="user_id")
+@PrimaryKeyJoinColumn(name="instructor_id")
 
 public class Instructor extends User {
 		
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
-	@JoinColumn(name= "course_id")
+	@JoinColumn(name= "instructor_course_id")
 	private Course course;
 
 
