@@ -20,7 +20,7 @@ export class AssignmentsComponent implements OnInit {
 
     ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
   submit(): void {
     this.assignmentService.updateAssignment(this.assignment).subscribe(
@@ -34,4 +34,5 @@ export class AssignmentsComponent implements OnInit {
   
 
 
+  }
 }

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.username, this.password).subscribe(
       resp => {
         this.loggedUser = resp;
-        console.log("logged user "+this.loggedUser)
+        console.log('logged user ' + this.loggedUser);
       }
     );
   }

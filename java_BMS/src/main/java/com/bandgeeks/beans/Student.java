@@ -24,20 +24,20 @@ import org.springframework.stereotype.Component;
 public class Student extends User {
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="instrument_type_id")
+	@JoinColumn(name="student_instrument_type_id")
 	private InstrumentType instrumentTypeId;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="grade_level_id")
+	@JoinColumn(name="student_grade_level_id")
 	private GradeLevel gradeLevelId;
 	
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="course_id")
+	@JoinColumn(name="student_course_id")
 	private Course courseId;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="uniform_type_id")
+	@JoinColumn(name="student_uniform_type_id")
 	private UniformType uniformTypeId;
 
 
