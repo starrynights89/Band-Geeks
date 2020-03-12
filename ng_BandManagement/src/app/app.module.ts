@@ -42,7 +42,8 @@ import { AssignmentsComponent } from './assignments/assignments.component';
   ],
   providers: [
     UrlService,
-    LoginService
+    LoginService,
+    AssignmentService
 
   ],
   bootstrap: [AppComponent]
