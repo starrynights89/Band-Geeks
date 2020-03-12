@@ -1,42 +1,35 @@
 package com.bandgeeks.beans;
 
-import org.springframework.stereotype.Component;
-
-
 public class Login {
 	private Student student;
 	private Instructor instructor;
-	
+
 	public Login() {
 		super();
 	}
+
 	public Login(Student student, Instructor instructor) {
 		super();
 		this.student = student;
 		this.instructor = instructor;
 	}
 
-	
-	
-	
-	
-	
-	
-
 	public Student getStudent() {
 		return student;
 	}
+
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+
 	public Instructor getInstructor() {
 		return instructor;
 	}
+
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,10 +38,7 @@ public class Login {
 		result = prime * result + ((student == null) ? 0 : student.hashCode());
 		return result;
 	}
-	
-	
-	
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,8 +60,7 @@ public class Login {
 			return false;
 		return true;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -83,4 +72,3 @@ public class Login {
 		return builder.toString();
 	}
 }
-
