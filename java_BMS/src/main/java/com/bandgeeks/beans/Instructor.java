@@ -61,11 +61,15 @@ public class Instructor extends User {
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "Instructor [course=" + course + "]";
+		return "Instructor [course=" + course + ", getId()=" + getId() + ", getUsername()=" + getUsername()
+				+ ", getPassword()=" + getPassword() + ", getFirstname()=" + getFirstname() + ", getLastname()="
+				+ getLastname() + "]";
 	}
+
+
+
 
 
 
