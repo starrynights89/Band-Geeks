@@ -9,8 +9,15 @@
             </span>
         </li>
         <li>
-            <a *ngIf="route.url!=='/assignments'" routerLink="/books/edit">Assignments</a>
-            <span *ngIf="route.url==='/assignments'" style = "font-weight: strong;" routerLink="/books/edit">Assignments</span>
+            <div *ngIf="isInstructor(); else student">
+            <a *ngIf="route.url!=='/assignments/instructor'" routerLink="/assignments/instructor">Assignments</a>
+            <span *ngIf="route.url==='/assignments/instructor'" style = "font-weight: strong;" routerLink="/assignments/instructor">Assignments</span>
+            </div>
+            <ng-template #student >
+                <a *ngIf="route.url!=='/assignments/student'" routerLink="/assignments/student">Assignments</a>
+                <span *ngIf="route.url==='/assignments/student'" style = "font-weight: strong;" routerLink="/assignments/student">Assignments</span>
+            </ng-template>
+
         </li>
         <li>
             <a *ngIf="route.url!=='/contact'" routerLink="/contact">Contact Students/Instructors</a>
