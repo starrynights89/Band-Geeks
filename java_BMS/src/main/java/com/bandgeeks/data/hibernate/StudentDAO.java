@@ -10,6 +10,7 @@ public interface StudentDAO {
 	public Student getStudent(String username, String password);
 	public Student getStudentById(int id);
 	public List<Instructor> getAllStudents();
+	public List<Student> getAllStudentsByCourseId(int courseId);
 	
 	
 	

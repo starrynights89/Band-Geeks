@@ -2,7 +2,8 @@ export class Assignment {
     id: number;
     studentId: number;
     instructorId: number;
-    typeId: number;
+    assignmentTypeId: number;
+    instrumentTypeId: number;
     dateAssigned: number;
     dateDue: number;
 

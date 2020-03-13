@@ -34,6 +34,10 @@ public class Assignment {
 	@Column(name = "assignment_type_id")
 	private int assignmentTypeId;
 	
+	@Column(name = "assignment_instrument")
+	private String instrument;
+	
+	
 	@Column(name = "assignment_grade")
 	private String grade;
 	
@@ -82,6 +86,22 @@ public class Assignment {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+
+
+
+	public String getInstrument() {
+		return instrument;
+	}
+
+
+
+
+
+	public void setInstrument(String instrument) {
+		this.instrument = instrument;
 	}
 
 

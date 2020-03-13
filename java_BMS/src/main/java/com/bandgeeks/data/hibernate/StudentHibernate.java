@@ -70,4 +70,16 @@ public class StudentHibernate implements StudentDAO{
 
 	}
 
+	@Override
+	public List<Student> getAllStudentsByCourseId(int courseId) {
+		//Getting all students by CourseId
+		log.trace("Getting all students for course "+ courseId);
+		Session s = hu.getSession();
+		Query<Student> q = s.createQuery("FROM Student where courseId =:id", Student.class);
+		q.setParameter("id", courseId);
+		List<Student> a = q.getResultList();
+		s.close();		
+		return a;
+	}
+
 }

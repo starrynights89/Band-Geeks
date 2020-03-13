@@ -20,17 +20,14 @@ export class AssignmentsComponent implements OnInit {
 
     ) { }
 
-<<<<<<< HEAD
   ngOnInit(): void { 
     //Create assignment
     this.assignment = new Assignment();
     console.log("New Assignment "+this.assignment);
 
-=======
-  ngOnInit(): void {
->>>>>>> fa3b9010483b3d7d827f7afec0fc2a21cfd57815
   }
   submit(): void {
+    console.log(this.assignment);
     this.assignmentService.updateAssignment(this.assignment).subscribe(
       assignment => {
         this.assignment = assignment;

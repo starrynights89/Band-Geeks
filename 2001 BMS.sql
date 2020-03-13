@@ -22,6 +22,42 @@ drop table uniform_type cascade constraints;
 
 -------Sequences-----
 
+drop sequence login_seq;
+drop sequence courses_seq;
+drop sequence grade_levels_seq;
+drop sequence inventory_seq;
+drop sequence instruments_seq;
+drop sequence uniforms_seq;
+drop sequence instrument_type_seq;
+drop sequence uniform_type_seq;
+drop sequence students_seq;
+drop sequence instructors_seq;
+drop sequence assignment_types_seq;
+drop sequence statuses_seq;
+drop sequence requests_seq;
+drop sequence assignment_seq;
+drop sequence comments_seq;
+
+
+
+
+create sequence login_seq nocache;
+create sequence courses_seq nocache;
+create sequence grade_levels_seq nocache;
+create sequence inventory_seq nocache;
+create sequence instruments_seq nocache;
+create sequence uniforms_seq nocache;
+create sequence instrument_type_seq nocache;
+create sequence uniform_type_seq nocache;
+create sequence students_seq nocache;
+create sequence instructors_seq nocache;
+create sequence assignment_types_seq nocache;
+create sequence statuses_seq nocache;
+create sequence requests_seq nocache;
+create sequence assignment_seq nocache;
+create sequence comments_seq nocache;
+
+
 
 -------TABLES---------
 create table login(
@@ -47,15 +83,13 @@ create table inventory(
 );
 
 create table instruments(
-    instrument_id number(3) PRIMARY KEY,
-    instruments_inventory_id number(3),
+    instruments_inventory_id number(3) PRIMARY KEY,
     instrument_name varchar2(50),
     foreign key (instruments_inventory_id) references inventory(item_id)
 );
 
 create table uniforms(
-    uniforms_id number(3),
-    uniforms_inventory_id number(3),
+    uniforms_inventory_id number(3) PRIMARY KEY,
     uniforms_name varchar2(50),
     foreign key (uniforms_inventory_id) references inventory(item_id)
 );
@@ -123,11 +157,9 @@ create table assignment(
     assignment_instructor_id number(3),
     assignment_type_id number(3),
     assignment_grade varchar2(3),
+    assignment_instrument varchar2(50),
     date_assigned date,
-    date_due date,
-    foreign key (assignment_student_id) references students(student_id),
-    foreign key (assignment_instructor_id) references instructors(instructor_id),
-    foreign key (assignment_type_id) references assignment_types(type_id)
+    date_due date
 );
 create table comments(
     comment_id number(3) primary key,
@@ -207,22 +239,42 @@ insert into inventory (item_id)
         values(6);
 insert into inventory (item_id)
         values(7);
+insert into inventory (item_id)
+        values(8);
+insert into inventory (item_id)
+        values(9);
+insert into inventory (item_id)
+        values(10);        
+insert into inventory (item_id)
+        values(11);
+insert into inventory (item_id)
+        values(12);
+        
+        
 ----------Instruments-----------
-insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
-        values(1,1,'Old Tuba');
-insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
-        values(2,2,'New Tuba');
-insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
-        values(3,6,'Trombone 1');
-insert into instruments (instrument_id, instruments_inventory_id, instrument_name)
-        values(4,7,'Grimy Bass Trombone');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(1,'Old Tuba');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(2,'New Tuba');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(6,'Trombone 1');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(7,'Grimy Bass Trombone');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(8,'Grand Piano');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(9,'Rhodes Piano');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(10,'Bass Guitar');
+insert into instruments (instruments_inventory_id, instrument_name)
+        values(11,'Electric Guitar');
 ----------Uniform--------------
-insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
-    values (1, 3, 'Small Uniform');
-insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
-    values (2, 4, 'Large Uniform');
-insert into uniforms (uniforms_id, uniforms_inventory_id, uniforms_name)
-    values (3, 5, 'Smelly Uniform');
+insert into uniforms (uniforms_inventory_id, uniforms_name)
+    values (3, 'Small Uniform');
+insert into uniforms (uniforms_inventory_id, uniforms_name)
+    values (4, 'Large Uniform');
+insert into uniforms (uniforms_inventory_id, uniforms_name)
+    values (5, 'Smelly Uniform');
     
     
     
