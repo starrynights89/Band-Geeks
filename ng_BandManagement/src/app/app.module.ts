@@ -12,9 +12,7 @@ import { UrlService } from './services/url.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
@@ -28,9 +26,7 @@ import { AssignmentService } from './services/assignment.service';
     HeaderComponent,
     LoginComponent,
     SidebarComponent,
-    UsersComponent,
     UserDetailComponent,
-    MessagesComponent,
     ChatComponent,
     ChatHomeComponent,
     AssignmentsComponent
