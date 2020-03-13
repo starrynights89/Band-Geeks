@@ -43,14 +43,19 @@ public class AssignmentController {
 		
 		@PostMapping(value="/assignments/instructor")
 		public ResponseEntity<Assignment> addAssignment(@RequestBody Assignment a, HttpSession session) {
-			log.trace("Adding Assignment "+ a);
 			Login loggedUser = (Login) session.getAttribute("loggedUser");
+			
 			log.trace("LoggedUser "+loggedUser);
 			log.trace("CourseId " + loggedUser.getInstructor().getCourse().getCourseId());
 			log.trace("CourseId " + a.getInstrument());
 
 			int courseId = loggedUser.getInstructor().getCourse().getCourseId();
 			String instrument = a.getInstrument();
+			
+			a.setInstructorId(loggedUser.getInstructor().getId());
+			log.trace("Adding Assignment "+ a);
+
+		
 
 			
 			return ResponseEntity.status(201).body(assgnServ.createAssignment(a, courseId, instrument));

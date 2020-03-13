@@ -11,6 +11,7 @@ public interface StudentDAO {
 	public Student getStudentById(int id);
 	public List<Instructor> getAllStudents();
 	public List<Student> getAllStudentsByCourseId(int courseId);
+	public List<Student> getStudentsByInstrument(int instrumentId);
 	
 	
 	
