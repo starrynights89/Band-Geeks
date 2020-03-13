@@ -33,6 +33,7 @@ export class AssignmentService {
   
   updateAssignment(assignment: Assignment): Observable<Assignment> {
     const body = JSON.stringify(assignment);
+    console.log("Assignment "+assignment);
     if (!assignment.id) {
       // If there is not id on the assignment, it is not from the database.
       // That means we are trying to make a new one!

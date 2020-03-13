@@ -31,6 +31,8 @@
 		<mapping class="com.bandgeeks.beans.Status"/>
 		<mapping class="com.bandgeeks.beans.Uniform"/>
 		<mapping class="com.bandgeeks.beans.UniformType"/>
+		<mapping class="com.bandgeeks.beans.Assignment"/>
+		
 
 
 	</session-factory>

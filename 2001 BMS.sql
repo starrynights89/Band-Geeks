@@ -122,6 +122,7 @@ create table assignment(
     assignment_student_id number(3),
     assignment_instructor_id number(3),
     assignment_type_id number(3),
+    assignment_grade varchar2(3),
     date_assigned date,
     date_due date,
     foreign key (assignment_student_id) references students(student_id),

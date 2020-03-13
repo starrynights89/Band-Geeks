@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Router } from '@angular/router';
 import { Assignment } from '../classes/assignment';
 import { AssignmentService } from '../services/assignment.service';
@@ -21,11 +21,16 @@ export class AssignmentsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void { 
+    //Create assignment
+    this.assignment = new Assignment();
+    console.log("New Assignment "+this.assignment);
+
   }
   submit(): void {
     this.assignmentService.updateAssignment(this.assignment).subscribe(
       assignment => {
         this.assignment = assignment;
+        console.log("Assignment "+ this.assignment);
         this.route.navigate(['/assignments/instructor']);
       }
     );

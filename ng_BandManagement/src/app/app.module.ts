@@ -18,6 +18,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { AssignmentTypeService } from './services/assignment-type.service';
+import { AssignmentService } from './services/assignment.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AssignmentsComponent } from './assignments/assignments.component';
   ],
   providers: [
     UrlService,
-    LoginService
+    LoginService,
+    AssignmentTypeService,
+    AssignmentService
 
   ],
   bootstrap: [AppComponent]
