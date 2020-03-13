@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="instruments")
-@PrimaryKeyJoinColumn(name="instrument_id")
+@PrimaryKeyJoinColumn(name="instruments_inventory_id")
 
 
 public class Instrument extends Inventory {

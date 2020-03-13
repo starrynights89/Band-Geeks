@@ -1,27 +1,16 @@
 package com.bandgeeks.data.hibernate;
 
-import org.hibernate.query.Query;
-
-
-import org.springframework.stereotype.Repository;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
-
+import com.bandgeeks.beans.Course;
 import com.bandgeeks.beans.Instructor;
 import com.bandgeeks.beans.Student;
-import com.bandgeeks.beans.User;
-import com.bandgeeks.controller.LoginController;
 import com.bandgeeks.utils.HibernateUtil;
-import com.bandgeeks.utils.LogUtil;
 
 
 
@@ -71,12 +60,12 @@ public class StudentHibernate implements StudentDAO{
 	}
 
 	@Override
-	public List<Student> getAllStudentsByCourseId(int courseId) {
+	public List<Student> getAllStudentsByCourse(Course course) {
 		//Getting all students by CourseId
-		log.trace("Getting all students for course "+ courseId);
+		log.trace("Getting all students for course "+ course);
 		Session s = hu.getSession();
-		Query<Student> q = s.createQuery("FROM Student where courseId =:id", Student.class);
-		q.setParameter("id", courseId);
+		Query<Student> q = s.createQuery("FROM Student where course =:course", Student.class);
+		q.setParameter("course", course);
 		List<Student> a = q.getResultList();
 		s.close();		
 		return a;

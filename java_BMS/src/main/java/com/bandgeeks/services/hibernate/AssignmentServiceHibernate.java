@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bandgeeks.beans.Assignment;
+import com.bandgeeks.beans.Course;
 import com.bandgeeks.beans.Student;
 import com.bandgeeks.data.hibernate.AssignmentDAO;
 import com.bandgeeks.data.hibernate.InstrumentDAO;
@@ -25,27 +26,28 @@ public class AssignmentServiceHibernate implements AssignmentService{
 	private InstrumentDAO instrDAO;
 
 	@Override
-	public Assignment createAssignment(Assignment a, int courseId, String instrument) {
+	public Assignment createAssignment(Assignment a, Course course, String instrument) {
 		// Get All students in this course
+		int instrumentId = 0;
 		List<Student> students = new ArrayList<>();
-		students = stuDAO.getAllStudentsByCourseId(courseId);
+		students = stuDAO.getAllStudentsByCourse(course);
 		
-		int instrumentId = instrDAO.getInstrumentByName(instrument).getId();
 		
-		if(instrument != null) {
+		if (instrument != "") {
+			instrumentId = instrDAO.getInstrumentByName(instrument).getId();
 			students = stuDAO.getStudentsByInstrument(instrumentId);
 		}
 		
 		//update Assignment fields
 			for(Student s : students) {
 				//set student field of assignment
-				a.setStudentId(s.getId());
+				a.setStudentId(s);
 				assgnDAO.createAssignment(a);
 			}
 		
 		
 
-		a.setStudentId(0);
+		a.setStudentId(null);
 
 		
 		return a;

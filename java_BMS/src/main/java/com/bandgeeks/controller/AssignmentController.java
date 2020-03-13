@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bandgeeks.beans.Assignment;
+import com.bandgeeks.beans.Course;
 import com.bandgeeks.beans.Login;
 import com.bandgeeks.data.hibernate.AssignmentHibernate;
 import com.bandgeeks.services.hibernate.AssignmentService;
@@ -47,18 +48,24 @@ public class AssignmentController {
 			
 			log.trace("LoggedUser "+loggedUser);
 			log.trace("CourseId " + loggedUser.getInstructor().getCourse().getCourseId());
-			log.trace("CourseId " + a.getInstrument());
+			log.trace("Instrument " + a.getInstrument());
 
-			int courseId = loggedUser.getInstructor().getCourse().getCourseId();
-			String instrument = a.getInstrument();
+			Course course = loggedUser.getInstructor().getCourse();
 			
-			a.setInstructorId(loggedUser.getInstructor().getId());
+			
+			String instrument = "";
+			if (a.getInstrument() != null) {
+				instrument = a.getInstrument().getInstrumentName();
+
+			}
+			
+			a.setInstructor(loggedUser.getInstructor());
 			log.trace("Adding Assignment "+ a);
 
 		
 
 			
-			return ResponseEntity.status(201).body(assgnServ.createAssignment(a, courseId, instrument));
+			return ResponseEntity.status(201).body(assgnServ.createAssignment(a, course, instrument));
 		}
 		
 		@GetMapping(value="/assignments/instructor/{id}")
