@@ -9,18 +9,17 @@ detail into the DOM-->
   <mdb-card-body>
     <!-- Title -->
     <mdb-card-title>
-      <div *ngIf="user">
-        <h2>{{ user.name | uppercase }} Details</h2>
+      <div *ngIf="isInstructor()">
+        <h2>{{ loggedUser.instructor.firstname | uppercase }} Details</h2>
       </div>
     </mdb-card-title>
     <!-- Text -->
     <mdb-card-text>
-      <div *ngIf="user">
-        <div><span>id: </span>{{ user.id }}</div>
+      <div *ngIf="isStudent()">
+        <div><span>id: </span>{{ loggedUser.student.id }}</div>
         <div>
           <label
             >name:
-            <input [(ngModel)]="user.name" placeholder="name" />
           </label>
         </div>
       </div>

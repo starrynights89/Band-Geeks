@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
-import { UsersComponent } from '../users/users.component';
+// import { UsersComponent } from '../users/users.component';
 import { ChatHomeComponent } from '../chat-home/chat-home.component';
 import { AssignmentsComponent } from '../assignments/assignments.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: UsersComponent
+    component: UserDetailComponent
   },
   {
     path: 'contact',
