@@ -2,6 +2,9 @@ package com.bandgeeks.services.hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
+import java.time.LocalDate;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,17 +40,26 @@ public class AssignmentServiceHibernate implements AssignmentService{
 			instrumentId = instrDAO.getInstrumentByName(instrument).getId();
 			students = stuDAO.getStudentsByInstrument(instrumentId);
 		}
+		//set due date and assigned date
+		LocalDate dateAssigned = LocalDate.now();
+		Date today = Date.valueOf(dateAssigned);
+		a.setDateAssigned(today);
+		
+		LocalDate dateDue = dateAssigned.plusWeeks(2);
+		Date due = Date.valueOf(dateDue);
+		a.setDateDue(due);
+
 		
 		//update Assignment fields
 			for(Student s : students) {
 				//set student field of assignment
-				a.setStudentId(s);
+				a.setStudentId(s.getId());
 				assgnDAO.createAssignment(a);
 			}
 		
 		
 
-		a.setStudentId(null);
+		a.setStudentId(0);
 
 		
 		return a;

@@ -55,11 +55,11 @@ public class AssignmentController {
 			
 			String instrument = "";
 			if (a.getInstrument() != null) {
-				instrument = a.getInstrument().getInstrumentName();
+				instrument = a.getInstrument();
 
 			}
 			
-			a.setInstructor(loggedUser.getInstructor());
+			a.setInstructorId(loggedUser.getInstructor().getId());
 			log.trace("Adding Assignment "+ a);
 
 		

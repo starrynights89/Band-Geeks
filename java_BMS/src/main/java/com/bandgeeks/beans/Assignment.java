@@ -24,20 +24,17 @@ public class Assignment {
 	@Column(name = "assignment_id")
 	private int id;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
-	@JoinColumn(name = "assignment_student_id")
-	private Student studentId;
+	@Column(name = "assignment_student_id")
+	private int studentId;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
-	@JoinColumn(name = "assignment_instructor_id")
-	private Instructor instructor;
+	@Column(name = "assignment_instructor_id")
+	private int instructorId;
 	
 	@Column(name = "assignment_type_id")
 	private int assignmentTypeId;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
-	@JoinColumn(name = "assignment_instrument")
-	private Instrument instrument;
+	@Column(name = "assignment_instrument")
+	private String instrument;
 	
 	
 	@Column(name = "assignment_grade")
@@ -62,26 +59,18 @@ public class Assignment {
 
 
 
-
-
-
-
-	public Assignment(int id, Student studentId, Instructor instructorId, int assignmentTypeId, Instrument instrument,
-			String grade, Date dateAssigned, Date dateDue) {
+	public Assignment(int id, int studentId, int instructorId, int assignmentTypeId, String instrument, String grade,
+			Date dateAssigned, Date dateDue) {
 		super();
 		this.id = id;
 		this.studentId = studentId;
-		this.instructor = instructor;
+		this.instructorId = instructorId;
 		this.assignmentTypeId = assignmentTypeId;
 		this.instrument = instrument;
 		this.grade = grade;
 		this.dateAssigned = dateAssigned;
 		this.dateDue = dateDue;
 	}
-
-
-
-
 
 
 
@@ -95,10 +84,6 @@ public class Assignment {
 
 
 
-
-
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -107,11 +92,7 @@ public class Assignment {
 
 
 
-
-
-
-
-	public Student getStudentId() {
+	public int getStudentId() {
 		return studentId;
 	}
 
@@ -119,11 +100,7 @@ public class Assignment {
 
 
 
-
-
-
-
-	public void setStudentId(Student studentId) {
+	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
 
@@ -131,60 +108,17 @@ public class Assignment {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-	public Instructor getInstructor() {
-		return instructor;
+	public int getInstructorId() {
+		return instructorId;
 	}
 
 
 
 
 
-
-
-
-
-	public void setInstructor(Instructor instructor) {
-		this.instructor = instructor;
+	public void setInstructorId(int instructorId) {
+		this.instructorId = instructorId;
 	}
-
-
-
-
-
-
-
-
-
-	public Instrument getInstrument() {
-		return instrument;
-	}
-
-
-
-
-
-
-
-
-
-	public void setInstrument(Instrument instrument) {
-		this.instrument = instrument;
-	}
-
-
-
-
 
 
 
@@ -200,6 +134,22 @@ public class Assignment {
 
 	public void setAssignmentTypeId(int assignmentTypeId) {
 		this.assignmentTypeId = assignmentTypeId;
+	}
+
+
+
+
+
+	public String getInstrument() {
+		return instrument;
+	}
+
+
+
+
+
+	public void setInstrument(String instrument) {
+		this.instrument = instrument;
 	}
 
 
@@ -254,10 +204,6 @@ public class Assignment {
 
 
 
-
-
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -267,15 +213,11 @@ public class Assignment {
 		result = prime * result + ((dateDue == null) ? 0 : dateDue.hashCode());
 		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((instructor == null) ? 0 : instructor.hashCode());
+		result = prime * result + instructorId;
 		result = prime * result + ((instrument == null) ? 0 : instrument.hashCode());
-		result = prime * result + ((studentId == null) ? 0 : studentId.hashCode());
+		result = prime * result + studentId;
 		return result;
 	}
-
-
-
-
 
 
 
@@ -309,20 +251,14 @@ public class Assignment {
 			return false;
 		if (id != other.id)
 			return false;
-		if (instructor == null) {
-			if (other.instructor != null)
-				return false;
-		} else if (!instructor.equals(other.instructor))
+		if (instructorId != other.instructorId)
 			return false;
 		if (instrument == null) {
 			if (other.instrument != null)
 				return false;
 		} else if (!instrument.equals(other.instrument))
 			return false;
-		if (studentId == null) {
-			if (other.studentId != null)
-				return false;
-		} else if (!studentId.equals(other.studentId))
+		if (studentId != other.studentId)
 			return false;
 		return true;
 	}
@@ -331,13 +267,9 @@ public class Assignment {
 
 
 
-
-
-
-
 	@Override
 	public String toString() {
-		return "Assignment [id=" + id + ", studentId=" + studentId + ", instructor=" + instructor
+		return "Assignment [id=" + id + ", studentId=" + studentId + ", instructorId=" + instructorId
 				+ ", assignmentTypeId=" + assignmentTypeId + ", instrument=" + instrument + ", grade=" + grade
 				+ ", dateAssigned=" + dateAssigned + ", dateDue=" + dateDue + "]";
 	}
