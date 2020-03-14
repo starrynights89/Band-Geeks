@@ -9,14 +9,14 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.css']
 })
-export class UserDetailComponent implements OnChanges {
+export class UserDetailComponent implements OnInit {
   public loggedUser: Currentuser;
 
   // @Input decorator to make the user propertys
   // available for binding by the external UsersComponent
   constructor(private loginService: LoginService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnInit(): void {
     this.loginService.login(null, null).subscribe(resp => {
       this.loggedUser = resp;
     });

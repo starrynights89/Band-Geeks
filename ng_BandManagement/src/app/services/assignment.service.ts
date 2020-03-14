@@ -18,14 +18,14 @@ export class AssignmentService {
     private urlService: UrlService
   ) { }
 
-  getAllAssignments(): Observable<Assignment[]> {
-    return this.http.get(this.appUrl, { withCredentials: true })
+  getAllAssignments(id: number): Observable<Assignment[]> {
+    return this.http.get(this.appUrl + 'assignments/instructor/' + id, { withCredentials: true })
       .pipe(map(
         resp => resp as Assignment[]
       ));
   }
   getAssignment(id: number): Observable<Assignment> {
-    return this.http.get(this.appUrl + 'assignments/instructor/' + id, { withCredentials: true })
+    return this.http.get(this.appUrl + 'assignments/instructor/student' + id, { withCredentials: true })
       .pipe(map(
         resp => resp as Assignment
       ));
