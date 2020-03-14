@@ -2,25 +2,24 @@
 <!-- *ngIf removes the user detail from the DOM-->
 <!-- When the user is picked, selectedUser has a value and ngIf puts the user
 detail into the DOM-->
-<mdb-card>
+<mdb-card *ngIf="loggedUser">
   <!-- Card Image -->
   <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
   <!-- Card Content -->
   <mdb-card-body>
     <!-- Title -->
     <mdb-card-title>
-      <div *ngIf="user">
-        <h2>{{ user.name | uppercase }} Details</h2>
+      <div *ngIf="isInstructor()">
+        <h2>{{ loggedUser.instructor.firstname | uppercase }} Details</h2>
       </div>
     </mdb-card-title>
     <!-- Text -->
     <mdb-card-text>
-      <div *ngIf="user">
-        <div><span>id: </span>{{ user.id }}</div>
+      <div *ngIf="isStudent()">
+        <div><span>id: </span>{{ loggedUser.student.id }}</div>
         <div>
           <label
             >name:
-            <input [(ngModel)]="user.name" placeholder="name" />
           </label>
         </div>
       </div>
