@@ -9,7 +9,7 @@ import { UrlService } from '../services/url.service';
     providedIn: 'root'
 })
 export class ProductService{
-    private productUrl = this.urlService.getUrl() + '/inventory';
+    private productUrl = this.urlService.getUrl() + 'inventory';
 
     constructor(private http: HttpClient,
         private urlService: UrlService){}

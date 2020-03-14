@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="instruments")
-@PrimaryKeyJoinColumn(name="instrument_id")
+@PrimaryKeyJoinColumn(name="instruments_inventory_id")
 
 
-public class Instrument extends Inventory {
+public class Instrument extends Inventory implements IDisplayInv{
 
 	@Column(name = "instrument_name")
 	private String instrumentName;
@@ -44,6 +44,14 @@ public class Instrument extends Inventory {
 	public String toString() {
 		return "Instrument [instrumentName=" + instrumentName + ", getId()=" + getId() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + "]";
+	}
+	@Override
+	public int getProductId() {
+		return getId();
+	}
+	@Override
+	public String getProductName() {
+		return instrumentName;
 	}
 
 

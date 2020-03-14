@@ -16,6 +16,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { ProductListComponent } from './products/product-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     UserDetailComponent,
     ChatComponent,
     ChatHomeComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

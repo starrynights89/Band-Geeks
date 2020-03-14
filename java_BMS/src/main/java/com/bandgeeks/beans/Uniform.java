@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="uniforms")
-@PrimaryKeyJoinColumn(name="uniforms_id")
+@PrimaryKeyJoinColumn(name="uniforms_inventory_id")
 
 
 
-public class Uniform extends Inventory{
+public class Uniform extends Inventory implements IDisplayInv{
 
 	@Column(name = "uniforms_name")
 	private String uniformName;
@@ -35,9 +35,23 @@ public class Uniform extends Inventory{
 		this.uniformName = uniformName;
 	}
 	//get/set
+	public String getUniformName() {
+		return this.uniformName;
+	}
+	public void setUniformName(String value) {
+		this.uniformName = value;
+	}
 	@Override
 	public String toString() {
 		return "Uniform [uniformName=" + uniformName + "]";
+	}
+	@Override
+	public int getProductId() {
+		return getId();
+	}
+	@Override
+	public String getProductName() {
+		return uniformName;
 	}
 
 

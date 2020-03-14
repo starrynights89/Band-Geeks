@@ -57,7 +57,7 @@ public class InstrumentHibernate implements InstrumentDAO {
 	@Override
 	public Set<Instrument> getInstruments() {
 		Session s = hu.getSession();
-		String query = "FROM instruments";
+		String query = "FROM Instrument";
 		Query<Instrument> q = s.createQuery(query, Instrument.class);
 		List<Instrument> instrumentList = q.getResultList();
 		Set<Instrument> instrumentSet = new HashSet<Instrument>();
