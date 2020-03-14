@@ -52,7 +52,7 @@ public class AssignmentHibernate implements AssignmentDAO {
 		log.trace("Getting all Assignments for instructor");
 
 		Session s = hu.getSession();
-		Query<Assignment> q = s.createQuery("FROM Assignment where id =:id", Assignment.class);
+		Query<Assignment> q = s.createQuery("FROM Assignment where instructorId =:id", Assignment.class);
 		q.setParameter("id", instructorId);
 		List<Assignment> assignmentList = q.getResultList();
 		s.close();

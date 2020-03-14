@@ -4,6 +4,8 @@ import { Assignment } from '../classes/assignment';
 import { AssignmentService } from '../services/assignment.service';
 import { AssignmentTypeService } from '../services/assignment-type.service';
 import { AssignmentType } from '../classes/assignment-type';
+import { LoginService } from '../services/login.service';
+import { Currentuser } from '../classes/currentuser';
 
 @Component({
   selector: 'app-assignments',
@@ -11,12 +13,16 @@ import { AssignmentType } from '../classes/assignment-type';
   styleUrls: ['./assignments.component.css']
 })
 export class AssignmentsComponent implements OnInit {
+  public assignments: Assignment[];
   public assignmentTypeList: AssignmentType[];
   public assignment: Assignment;
+  public loggedUser: Currentuser;
 
   constructor(
     public route: Router,
-    private assignmentService: AssignmentService
+    private assignmentService: AssignmentService,
+    private loginService: LoginService
+
 
     ) { }
 
@@ -24,6 +30,13 @@ export class AssignmentsComponent implements OnInit {
     //Create assignment
     this.assignment = new Assignment();
     console.log("New Assignment "+this.assignment);
+    //get assignments
+    this.assignmentService.getAllAssignments().subscribe(
+      resp => {
+        this.assignments = resp;
+        console.log("AssignmentList "+resp);
+      }
+    );
 
   }
   submit(): void {

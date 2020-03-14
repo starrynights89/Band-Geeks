@@ -47,7 +47,7 @@
       <!-- Text -->
       <p class="card-text">This is just filler text I dont know if Ill need it.</p>
       <!-- Button -->
-      <button id="assignmentButton" class="btn btn-primary" [routerLink]="'/assignments/instructor/view'">View Assignment</button>
+      <button id="assignmentButton" class="btn btn-primary" data-toggle="modal" data-target="#modalSubscriptionForm2">View Assignment</button>
 
   
     </div>
@@ -104,6 +104,56 @@
       </div>
     </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="modalSubscriptionForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Assignments</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body mx-5 text-center">
+
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let a of assignments;" id='{{a.id}}'>
+            <td>ID</td>
+            <td>Student ID</td>
+            <td>Assignment Type ID</td>
+            <td>Instrument Type ID</td>
+            <td>Date Assigned</td>
+            <td>Date Due</td>
+            <td>Action</td>
+          </tr>
+          
+          <tr *ngFor="let a of assignments;" id='{{a.id}}'>
+            <td>{{a.id}}</td>
+            <td>{{a.studentId}}</td>
+            <td>{{a.assignmentTypeId}}</td>
+            <td>{{a.instrumentTypeId}}</td>
+            <td>{{a.dateAssigned}}</td>
+            <td>{{a.dateDue}}</td>
+
+            <button class="btn btn-success" (click)="submit()">Grade</button>
+
+          </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
 </div>
 
 

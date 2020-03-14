@@ -4,8 +4,8 @@ export class Assignment {
     instructorId: number;
     assignmentTypeId: number;
     instrumentTypeId: number;
-    dateAssigned: number;
-    dateDue: number;
+    dateAssigned: Date;
+    dateDue: Date;
 
 
 }

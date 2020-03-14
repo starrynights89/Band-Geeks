@@ -37,8 +37,11 @@ public class AssignmentController {
 		@Autowired
 		private AssignmentService assgnServ;
 		
-		@GetMapping(value="/assignments/instructor/{instructorId}")
-		public ResponseEntity<List<Assignment>> getAllAssignments(@PathVariable("instructorId") int instructorId) {
+		@GetMapping(value="/assignments/instructor")
+		public ResponseEntity<List<Assignment>> getAllAssignments(HttpSession session) {
+			Login loggedUser = (Login) session.getAttribute("loggedUser");
+			int instructorId = loggedUser.getInstructor().getId();
+			
 			return ResponseEntity.ok(assgnServ.getAllAssignments(instructorId));
 		}
 		
@@ -68,15 +71,15 @@ public class AssignmentController {
 			return ResponseEntity.status(201).body(assgnServ.createAssignment(a, course, instrument));
 		}
 		
-		@GetMapping(value="/assignments/instructor/{id}")
-		public ResponseEntity<Assignment> getAssignment(@PathVariable("id") int id) {
-			Assignment a = assgnServ.getAssignmentById(id);
-			if(a != null) {
-				return ResponseEntity.ok(a);
-			}
-			return ResponseEntity.notFound().build();
-		}
-		
+//		@GetMapping(value="/assignments/instructor/{id}")
+//		public ResponseEntity<Assignment> getAssignment(@PathVariable("id") int id) {
+//			Assignment a = assgnServ.getAssignmentById(id);
+//			if(a != null) {
+//				return ResponseEntity.ok(a);
+//			}
+//			return ResponseEntity.notFound().build();
+//		}
+//		
 //		@PutMapping(value="{id}")
 //		public ResponseEntity<Assignment> updateBook(@PathVariable("bookId") int id, @RequestBody Book b) {
 //			// possible error handling?
