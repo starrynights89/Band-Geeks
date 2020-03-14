@@ -32,7 +32,10 @@ export class ProductListComponent implements OnInit{
         return this.products.filter((product: IProduct) =>
             product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
-
+    addItem(productId: number):void{
+        console.log(productId);
+        this.productService.addRequest(productId)
+    }
     ngOnInit(): void{
         this.productService.getProducts().subscribe({
             next: products => {

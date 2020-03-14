@@ -9,23 +9,22 @@ import { UrlService } from '../services/url.service';
     providedIn: 'root'
 })
 export class ProductService{
-    private productUrl = this.urlService.getUrl() + 'inventory';
+    private productUrl = this.urlService.getUrl();
 
     constructor(private http: HttpClient,
         private urlService: UrlService){}
 
     getProducts(): Observable<IProduct[]>{
-        return this.http.get<IProduct[]>(this.productUrl).pipe(
+        return this.http.get<IProduct[]>(this.productUrl + 'inventory').pipe(
             tap(data => console.log('ALL: ' + JSON.stringify(data))),
             catchError(this.handleError)
         );
     }
 
     addRequest(productId: number){
-        const request = {
-            productId: productId
-        };
-        return this.http.post(this.productUrl +'/add', request)
+        const body = `itemId=${productId}`;
+        console.log('adding request: '+productId);
+        return this.http.post(this.productUrl +'add',body);
     }
 
     private handleError(err: HttpErrorResponse){

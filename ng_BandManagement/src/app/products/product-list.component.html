@@ -27,7 +27,7 @@
                     <tr *ngFor='let product of filteredProducts'>
                         <td>{{product.productId}}</td>
                         <td>{{product.productName}}</td>
-                        <td><button>Request</button></td>
+                        <td><button (click)='addItem(product.productId)'>Request</button></td>
                     </tr>
                 </tbody>
             </table>
