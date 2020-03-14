@@ -17,6 +17,9 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentService } from './services/assignment.service';
+import { RequestsInstructorComponent } from './requests-instructor/requests-instructor.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { RequestInstructorService } from './services/request-instructor.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { AssignmentService } from './services/assignment.service';
     UserDetailComponent,
     ChatComponent,
     ChatHomeComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    RequestsInstructorComponent,
+    InventoryComponent,
+    RequestsInstructorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,8 @@ import { AssignmentService } from './services/assignment.service';
   providers: [
     UrlService,
     LoginService,
-    AssignmentService
+    AssignmentService,
+    RequestInstructorService
 
   ],
   bootstrap: [AppComponent]

@@ -1,67 +1,70 @@
-//package com.bandgeeks.controller;
-//
-//import javax.servlet.http.HttpSession;
-//
-//import org.apache.log4j.Logger;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.CrossOrigin;
-//import org.springframework.web.bind.annotation.DeleteMapping;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//
-//import com.bandgeeks.beans.Instructor;
-//import com.bandgeeks.beans.Login;
-//import com.bandgeeks.beans.Student;
-//import com.bandgeeks.services.hibernate.RequestService;
-//
-//@RestController
-//@CrossOrigin(origins = "http://localhost:4200")
-//public class RequestController {
-//
-//	private Logger log = Logger.getLogger(RequestController.class);
-//	
-//	@Autowired
-//	private RequestService rs;
-//	
-//	@GetMapping(value = "/request")
-//	public ResponseEntity<Request> login(HttpSession session) {
-//		Login loggedUser = (Login) session.getAttribute("loggedUser");
-//		if (loggedUser == null)
-//			return ResponseEntity.status(401).build();
-//		return ResponseEntity.ok(loggedUser);
-//	}
-//
-//	@PostMapping(value = "/login")
-//	public ResponseEntity<Login> postLogin(String user, String pass, HttpSession session) {
-//		Instructor instr = logServ.loginAsInstructor(user, pass);
-//		Student stu = logServ.loginAsStudent(user, pass);
-//
-//		log.trace("Attempting to log in as User " + user + ", " + pass);
-//
-//		if (instr == null && stu == null) {
-//			log.trace("Cannot login null user");
-//			return ResponseEntity.notFound().build();
-//		} else {
-//			// Check if Person is a user
-//			log.trace("Logging in");
-//			Login loggedUser = new Login(stu, instr);
-//
-//			session.setAttribute("loggedUser", loggedUser);
-//			return ResponseEntity.ok(loggedUser);
-//
-//		}
-//
-//	}
-//
-//	@DeleteMapping(value = "/login")
-//	public ResponseEntity<Void> logout(HttpSession session) {
-//		session.invalidate();
-//		return ResponseEntity.noContent().build();
-//	}
-//
-//	
-//	
-//	
-//}
+package com.bandgeeks.controller;
+
+import java.util.Set;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bandgeeks.beans.Request;
+import com.bandgeeks.services.hibernate.RequestService;
+
+@RestController
+@RequestMapping(value="/request")
+@CrossOrigin(origins = "http://localhost:4200")
+public class RequestController {
+
+	private Logger log = Logger.getLogger(RequestController.class);
+	
+	@Autowired
+	private RequestService rs;
+	
+	@GetMapping()
+	public ResponseEntity<Set<Request>> getBooks() {
+		log.trace("getting set of requests with get");
+		return ResponseEntity.ok(rs.getRequests());
+	}
+	
+	@PostMapping
+	public ResponseEntity<Integer> addRequest(@RequestBody Request r) {
+		log.trace("adding a request with post");
+		return ResponseEntity.status(201).body(rs.createRequest(r));
+	}
+	
+	@GetMapping(value="{requestId}")
+	public ResponseEntity<Request> getBook(@PathVariable("requestId") int id) {
+		log.trace("retrieving a request with get");
+		Request r = rs.getRequestById(id);
+		if(r != null) {
+			return ResponseEntity.ok(r);
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	@PutMapping(value="{requestId}")
+	public ResponseEntity<Request> updateBook(@PathVariable("requestId") int id, @RequestBody Request r) {
+		log.trace("updating a request with put");
+		// possible error handling?
+		rs.updateRequest(r);
+		return ResponseEntity.ok(rs.getRequestById(id));
+	}
+	
+	@DeleteMapping(value="{bookId}")
+	public ResponseEntity<Void> deleteBook(@PathVariable("bookId") int id) {
+		log.trace("deleting a request with delete");
+		rs.deleteRequest(rs.getRequestById(id));
+		return ResponseEntity.noContent().build();
+	}
+}
+
+	
+
