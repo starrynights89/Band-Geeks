@@ -45,9 +45,9 @@
       <!-- Title -->
       <h4 class="font-weight-bold card-title">View all inventory</h4>
       <!-- Text -->
-      <p class="card-text">Instructions on what happens next goes here.</p>
+      <p class="card-text">Click below to view a list of all inventory.</p>
       <!-- Button -->
-      <button id="assignmentButton" class="btn btn-primary" data-toggle="modal" data-target="#viewInventoryModal">View Requests</button>
+      <button id="assignmentButton" class="btn btn-primary" data-toggle="modal" data-target="#viewInventoryModal">View Inventory</button>
 
   
     </div>
@@ -73,9 +73,9 @@
           <!-- Title -->
           <h4 class="font-weight-bold card-title">Make Action on Requests</h4>
           <!-- Text -->
-          <p class="card-text">Instructions on what happens next goes here.</p>
+          <p class="card-text">Click below to view request history and make decisions on requests.</p>
           <!-- Button -->
-          <button id="assignmentButton" class="btn btn-primary">View Requests</button>
+          <button id="reqButton" class="btn btn-primary" data-toggle="modal" data-target="#viewReqModal">View Requests</button>
         </div>
       
         </div>
@@ -158,6 +158,7 @@
 
                     </tbody>
                   </table>
+
                   <table id="unTable" class="table">
                     <thead>
                         <strong>Uniforms</strong>
@@ -183,7 +184,53 @@
             </div>
           </div>
           
+<!--Request Table-->
 
+<div id="viewReqModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="classModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <div id = "viewmodaltitle"><h4 class="modal-title" id="classModalLabel">
+                    Inventory List
+                  </h4></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                
+                </div>
+                <div class="modal-body mx-5">
+                  <table id="reqTable" class="table">
+                    <thead>
+                        <strong>Requests</strong>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Request Number:</th>
+                        <th>Inventory Number:</th>
+                        <th>Item Name:</th>
+                        <th>Student Name:</th>
+                        <th>Check Out Date:</th>
+                        <th>Date Due:</th>
+                        <th>Approved By:</th>
+                        <th>Status:</th>
+                        <th>Action:</th>
+
+                      </tr>
+                      <tr *ngFor="let r of requestList;" id='{{r.id}}'>
+                        <td>{{r.requestId}}</td>
+                        <td>{{r.inventory.id}}</td>
+                        <td>{{itemName}}</td>
+                        <td>{{r.student.firstname}}</td>
+                        <td>{{r.checkIn}}</td>
+                        <td>{{r.checkOut}}</td>
+                        <td>{{r.instructor.firstname}}</td>
+                        <td>{{r.status.statusType}}</td>
+                        <td>Action</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  
 
 
 

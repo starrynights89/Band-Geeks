@@ -11,7 +11,7 @@ import { Request } from '../classes/request';
 })
 export class RequestInstructorService {
 
-  private appUrl = this.urlService.getUrl() + 'requests/instructor';
+  private appUrl = this.urlService.getUrl() + 'request/';
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   
   constructor(
@@ -26,7 +26,7 @@ export class RequestInstructorService {
       ));
   }
   getRequest(id: number): Observable<Request> {
-    return this.http.get(this.appUrl + 'requests/instructor/' + id, { withCredentials: true })
+    return this.http.get(this.appUrl + 'request/' + id, { withCredentials: true })
       .pipe(map(
         resp => resp as Request
       ));
@@ -44,7 +44,7 @@ export class RequestInstructorService {
     } else {
       // If there is an id, we are...
       // updating an existing resource
-      const url = this.appUrl + 'requests/instructor/' + request.requestId;
+      const url = this.appUrl + 'request/' + request.requestId;
       return this.http.put(url, body, { headers: this.headers, withCredentials: true })
       .pipe(map(
         resp => resp as Request

@@ -6,6 +6,7 @@ import { Instrument } from '../classes/instrument';
 import { Uniform } from '../classes/uniform';
 import { InstrumentService } from '../services/instrument.service';
 import { UniformService } from '../services/uniform.service';
+import { Inventory } from '../classes/inventory';
 
 @Component({
   selector: 'app-requests-instructor',
@@ -15,8 +16,9 @@ import { UniformService } from '../services/uniform.service';
 export class RequestsInstructorComponent implements OnInit {
   public instrumentList: Instrument[];
   public uniformList: Uniform[];
-  public RequestList: Request[];
+  public requestList: Request[];
   public request: Request;
+  public inventory: Inventory;
   public instrument: Instrument;
   public uniform: Uniform;
   constructor(
@@ -25,6 +27,8 @@ export class RequestsInstructorComponent implements OnInit {
     private instrumentService: InstrumentService,
     private uniformService: UniformService
   ) { }
+public itemName;
+
 
   ngOnInit(): void {
       //get instruments
@@ -43,8 +47,16 @@ export class RequestsInstructorComponent implements OnInit {
             console.log(this.uniformList);
           }
         );
-  
+          //get requests
+          this.requestInstructorService.getAllRequests().subscribe(
+            resp => {
+              this.requestList = resp;
+              console.log("RequestList "+resp);
+              console.log(this.requestList);
+            }
+          );
   }
+
   submit(): void {
     this.requestInstructorService.updateRequest(this.request).subscribe(
       request => {

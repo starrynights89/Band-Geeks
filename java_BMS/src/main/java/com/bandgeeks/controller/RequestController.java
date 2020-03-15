@@ -31,6 +31,7 @@ public class RequestController {
 	@GetMapping()
 	public ResponseEntity<Set<Request>> getBooks() {
 		log.trace("getting set of requests with get");
+		log.trace(rs.getRequests());
 		return ResponseEntity.ok(rs.getRequests());
 	}
 	
