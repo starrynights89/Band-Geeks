@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import com.bandgeeks.beans.Instrument;
 import com.bandgeeks.beans.Inventory;
 import com.bandgeeks.beans.Login;
 import com.bandgeeks.beans.Request;
+import com.bandgeeks.beans.Status;
 import com.bandgeeks.beans.Student;
 import com.bandgeeks.beans.Uniform;
 import com.bandgeeks.data.hibernate.InstrumentHibernate;
@@ -42,9 +44,10 @@ public class CheckInCheckOutController {
 		return ResponseEntity.ok(iDI);
 	
 	}
-    @PostMapping(value = "/add")
-    public ResponseEntity<Request> addRequest(String itemId, HttpSession session){
+    @PostMapping(value = "/add/{productId}")
+    public ResponseEntity<Request> addRequest(@PathVariable("productId") String itemId, HttpSession session){
     	log.trace("In Post method");
+    	log.trace(itemId);
     	//setting fake data to make sure it works while logged in
     	Student sFake = new Student();
     	sFake.setId(1);
@@ -53,9 +56,10 @@ public class CheckInCheckOutController {
     	session.setAttribute("loggedUser", lFake);
     	Login l = (Login) session.getAttribute("loggedUser");
     	Student s = l.getStudent();
-    	log.trace(itemId);
     	Inventory i = new Inventory(Integer.parseInt(itemId));
     	Request r = new Request(null, i, s);
+    	Status status = new Status(1);
+    	r.setStatus(status);
     	RequestHibernate rH = new RequestHibernate();
     	r.setRequestId(rH.createRequest(r));
 		return ResponseEntity.ok(r);
