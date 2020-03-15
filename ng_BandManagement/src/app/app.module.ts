@@ -22,6 +22,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { RequestInstructorService } from './services/request-instructor.service';
 import { InstrumentService } from './services/instrument.service';
 import { UniformService } from './services/uniform.service';
+import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UniformService } from './services/uniform.service';
     AssignmentsComponent,
     RequestsInstructorComponent,
     InventoryComponent,
-    RequestsInstructorComponent
+    RequestsInstructorComponent,
+    RequestsTeacherComponent
   ],
   imports: [
     BrowserModule,

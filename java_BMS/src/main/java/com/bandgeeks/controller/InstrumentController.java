@@ -30,6 +30,7 @@ public class InstrumentController {
 	@GetMapping()
 	public ResponseEntity<Set<Instrument>> getInstruments() {
 		log.trace("getting set of instruments with get");
+		log.trace(is.getInstruments());
 		return ResponseEntity.ok(is.getInstruments());
 	}
 	

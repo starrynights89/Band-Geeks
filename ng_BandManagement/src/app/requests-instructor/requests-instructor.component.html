@@ -130,16 +130,19 @@
 <!--View Table-->
 
 <div id="viewInventoryModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="classModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  <div id = "viewmodaltitle"><h4 class="modal-title" id="classModalLabel">
-                        Inventory List
-                      </h4></div>
+                <div id = "viewmodaltitle"><h4 class="modal-title" id="classModalLabel">
+                    Inventory List
+                  </h4></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                
                 </div>
-                <div class="modal-body mx-4">
-                  <table id="inTable" class="table table-bordered">
+                <div class="modal-body mx-5">
+                  <table id="inTable" class="table">
                     <thead>
                         <strong>Instruments</strong>
                     </thead>
@@ -155,7 +158,7 @@
 
                     </tbody>
                   </table>
-                  <table id="inTable" class="table table-bordered">
+                  <table id="unTable" class="table">
                     <thead>
                         <strong>Uniforms</strong>
                     </thead>
