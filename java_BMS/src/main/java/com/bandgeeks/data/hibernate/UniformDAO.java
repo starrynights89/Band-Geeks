@@ -6,7 +6,7 @@ import com.bandgeeks.beans.Uniform;
 
 public interface UniformDAO {
 
-	public Integer createCourse(Uniform uniform);
+	public Integer createUniform(Uniform uniform);
 	public Uniform getUniform(Uniform uniform);
 	public Uniform getUniformById(Integer id);
 	public Set<Uniform> getUniforms();
