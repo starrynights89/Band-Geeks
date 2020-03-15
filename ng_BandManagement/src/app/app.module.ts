@@ -20,6 +20,8 @@ import { AssignmentService } from './services/assignment.service';
 import { RequestsInstructorComponent } from './requests-instructor/requests-instructor.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { RequestInstructorService } from './services/request-instructor.service';
+import { InstrumentService } from './services/instrument.service';
+import { UniformService } from './services/uniform.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,10 @@ import { RequestInstructorService } from './services/request-instructor.service'
     UrlService,
     LoginService,
     AssignmentService,
-    RequestInstructorService
+    RequestInstructorService,
+    InstrumentService,
+    UniformService
+
 
   ],
   bootstrap: [AppComponent]

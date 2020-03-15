@@ -1,2 +1,5 @@
-export class Instrument {
+import { Inventory } from './inventory';
+
+export class Instrument extends Inventory {
+    instrumentName: string;
 }
