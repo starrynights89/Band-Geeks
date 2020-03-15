@@ -43,6 +43,8 @@ export class AssignmentsComponent implements OnInit {
   set(id: number): void{
     console.log("Assignment id "+id);
     this.assignment.id = id;
+    this.assignment.grade = "Ungraded";
+
   }
   submit(): void {
     console.log(this.assignment);

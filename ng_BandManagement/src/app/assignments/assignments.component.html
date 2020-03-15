@@ -82,7 +82,7 @@
       <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
       <td>{{a.status}}</td>
 
-      <button id="gradebtn" class="btn btn-warning" data-toggle="modal" data-target="#orangeModalSubscription4" (click)="set(a.id)">Turn In</button>
+      <button id="turninbtn" class="btn btn-warning" data-toggle="modal" data-target="#modalSubscriptionForm4" (click)="set(a.id)">Turn In</button>
 
     </tr>
     <tbody>
@@ -91,6 +91,7 @@
 
 
 </div>
+
 <div class="modal fade" id="modalSubscriptionForm4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -103,16 +104,15 @@
       </div>
 
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-success" (click)="submit()">Yes</button>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
+      <div class="modal-body mx-3 text-center">
+        <button class="btn btn-success" data-dismiss="modal" (click)="submit()">Yes</button>
         <button class="btn btn-danger" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
+
 </div>
+
 
 
 
