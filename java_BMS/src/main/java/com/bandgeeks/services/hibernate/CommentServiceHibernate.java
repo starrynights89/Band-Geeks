@@ -10,7 +10,7 @@ import com.bandgeeks.beans.Comment;
 import com.bandgeeks.data.hibernate.CommentDAO;
 
 @Service
-public class CommentServiceHibernate implements CommentDAO {
+public class CommentServiceHibernate implements CommentService {
 
 	private Logger log = Logger.getLogger(RequestServiceHibernate.class);
 	@Autowired

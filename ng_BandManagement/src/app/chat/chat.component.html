@@ -2,13 +2,12 @@
   <div class="input-area">
     <form (submit)="sendMessage()" name="messageForm" #messageForm="ngForm">
       <div>
-        <input
-          type="text"
-          placeholder="Your name"
-          name="name"
-          id="name"
-          [(ngModel)]="message.name"
-        />
+        <div *ngIf="isInstructor()">
+          <h6>{{ loggedUser.instructor.firstname }}</h6>
+        </div>
+        <div *ngIf="isStudent()">
+          <h6>{{ loggedUser.student.firstname }}</h6>
+        </div>
         <textarea
           type="text"
           placeholder="Your message"

@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Currentuser } from '../classes/currentuser';
+import { LoginService } from '../services/login.service';
 // import { EventEmitter } from 'protractor';
 declare const feather: any;
 
-// TODO review this interface
 export interface Message {
   text: string;
-  name: string;
 }
 
 @Component({
@@ -16,21 +16,21 @@ export interface Message {
 })
 export class ChatComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  public loggedUser: Currentuser;
+
+  constructor(private http: HttpClient, private loginService: LoginService) { }
 
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
-    name: '',
     text: '',
   };
   sendMessage() {
-    if (this.message.text !== '' && this.message.name !== '') {
+    if (this.message.text !== '') {
       this.http
-        .post(`http://localhost:4200/messages`, this.message)
+        .post(`http://localhost:4200/contact`, this.message)
         .subscribe((res: Message) => {
           this.onSendMessage.emit(res);
           this.message = {
-            name: '',
             text: '',
           };
         });
@@ -39,6 +39,16 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     feather.replace();
+    this.loginService.login(null, null).subscribe(resp => {
+      this.loggedUser = resp;
+    });
+  }
+
+  isStudent(): boolean {
+    return this.loginService.isStudent();
+  }
+  isInstructor(): boolean {
+    return this.loginService.isInstructor();
   }
 
 }
