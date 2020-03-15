@@ -175,50 +175,7 @@ public class Student extends User {
 	}
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((courseId == null) ? 0 : courseId.hashCode());
-		result = prime * result + ((gradeLevelId == null) ? 0 : gradeLevelId.hashCode());
-		result = prime * result + ((instrumentTypeId == null) ? 0 : instrumentTypeId.hashCode());
-		result = prime * result + ((uniformTypeId == null) ? 0 : uniformTypeId.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Student other = (Student) obj;
-		if (courseId == null) {
-			if (other.courseId != null)
-				return false;
-		} else if (!courseId.equals(other.courseId))
-			return false;
-		if (gradeLevelId == null) {
-			if (other.gradeLevelId != null)
-				return false;
-		} else if (!gradeLevelId.equals(other.gradeLevelId))
-			return false;
-		if (instrumentTypeId == null) {
-			if (other.instrumentTypeId != null)
-				return false;
-		} else if (!instrumentTypeId.equals(other.instrumentTypeId))
-			return false;
-		if (uniformTypeId == null) {
-			if (other.uniformTypeId != null)
-				return false;
-		} else if (!uniformTypeId.equals(other.uniformTypeId))
-			return false;
-		return true;
-	}
-
+	
 
 
 

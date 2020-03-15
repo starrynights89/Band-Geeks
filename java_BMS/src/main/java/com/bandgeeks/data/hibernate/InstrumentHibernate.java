@@ -17,7 +17,6 @@ import com.bandgeeks.utils.LogUtil;
 
 @Repository
 public class InstrumentHibernate implements InstrumentDAO {
-	private Logger log = Logger.getLogger(InstrumentHibernate.class);
 
 
 	private Logger log = Logger.getLogger(InstrumentHibernate.class);
