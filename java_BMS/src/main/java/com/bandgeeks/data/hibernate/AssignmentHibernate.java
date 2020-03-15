@@ -108,6 +108,28 @@ public class AssignmentHibernate implements AssignmentDAO {
 
 		return true;
 	}
+
+	@Override
+	public boolean updateAssignment(Assignment a) {
+		log.trace("Updating assignment id "+a.getId());
+		Session s = hu.getSession();
+		Transaction tx = null;
+		try {
+			tx = s.beginTransaction();
+			s.update(a);
+			tx.commit();
+		} catch(Exception e) {
+			if (tx != null) {
+				tx.rollback();
+				return false;
+			}
+			LogUtil.logException(e, AssignmentHibernate.class);
+		} finally {
+			s.close();
+		}
+
+		return true;
+	}
 	
 	
 	

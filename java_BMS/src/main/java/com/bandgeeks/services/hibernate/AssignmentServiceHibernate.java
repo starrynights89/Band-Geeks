@@ -82,6 +82,26 @@ public class AssignmentServiceHibernate implements AssignmentService{
 		// Update grade on assignment
 		return assgnDAO.gradeAssignment(id, grade);
 	}
+
+	@Override
+	public boolean turnInAssignment(int id) {
+		// Turn in assignment.
+		Assignment a = getAssignmentById(id);
+		LocalDate dateSubmitted = LocalDate.now() ;
+		Date sub = Date.valueOf(dateSubmitted);
+		a.setDateSubmitted(sub);
+		
+		if(a.getDateDue().compareTo(a.getDateSubmitted()) >= 0) {
+			
+			a.setStatus("On Time");
+		}
+		
+		else if(a.getDateDue().compareTo(a.getDateSubmitted()) < 0) {
+			
+			a.setStatus("Late");
+		}
+		return assgnDAO.updateAssignment(a);
+	}
 	
 
 }

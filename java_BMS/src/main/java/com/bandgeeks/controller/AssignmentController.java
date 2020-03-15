@@ -86,11 +86,24 @@ public class AssignmentController {
 		}
 		
 		@PutMapping(value="/assignments/{id}/{grade}")
-		public ResponseEntity<Boolean> getAssignment(@PathVariable("id") int id, @PathVariable("grade") String grade) {
-			Boolean a = assgnServ.gradeAssignment(id, grade);
-			if(a != null) {
-				return ResponseEntity.ok(a);
+		public ResponseEntity<Boolean> getAssignment(@PathVariable("id") int id, @PathVariable("grade") String grade, HttpSession session) {
+			Login loggedUser = (Login) session.getAttribute("loggedUser");
+			if(loggedUser.getInstructor() != null) {
+			
+				Boolean a = assgnServ.gradeAssignment(id, grade);
+				if(a != null) {
+					return ResponseEntity.ok(a);
+				}
 			}
+			
+			else if(loggedUser.getStudent() != null) {
+				
+				Boolean a = assgnServ.turnInAssignment(id);
+				if(a != null) {
+					return ResponseEntity.ok(a);
+				}
+			}
+			
 			return ResponseEntity.notFound().build();
 		}
 //		
