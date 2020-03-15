@@ -10,5 +10,6 @@ public interface AssignmentDAO {
 	public Assignment createAssignment(Assignment a);
 	public List<Assignment> getAllAssignments(int instructorId);
 	public Assignment getAssignmentById(int id);
+	public boolean gradeAssignment(int id, String grade);
 
 }

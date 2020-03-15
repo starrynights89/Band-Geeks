@@ -3,19 +3,18 @@ package com.bandgeeks.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bandgeeks.beans.Assignment;
@@ -71,14 +70,14 @@ public class AssignmentController {
 			return ResponseEntity.status(201).body(assgnServ.createAssignment(a, course, instrument));
 		}
 		
-//		@GetMapping(value="/assignments/instructor/{id}")
-//		public ResponseEntity<Assignment> getAssignment(@PathVariable("id") int id) {
-//			Assignment a = assgnServ.getAssignmentById(id);
-//			if(a != null) {
-//				return ResponseEntity.ok(a);
-//			}
-//			return ResponseEntity.notFound().build();
-//		}
+		@PutMapping(value="/assignments/instructor/{id}/{grade}")
+		public ResponseEntity<Boolean> getAssignment(@PathVariable("id") int id, @PathVariable("grade") String grade) {
+			Boolean a = assgnServ.gradeAssignment(id, grade);
+			if(a != null) {
+				return ResponseEntity.ok(a);
+			}
+			return ResponseEntity.notFound().build();
+		}
 //		
 //		@PutMapping(value="{id}")
 //		public ResponseEntity<Assignment> updateBook(@PathVariable("bookId") int id, @RequestBody Book b) {

@@ -68,6 +68,32 @@ public class AssignmentHibernate implements AssignmentDAO {
 		s.close();
 		return ret;
 	}
+
+	@Override
+	public boolean gradeAssignment(int id, String grade) {
+		log.trace("Updating grade on assignment id "+id);
+		Session s = hu.getSession();
+		Transaction tx = null;
+		try {
+			tx = s.beginTransaction();
+			Assignment a = getAssignmentById(id);
+			a.setGrade(grade);
+			s.update(a);
+			tx.commit();
+		} catch(Exception e) {
+			if (tx != null) {
+				tx.rollback();
+				return false;
+			}
+			LogUtil.logException(e, AssignmentHibernate.class);
+		} finally {
+			s.close();
+		}
+
+		return true;
+	}
+	
+	
 	
 
 }

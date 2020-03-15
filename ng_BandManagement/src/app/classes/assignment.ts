@@ -4,6 +4,7 @@ export class Assignment {
     instructorId: number;
     assignmentTypeId: number;
     instrumentTypeId: number;
+    grade: string;
     dateAssigned: Date;
     dateDue: Date;
 

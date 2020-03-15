@@ -39,6 +39,10 @@ export class AssignmentsComponent implements OnInit {
     );
 
   }
+  set(id: number): void{
+    console.log("Assignment id "+id);
+    this.assignment.id = id;
+  }
   submit(): void {
     console.log(this.assignment);
     this.assignmentService.updateAssignment(this.assignment).subscribe(
