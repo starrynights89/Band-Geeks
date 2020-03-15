@@ -49,12 +49,14 @@ public class CheckInCheckOutController {
     	log.trace("In Post method");
     	log.trace(itemId);
     	//setting fake data to make sure it works while logged in
-    	Student sFake = new Student();
-    	sFake.setId(1);
-    	Login lFake = new Login();
-    	lFake.setStudent(sFake);
-    	session.setAttribute("loggedUser", lFake);
+//    	Student sFake = new Student();
+//    	sFake.setId(1);
+//    	Login lFake = new Login();
+//    	lFake.setStudent(sFake);
+//    	session.setAttribute("loggedUser", lFake);
+    	//get rid of it when done setting it up with login
     	Login l = (Login) session.getAttribute("loggedUser");
+    	log.trace(l);
     	Student s = l.getStudent();
     	Inventory i = new Inventory(Integer.parseInt(itemId));
     	Request r = new Request(null, i, s);
