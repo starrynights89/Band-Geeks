@@ -8,7 +8,7 @@ import { ProductService } from './product.service';
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit{
-    pageTitle: string = 'Product List';
+    pageTitle: string = 'Inventory List';
 
     _listFilter:string;
     errorMessage: string;
