@@ -45,8 +45,15 @@ public class CheckInCheckOutController {
     @PostMapping(value = "/add")
     public ResponseEntity<Request> addRequest(String itemId, HttpSession session){
     	log.trace("In Post method");
+    	//setting fake data to make sure it works while logged in
+    	Student sFake = new Student();
+    	sFake.setId(1);
+    	Login lFake = new Login();
+    	lFake.setStudent(sFake);
+    	session.setAttribute("loggedUser", lFake);
     	Login l = (Login) session.getAttribute("loggedUser");
     	Student s = l.getStudent();
+    	log.trace(itemId);
     	Inventory i = new Inventory(Integer.parseInt(itemId));
     	Request r = new Request(null, i, s);
     	RequestHibernate rH = new RequestHibernate();
