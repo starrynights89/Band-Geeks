@@ -20,7 +20,7 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inventory")
 	@SequenceGenerator(name = "inventory", sequenceName = "inventory_seq", allocationSize = 1)
-	@Column(name = "inventory_id")
+	@Column(name = "item_id")
 	private Integer id;
 
 	//constructos

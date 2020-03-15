@@ -2,6 +2,8 @@ package com.bandgeeks.controller;
 
 import javax.servlet.http.HttpSession;
 
+
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,7 @@ public class LoginController {
 	@GetMapping(value = "/login")
 	public ResponseEntity<Login> login(HttpSession session) {
 		Login loggedUser = (Login) session.getAttribute("loggedUser");
+		log.trace("Logged User"+loggedUser);
 		if (loggedUser == null)
 			return ResponseEntity.status(401).build();
 		return ResponseEntity.ok(loggedUser);

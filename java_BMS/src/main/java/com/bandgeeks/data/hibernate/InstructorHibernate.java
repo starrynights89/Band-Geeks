@@ -27,7 +27,7 @@ import com.bandgeeks.utils.LogUtil;
 @Repository
 
 public class InstructorHibernate implements InstructorDAO{
-	private Logger log = Logger.getLogger(LoginController.class);
+	private Logger log = Logger.getLogger(InstructorHibernate.class);
 
 	private static HibernateUtil hu = HibernateUtil.getInstance();
 

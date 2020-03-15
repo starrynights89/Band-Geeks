@@ -2,9 +2,11 @@ export class Assignment {
     id: number;
     studentId: number;
     instructorId: number;
-    typeId: number;
-    dateAssigned: number;
-    dateDue: number;
+    assignmentTypeId: number;
+    instrumentTypeId: number;
+    grade: string;
+    dateAssigned: Date;
+    dateDue: Date;
 
 
 }

@@ -25,7 +25,7 @@ export class AssignmentService {
       ));
   }
   getAssignment(id: number): Observable<Assignment> {
-    return this.http.get(this.appUrl + 'assignments/instructor/' + id, { withCredentials: true })
+    return this.http.get(this.appUrl + '/student' + id, { withCredentials: true })
       .pipe(map(
         resp => resp as Assignment
       ));
@@ -33,6 +33,7 @@ export class AssignmentService {
   
   updateAssignment(assignment: Assignment): Observable<Assignment> {
     const body = JSON.stringify(assignment);
+    console.log("Assignment "+assignment);
     if (!assignment.id) {
       // If there is not id on the assignment, it is not from the database.
       // That means we are trying to make a new one!
@@ -43,7 +44,7 @@ export class AssignmentService {
     } else {
       // If there is an id, we are...
       // updating an existing resource
-      const url = this.appUrl + 'assignments/instructor/' + assignment.id;
+      const url = this.appUrl + '/' + assignment.id + '/' + assignment.grade;
       return this.http.put(url, body, { headers: this.headers, withCredentials: true })
       .pipe(map(
         resp => resp as Assignment
