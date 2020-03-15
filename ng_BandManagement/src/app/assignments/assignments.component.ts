@@ -30,7 +30,8 @@ export class AssignmentsComponent implements OnInit {
     //Create assignment
     this.assignment = new Assignment();
     console.log("New Assignment "+this.assignment);
-    //get assignments
+
+    //get assignments for 
     this.assignmentService.getAllAssignments().subscribe(
       resp => {
         this.assignments = resp;
@@ -49,13 +50,16 @@ export class AssignmentsComponent implements OnInit {
       assignment => {
         this.assignment = assignment;
         console.log("Assignment "+ this.assignment);
-        this.route.navigate(['/assignments/instructor']);
+        this.route.navigate(['/assignments']);
       }
     );
+  }
 
-
-  
-
-
+  isStudent(): boolean {
+    return this.loginService.isStudent();
+  }
+  isInstructor(): boolean {
+    return this.loginService.isInstructor();
   }
 }
+

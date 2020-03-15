@@ -1,3 +1,5 @@
+<div *ngIf = isInstructor()>
+
   <!-- Card Narrower -->
   <div class="card card-cascade narrower">
   
@@ -54,6 +56,83 @@
   
   </div>
   <!-- Card Narrower -->
+
+</div>
+
+<div *ngIf = isStudent()>
+  <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Student ID</td>
+        <td>Assignment Type ID</td>
+        <td>Instrument Type ID</td>
+        <td>Date Assigned</td>
+        <td>Date Due</td>
+        <td>Date Submitted</td>
+        <td>Status</td>
+        <td>Action</td>
+      </tr>
+    <tr *ngFor="let a of assignments;" id='assignmentRow'>
+      <td>{{a.id}}</td>
+      <td>{{a.studentId}}</td>
+      <td>{{a.assignmentTypeId}}</td>
+      <td>{{a.instrumentTypeId}}</td>
+      <td>{{a.dateAssigned | date: 'MM-dd'}}</td>
+      <td>{{a.dateDue | date: 'MM-dd'}}</td>
+      <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
+      <td>{{a.status}}</td>
+
+      <button id="gradebtn" class="btn btn-warning" data-toggle="modal" data-target="#orangeModalSubscription" (click)="set(a.id)">Turn In</button>
+
+    </tr>
+    <tbody>
+      
+  </table>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,15 +207,18 @@ aria-hidden="true">
 
       <table class="table">
         <tbody>
-          <tr>
-            <td>ID</td>
-            <td>Student ID</td>
-            <td>Assignment Type ID</td>
-            <td>Instrument Type ID</td>
-            <td>Date Assigned</td>
-            <td>Date Due</td>
-            <td>Action</td>
-          </tr>
+            <tr>
+              <td>ID</td>
+              <td>Student ID</td>
+              <td>Assignment Type ID</td>
+              <td>Instrument Type ID</td>
+              <td>Date Assigned</td>
+              <td>Date Due</td>
+              <td>Date Submitted</td>
+              <td>Status</td>
+              <td>Action</td>
+            </tr>
+            
           
           <tr *ngFor="let a of assignments;" id='assignmentRow'>
             <td>{{a.id}}</td>
@@ -145,6 +227,8 @@ aria-hidden="true">
             <td>{{a.instrumentTypeId}}</td>
             <td>{{a.dateAssigned | date: 'MM-dd'}}</td>
             <td>{{a.dateDue | date: 'MM-dd'}}</td>
+            <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
+            <td>{{a.status}}</td>
 
             <button id="gradebtn" class="btn btn-success" data-toggle="modal" data-target="#orangeModalSubscription" (click)="set(a.id)">Grade</button>
 
@@ -186,3 +270,6 @@ aria-hidden="true">
   <!--/.Content-->
 </div>
 </div>
+
+
+

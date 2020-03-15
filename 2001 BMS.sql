@@ -159,7 +159,9 @@ create table assignment(
     assignment_grade varchar2(3),
     assignment_instrument varchar2(50),
     date_assigned date,
-    date_due date
+    date_due date,
+    date_submitted date,
+    status varchar(50)
 );
 create table comments(
     comment_id number(3) primary key,

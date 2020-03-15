@@ -27,7 +27,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'assignments/instructor',
+    path: 'assignments',
     component: AssignmentsComponent
   },
 ];

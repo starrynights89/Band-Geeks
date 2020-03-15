@@ -66,9 +66,9 @@ public class AssignmentServiceHibernate implements AssignmentService{
 	}
 
 	@Override
-	public List<Assignment> getAllAssignments(int instructorId) {
+	public List<Assignment> getAllAssignments(int instructorId, int studentId) {
 		// TODO Auto-generated method stub
-		return assgnDAO.getAllAssignments(instructorId);
+		return assgnDAO.getAllAssignments(instructorId, studentId);
 	}
 
 	@Override

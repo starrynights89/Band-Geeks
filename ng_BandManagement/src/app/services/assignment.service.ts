@@ -10,7 +10,7 @@ import { Assignment } from '../classes/assignment';
 
 @Injectable()
 export class AssignmentService {
-  private appUrl = this.urlService.getUrl() + 'assignments/instructor';
+  private appUrl = this.urlService.getUrl() + 'assignments';
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(
@@ -25,7 +25,7 @@ export class AssignmentService {
       ));
   }
   getAssignment(id: number): Observable<Assignment> {
-    return this.http.get(this.appUrl + '/student' + id, { withCredentials: true })
+    return this.http.get(this.appUrl + '/' + id, { withCredentials: true })
       .pipe(map(
         resp => resp as Assignment
       ));
