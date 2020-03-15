@@ -27,7 +27,7 @@ export class RequestsInstructorComponent implements OnInit {
     private instrumentService: InstrumentService,
     private uniformService: UniformService
   ) { }
-public itemName;
+public itemName: String; 
 
 
   ngOnInit(): void {
@@ -70,5 +70,20 @@ public itemName;
 
 
   }
+
+  acceptReq():void {
+
+  }
+  rejectReq(): void {
+    
+  }
+  getItemName(inventory): String{
+    if (inventory instanceof Instrument){
+      return inventory.instrumentName;
+    }else{
+      return inventory.uniformName;
+    }
+  }
+
 
 }
