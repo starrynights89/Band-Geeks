@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="uniforms")
-@PrimaryKeyJoinColumn(name="uniforms_id")
+@PrimaryKeyJoinColumn(name="uniforms_inventory_id")
 
 
 
@@ -34,7 +34,6 @@ public class Uniform extends Inventory{
 		super(id);
 		this.uniformName = uniformName;
 	}
-	//get/set
 	@Override
 	public String toString() {
 		return "Uniform [uniformName=" + uniformName + "]";

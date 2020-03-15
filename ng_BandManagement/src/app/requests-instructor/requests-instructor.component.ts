@@ -32,6 +32,7 @@ export class RequestsInstructorComponent implements OnInit {
         resp => {
           this.instrumentList = resp;
           console.log("InstrumentList "+resp);
+          console.log(this.instrumentList);
         }
       );
         //get uniforms
@@ -39,6 +40,7 @@ export class RequestsInstructorComponent implements OnInit {
           resp => {
             this.uniformList = resp;
             console.log("UniformList "+resp);
+            console.log(this.uniformList);
           }
         );
   

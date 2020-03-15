@@ -20,7 +20,7 @@
       <!-- Text -->
       <p class="card-text">Instructions on how to create inventory goes here.</p>
       <!-- Button -->
-      <button id="AddInvButton" class="btn btn-primary" data-toggle="modal" data-target="#modalSubscriptionForm" [routerLink]="'/requests/instructor/create'">Create Inventory</button>
+      <button id="AddInvButton" class="btn btn-primary" data-toggle="modal" data-target="#modalSubscriptionForm">Create Inventory</button>
   
     </div>
   
@@ -47,7 +47,7 @@
       <!-- Text -->
       <p class="card-text">Instructions on what happens next goes here.</p>
       <!-- Button -->
-      <button id="assignmentButton" class="btn btn-primary" data-toggle="modal" data-target="#viewInventoryModal" [routerLink]="'/requests/instructor/view'">View Requests</button>
+      <button id="assignmentButton" class="btn btn-primary" data-toggle="modal" data-target="#viewInventoryModal">View Requests</button>
 
   
     </div>
@@ -75,7 +75,7 @@
           <!-- Text -->
           <p class="card-text">Instructions on what happens next goes here.</p>
           <!-- Button -->
-          <button id="assignmentButton" class="btn btn-primary" [routerLink]="'/requests/instructor/view'">View Requests</button>
+          <button id="assignmentButton" class="btn btn-primary">View Requests</button>
         </div>
       
         </div>
@@ -135,29 +135,27 @@
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   <div id = "viewmodaltitle"><h4 class="modal-title" id="classModalLabel">
-                        Class Info
+                        Inventory List
                       </h4></div>
                 </div>
                 <div class="modal-body mx-4">
-                  <table id="inTable" class="table table-bordered"
-                  *ngFor="let i of instrument;" id='{{i.id}}'>
+                  <table id="inTable" class="table table-bordered">
                     <thead>
                         <strong>Instruments</strong>
                     </thead>
                     <tbody>
                       <tr>
                         <th>Inventory Number:</th>
-                        <th>Instrument:/th>
+                        <th>Instrument:</th>
                       </tr>
-                      <tr>
+                      <tr *ngFor="let i of instrumentList;" id='{{i.id}}'>
                         <td>{{i.id}}</td>
                         <td>{{i.instrumentName}}</td>
                       </tr>
 
                     </tbody>
                   </table>
-                  <table id="inTable" class="table table-bordered"
-                  *ngFor="let u of uniform;" id='{{u.id}}'>
+                  <table id="inTable" class="table table-bordered">
                     <thead>
                         <strong>Uniforms</strong>
                     </thead>
@@ -166,7 +164,7 @@
                         <th>Inventory Number:</th>
                         <th>Uniform:</th>
                       </tr>
-                      <tr>
+                      <tr *ngFor="let u of uniformList;" id='{{u.id}}'>
                         <td>{{u.id}}</td>
                         <td>{{u.uniformName}}</td>
                       </tr>

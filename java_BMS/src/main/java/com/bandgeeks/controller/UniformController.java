@@ -30,6 +30,7 @@ private Logger log = Logger.getLogger(UniformController.class);
 	@GetMapping()
 	public ResponseEntity<Set<Uniform>> getUniforms() {
 		log.trace("getting set of uniforms with get");
+		log.trace(us.getUniforms());
 		return ResponseEntity.ok(us.getUniforms());
 	}
 	

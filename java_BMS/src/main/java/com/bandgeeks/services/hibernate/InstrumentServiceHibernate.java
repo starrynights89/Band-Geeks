@@ -10,7 +10,7 @@ import com.bandgeeks.beans.Instrument;
 import com.bandgeeks.data.hibernate.InstrumentDAO;
 
 @Service
-public class InstrumentServiceHibernate implements InstrumentDAO {
+public class InstrumentServiceHibernate implements InstrumentService {
 	private Logger log = Logger.getLogger(InstrumentServiceHibernate.class);
 	@Autowired
 	private InstrumentDAO nd;
