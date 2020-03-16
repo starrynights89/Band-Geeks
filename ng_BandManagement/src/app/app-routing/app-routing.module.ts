@@ -5,6 +5,7 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 // import { UsersComponent } from '../users/users.component';
 import { ChatHomeComponent } from '../chat-home/chat-home.component';
 import { AssignmentsComponent } from '../assignments/assignments.component';
+import { ChatterComponent } from '../chatter/chatter.component';
 import { ProductListComponent } from '../products/product-list.component';
 import { RequestsInstructorComponent } from '../requests-instructor/requests-instructor.component';
 
@@ -29,8 +30,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'assignments/instructor',
+    path: 'assignments',
     component: AssignmentsComponent
+  },
+  {
+    path: 'chat',
+    component: ChatterComponent
   },
   {
     path: 'requests/student',

@@ -47,16 +47,32 @@ public class AssignmentHibernate implements AssignmentDAO {
 	}
 
 	@Override
-	public List<Assignment> getAllAssignments(int instructorId) {
-		// Get all assignments by instructor Id.
-		log.trace("Getting all Assignments for instructor");
-
-		Session s = hu.getSession();
-		Query<Assignment> q = s.createQuery("FROM Assignment where instructorId =:id", Assignment.class);
-		q.setParameter("id", instructorId);
-		List<Assignment> assignmentList = q.getResultList();
-		s.close();
-		return assignmentList;
+	public List<Assignment> getAllAssignments(int instructorId, int studentId) {
+		// Get all assignments by Id.
+		if (instructorId > 0)
+		{
+			log.trace("Getting all Assignments for instructor");
+	
+			Session s = hu.getSession();
+			Query<Assignment> q = s.createQuery("FROM Assignment where instructorId =:id", Assignment.class);
+			q.setParameter("id", instructorId);
+			List<Assignment> assignmentList = q.getResultList();
+			s.close();
+			return assignmentList;
+		}
+		else if (studentId > 0){
+			log.trace("Getting all Assignments for student");
+			
+			Session s = hu.getSession();
+			Query<Assignment> q = s.createQuery("FROM Assignment where studentId =:id", Assignment.class);
+			q.setParameter("id", studentId);
+			List<Assignment> assignmentList = q.getResultList();
+			s.close();
+			return assignmentList;
+			
+		}
+		return null;
+		
 	}
 
 	@Override
@@ -78,6 +94,28 @@ public class AssignmentHibernate implements AssignmentDAO {
 			tx = s.beginTransaction();
 			Assignment a = getAssignmentById(id);
 			a.setGrade(grade);
+			s.update(a);
+			tx.commit();
+		} catch(Exception e) {
+			if (tx != null) {
+				tx.rollback();
+				return false;
+			}
+			LogUtil.logException(e, AssignmentHibernate.class);
+		} finally {
+			s.close();
+		}
+
+		return true;
+	}
+
+	@Override
+	public boolean updateAssignment(Assignment a) {
+		log.trace("Updating assignment id "+a.getId());
+		Session s = hu.getSession();
+		Transaction tx = null;
+		try {
+			tx = s.beginTransaction();
 			s.update(a);
 			tx.commit();
 		} catch(Exception e) {

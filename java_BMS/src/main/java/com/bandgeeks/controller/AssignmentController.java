@@ -36,15 +36,30 @@ public class AssignmentController {
 		@Autowired
 		private AssignmentService assgnServ;
 		
-		@GetMapping(value="/assignments/instructor")
+		@GetMapping(value="/assignments")
 		public ResponseEntity<List<Assignment>> getAllAssignments(HttpSession session) {
 			Login loggedUser = (Login) session.getAttribute("loggedUser");
-			int instructorId = loggedUser.getInstructor().getId();
+			if(loggedUser.getInstructor() != null) {
 			
-			return ResponseEntity.ok(assgnServ.getAllAssignments(instructorId));
+				int instructorId = loggedUser.getInstructor().getId();
+				
+				return ResponseEntity.ok(assgnServ.getAllAssignments(instructorId,0));
+			}
+			
+			else if(loggedUser.getStudent() != null) {
+				
+				int studentId = loggedUser.getStudent().getId();
+				
+				return ResponseEntity.ok(assgnServ.getAllAssignments(0,studentId));
+			}
+			else {
+				return ResponseEntity.notFound().build();
+
+			}
+			
 		}
 		
-		@PostMapping(value="/assignments/instructor")
+		@PostMapping(value="/assignments")
 		public ResponseEntity<Assignment> addAssignment(@RequestBody Assignment a, HttpSession session) {
 			Login loggedUser = (Login) session.getAttribute("loggedUser");
 			
@@ -70,12 +85,25 @@ public class AssignmentController {
 			return ResponseEntity.status(201).body(assgnServ.createAssignment(a, course, instrument));
 		}
 		
-		@PutMapping(value="/assignments/instructor/{id}/{grade}")
-		public ResponseEntity<Boolean> getAssignment(@PathVariable("id") int id, @PathVariable("grade") String grade) {
-			Boolean a = assgnServ.gradeAssignment(id, grade);
-			if(a != null) {
-				return ResponseEntity.ok(a);
+		@PutMapping(value="/assignments/{id}/{grade}")
+		public ResponseEntity<Boolean> getAssignment(@PathVariable("id") int id, @PathVariable("grade") String grade, HttpSession session) {
+			Login loggedUser = (Login) session.getAttribute("loggedUser");
+			if(loggedUser.getInstructor() != null) {
+			
+				Boolean a = assgnServ.gradeAssignment(id, grade);
+				if(a != null) {
+					return ResponseEntity.ok(a);
+				}
 			}
+			
+			else if(loggedUser.getStudent() != null) {
+				
+				Boolean a = assgnServ.turnInAssignment(id);
+				if(a != null) {
+					return ResponseEntity.ok(a);
+				}
+			}
+			
 			return ResponseEntity.notFound().build();
 		}
 //		
