@@ -3,11 +3,11 @@
     <form (submit)="sendMessage()" name="messageForm" #messageForm="ngForm">
       <div>
         <div *ngIf="isInstructor()">
-          <h6>{{ loggedUser.instructor.firstname }}</h6>
+          <h6>{{ loggedUser.instructor.firstname }} {{ loggedUser.instructor.lastname }}</h6>
           <div><span>User Type: Instructor</span></div>
         </div>
         <div *ngIf="isStudent()">
-          <h6>{{ loggedUser.student.firstname }}</h6>
+          <h6>{{ loggedUser.student.firstname }} {{ loggedUser.student.lastname }}</h6>
           <div><span>User Type: Student</span></div>
         </div>
         <textarea

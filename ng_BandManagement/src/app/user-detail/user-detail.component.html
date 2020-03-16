@@ -5,18 +5,18 @@ detail into the DOM-->
 <mdb-card *ngIf="loggedUser">
   <!-- Card Image -->
   <mdb-card-img *ngIf="isInstructor()" src="assets/pics/UIHere.png" alt="Card image cap"></mdb-card-img>
-  <mdb-card-img *ngIf="isStudent()" src="assets/pics/UIHere.png" alt="Card image cap"></mdb-card-img>
+  <mdb-card-img *ngIf="isStudent()" src="assets/pics/students.png" alt="Card image cap"></mdb-card-img>
   <!-- Card Content -->
   <mdb-card-body>
     <!-- Title -->
     <mdb-card-title>
       <div *ngIf="isInstructor()">
-        <h2>{{ loggedUser.instructor.firstname }} Details</h2>
+        <h2>{{ loggedUser.instructor.firstname }} {{ loggedUser.instructor.lastname}} Details</h2>
       </div>
     </mdb-card-title>
     <mdb-card-title>
       <div *ngIf="isStudent()">
-        <h2>{{ loggedUser.student.firstname }} Details</h2>
+        <h2>{{ loggedUser.student.firstname }} {{ loggedUser.student.lastname }} Details</h2>
       </div>
     </mdb-card-title>
     <!-- Text -->
