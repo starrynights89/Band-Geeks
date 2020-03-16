@@ -122,7 +122,7 @@
       
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-indigo" (click)="submit(InvType.value, inventoryBox.value)">Submit</button>
+        <button class="btn btn-primary" (click)="submit(InvType.value, inventoryBox.value)">Submit</button>
       </div>
     </div>
   </div>
@@ -224,8 +224,8 @@
                         <td *ngIf = "isInstrument(r.inventory) == true; else elseBlock">{{r.inventory.instrumentName}}</td>
                             <ng-template #elseBlock>{{r.inventory.uniformName}}</ng-template>
                         <td>{{r.student.firstname + ' ' + r.student.lastname}}</td>
-                        <td>{{r.checkIn}}</td>
-                        <td>{{r.checkOut}}</td>
+                        <td>{{r.checkIn | date: 'MM-dd'}}</td>
+                        <td>{{r.checkOut | date: 'MM-dd'}}</td>
                         <td>{{r.instructor.firstname + ' ' + r.instructor.lastname}}</td>
                         <td>{{r.status.statusType}}</td>
                         <td> <button class="btn btn-success" (click)="acceptReq(r)">Accept</button></td>
