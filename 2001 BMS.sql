@@ -14,6 +14,8 @@ drop table requests cascade constraints;
 drop table instrument_type cascade constraints;
 drop table statuses cascade constraints;
 drop table uniform_type cascade constraints;
+drop table chatter cascade constraints;
+
 
 
 
@@ -37,6 +39,8 @@ drop sequence statuses_seq;
 drop sequence requests_seq;
 drop sequence assignment_seq;
 drop sequence comments_seq;
+drop sequence chatter_seq;
+
 
 
 
@@ -56,6 +60,8 @@ create sequence statuses_seq nocache;
 create sequence requests_seq nocache;
 create sequence assignment_seq nocache;
 create sequence comments_seq nocache;
+create sequence chatter_seq nocache;
+
 
 
 
@@ -168,7 +174,18 @@ create table comments(
     reciever number(3),
     sender number(3),
     time_stamp TIMESTAMP,
-    cmmnt varchar2(100)
+    cmmnt varchar2(100), 
+    foreign key (reciever) references login(user_id),
+    foreign key (sender) references login(user_id)
+);
+
+create table chatter(
+    chat_id number(3) primary key,
+    reciever number(3),
+    sender number(3),
+    chat_timestamp TIMESTAMP,
+    message varchar2(100) , 
+    read_reciept varchar2(50)
 );
 
 
@@ -289,6 +306,8 @@ insert into login(user_id, firstname, lastname, username, user_password)
 -------INstructors------
 insert into instructors(instructor_id, Instructor_course_id) 
     values(3, 3);
+    
+    
 insert into students(student_id, student_course_id) 
     values(2,3);
 insert into students(student_id, student_course_id) 

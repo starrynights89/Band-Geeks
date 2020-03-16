@@ -18,6 +18,9 @@ import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentTypeService } from './services/assignment-type.service';
 import { AssignmentService } from './services/assignment.service';
+import { ChatterService } from './services/chatter.service';
+import { ChatUsersService } from './services/chat-users.service';
+import { ChatterComponent } from './chatter/chatter.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { AssignmentService } from './services/assignment.service';
     UserDetailComponent,
     ChatComponent,
     ChatHomeComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    ChatterComponent
     ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import { AssignmentService } from './services/assignment.service';
     UrlService,
     LoginService,
     AssignmentTypeService,
-    AssignmentService
+    AssignmentService,
+    ChatterService,
+    ChatUsersService
 
   ],
   bootstrap: [AppComponent]
