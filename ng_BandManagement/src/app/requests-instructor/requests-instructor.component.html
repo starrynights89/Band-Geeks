@@ -149,8 +149,8 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th>Inventory Number:</th>
-                        <th>Instrument:</th>
+                        <th id = "inum">Inventory Number:</th>
+                        <th id = "iname">Instrument:</th>
                       </tr>
                       <tr *ngFor="let i of instrumentList;" id='{{i.id}}'>
                         <td>{{i.id}}</td>
@@ -166,8 +166,8 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th>Inventory Number:</th>
-                        <th>Uniform:</th>
+                        <th id = "inum">Inventory Number:</th>
+                        <th id = "inum">Uniform:</th>
                       </tr>
                       <tr *ngFor="let u of uniformList;" id='{{u.id}}'>
                         <td>{{u.id}}</td>
@@ -206,16 +206,16 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th>Request Number:</th>
-                        <th>Inventory Number:</th>
-                        <th>Item Name:</th>
-                        <th>Student Name:</th>
-                        <th>Check Out Date:</th>
-                        <th>Date Due:</th>
-                        <th>Approved By:</th>
-                        <th>Status:</th>
-                        <th>Accept:</th>
-                        <th>Reject:</th>
+                        <th id = "rnum">Request Number:</th>
+                        <th id = "inum">Inventory Number:</th>
+                        <th id = "itname">Item Name:</th>
+                        <th id = "stname">Student Name:</th>
+                        <th id = "codate">Check Out Date:</th>
+                        <th id = "duedate">Date Due:</th>
+                        <th id = "approveins">Approved By:</th>
+                        <th id = "status">Status:</th>
+                        <th id = "acc">Accept:</th>
+                        <th id = "rej">Reject:</th>
 
                       </tr>
                       <tr *ngFor="let r of requestList;" id='{{r.requestId}}'>
