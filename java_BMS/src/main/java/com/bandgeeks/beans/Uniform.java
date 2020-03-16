@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 
-public class Uniform extends Inventory{
+public class Uniform extends Inventory implements IDisplayInv{
 
 	@Column(name = "uniforms_name")
 	private String uniformName;
@@ -28,9 +28,18 @@ public class Uniform extends Inventory{
 		super(id);
 		this.uniformName = uniformName;
 	}
+	//get/set
 	@Override
 	public String toString() {
 		return "Uniform [uniformName=" + uniformName + "]";
+	}
+	@Override
+	public int getProductId() {
+		return getId();
+	}
+	@Override
+	public String getProductName() {
+		return uniformName;
 	}
 	/**
 	 * @return the uniformName
