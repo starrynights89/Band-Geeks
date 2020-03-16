@@ -3,6 +3,7 @@ package com.bandgeeks.controller;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.bandgeeks.beans.IDisplayInv;
 import com.bandgeeks.beans.Instrument;
@@ -41,13 +44,18 @@ public class CheckInCheckOutController {
     	Set<Instrument> i = iH.getInstruments();
     	iDI.addAll(u);
     	iDI.addAll(i);
+    	log.trace(session.getId());
 		return ResponseEntity.ok(iDI);
 	
 	}
     @PostMapping(value = "/add/{productId}")
     public ResponseEntity<Request> addRequest(@PathVariable("productId") String itemId, HttpSession session){
     	log.trace("In Post method");
-    	log.trace(itemId);
+    	log.trace("session id: " + session.getId());
+    	 ServletRequestAttributes sra = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+    	    HttpServletRequest req = sra.getRequest();
+    	    HttpSession s1 =req.getSession();
+    	    log.trace("S1 session id: " + s1.getId());
     	//setting fake data to make sure it works while logged in
 //    	Student sFake = new Student();
 //    	sFake.setId(1);
