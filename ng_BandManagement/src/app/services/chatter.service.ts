@@ -42,7 +42,7 @@ export class ChatterService {
     } else {
       // If there is an id, we are...
       // updating an existing resource
-      const url = this.appUrl + '/' + chatter.id;
+      const url = this.appUrl;
       return this.http.put(url, body, { headers: this.headers, withCredentials: true })
       .pipe(map(
         resp => resp as Chatter

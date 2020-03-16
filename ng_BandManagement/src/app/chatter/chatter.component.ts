@@ -68,9 +68,10 @@ export class ChatterComponent implements OnInit {
     );
   }
 
-  Reply(): void {
+  Reply(id: number): void {
        //Create message
       this.message = new Chatter();
+      this.message.reciever = id;
       this.message.read = "N";
 
       this.chatterService.updateMessage(this.message).subscribe(
