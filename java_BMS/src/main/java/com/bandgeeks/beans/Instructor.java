@@ -65,8 +65,11 @@ public class Instructor extends User {
 	public String toString() {
 		return "Instructor [course=" + course + ", getId()=" + getId() + ", getUsername()=" + getUsername()
 				+ ", getPassword()=" + getPassword() + ", getFirstname()=" + getFirstname() + ", getLastname()="
-				+ getLastname() + "]";
+				+ getLastname() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + "]";
 	}
+
+
 
 
 
