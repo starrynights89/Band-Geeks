@@ -32,6 +32,14 @@ export class InstrumentService {
         resp => resp as Instrument
       ));
   }
+  createInstrument(instrument: Instrument){
+    const body = JSON.stringify(instrument);
+    return this.http.post(this.appUrl, body,
+      { headers: this.headers, withCredentials: true }).pipe(
+      map( resp => resp as Instrument )
+    );
+  
+  }
   
   updateInstrument(instrument: Instrument): Observable<Instrument> {
     const body = JSON.stringify(instrument);
@@ -52,6 +60,6 @@ export class InstrumentService {
       ));
     }
   }
-
-
 }
+
+

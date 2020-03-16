@@ -7,7 +7,6 @@ import { Uniform } from '../classes/uniform';
 import { InstrumentService } from '../services/instrument.service';
 import { UniformService } from '../services/uniform.service';
 import { Inventory } from '../classes/inventory';
-import { Currentuser } from '../classes/currentuser';
 import { LoginService } from '../services/login.service';
 import { Status } from '../classes/status';
 
@@ -62,18 +61,36 @@ public itemName: String;
           );
   }
 
-  submit(): void {
-    this.requestInstructorService.updateRequest(this.request).subscribe(
-      request => {
-        this.request = request;
-        this.route.navigate(['/requests/instructor']);
+  submit(type, name): void {
+    
+    if (type == 1){
+      let inst = new Instrument();
+      inst.instrumentName = name;
+      console.log(inst);
+
+      this.instrumentService.updateInstrument(inst).subscribe(
+      inst => {
+       inst = inst;
+        this.route.navigate(['/requests/instructor/']);
       }
     );
+    alert("Instrument added!");
 
 
-  
+    }else if (type == 2) {
+      let uni = new Uniform();
+      uni.uniformName = name;
+      console.log(uni);
 
-
+      this.uniformService.updateUniform(uni).subscribe(
+        uni => {
+          uni = uni;
+          this.route.navigate(['/uniform']);
+        }
+      );
+      alert("Uniform Added!");
+    }
+    else{alert("Select a type!")}
   }
 
   acceptReq(request: Request):void {
@@ -97,6 +114,7 @@ public itemName: String;
   }
   rejectReq(request: Request): void {
     console.log(request);
+    request.status = new Status();
     request.status.statusId = 3;
     request.status.statusType = 'REJECTED';
     request.instructor =this.loginService.getInstructor();
