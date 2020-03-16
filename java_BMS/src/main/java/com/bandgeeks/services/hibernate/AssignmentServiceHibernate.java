@@ -76,6 +76,12 @@ public class AssignmentServiceHibernate implements AssignmentService{
 		// TODO Auto-generated method stub
 		return assgnDAO.getAssignmentById(id);
 	}
+
+	@Override
+	public boolean gradeAssignment(int id, String grade) {
+		// Update grade on assignment
+		return assgnDAO.gradeAssignment(id, grade);
+	}
 	
 
 }

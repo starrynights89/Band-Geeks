@@ -36,5 +36,6 @@
 		<mapping class="com.bandgeeks.beans.Login"/>
 
 
+
 	</session-factory>
 </hibernate-configuration>

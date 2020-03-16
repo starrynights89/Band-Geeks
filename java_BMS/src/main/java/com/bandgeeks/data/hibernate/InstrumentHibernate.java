@@ -104,5 +104,16 @@ public class InstrumentHibernate implements InstrumentDAO {
 			s.close();
 		}
 	}
+	@Override
+	public Instrument getInstrumentByName(String name) {
+		// Get instrument by name
+		log.trace("Getting instrument "+name);
+		Session s = hu.getSession();
+		Query<Instrument> q = s.createQuery("FROM Instrument where instrumentName =:name", Instrument.class);
+		q.setParameter("name", name);
+		Instrument a = q.uniqueResult();
+		s.close();
+		return a;
+	}
 
 }
