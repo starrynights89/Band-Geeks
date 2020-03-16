@@ -36,7 +36,7 @@ public class InstrumentController {
 	
 	@PostMapping
 	public ResponseEntity<Integer> addInstrument(@RequestBody Instrument i) {
-		log.trace("adding a instrument with post");
+		log.trace("adding a instrument with post: " + i);
 		return ResponseEntity.status(201).body(is.createInstrument(i));
 	}
 	

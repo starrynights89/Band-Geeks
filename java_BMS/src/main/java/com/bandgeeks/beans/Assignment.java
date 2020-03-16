@@ -21,7 +21,6 @@ public class Assignment {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="assignment")
 	@SequenceGenerator(name="assignment", sequenceName="assignment_seq", allocationSize=1)
-	
 	@Column(name = "assignment_id")
 	private int id;
 	
@@ -60,13 +59,14 @@ public class Assignment {
 
 
 
-	public Assignment(int id, int studentId, int instructorId, int assignmentTypeId, String grade, Date dateAssigned,
-			Date dateDue) {
+	public Assignment(int id, int studentId, int instructorId, int assignmentTypeId, String instrument, String grade,
+			Date dateAssigned, Date dateDue) {
 		super();
 		this.id = id;
 		this.studentId = studentId;
 		this.instructorId = instructorId;
 		this.assignmentTypeId = assignmentTypeId;
+		this.instrument = instrument;
 		this.grade = grade;
 		this.dateAssigned = dateAssigned;
 		this.dateDue = dateDue;
@@ -86,22 +86,6 @@ public class Assignment {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-
-
-
-
-	public String getInstrument() {
-		return instrument;
-	}
-
-
-
-
-
-	public void setInstrument(String instrument) {
-		this.instrument = instrument;
 	}
 
 
@@ -150,6 +134,22 @@ public class Assignment {
 
 	public void setAssignmentTypeId(int assignmentTypeId) {
 		this.assignmentTypeId = assignmentTypeId;
+	}
+
+
+
+
+
+	public String getInstrument() {
+		return instrument;
+	}
+
+
+
+
+
+	public void setInstrument(String instrument) {
+		this.instrument = instrument;
 	}
 
 
@@ -214,6 +214,7 @@ public class Assignment {
 		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
 		result = prime * result + id;
 		result = prime * result + instructorId;
+		result = prime * result + ((instrument == null) ? 0 : instrument.hashCode());
 		result = prime * result + studentId;
 		return result;
 	}
@@ -252,8 +253,42 @@ public class Assignment {
 			return false;
 		if (instructorId != other.instructorId)
 			return false;
+		if (instrument == null) {
+			if (other.instrument != null)
+				return false;
+		} else if (!instrument.equals(other.instrument))
+			return false;
 		if (studentId != other.studentId)
 			return false;
 		return true;
 	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Assignment [id=" + id + ", studentId=" + studentId + ", instructorId=" + instructorId
+				+ ", assignmentTypeId=" + assignmentTypeId + ", instrument=" + instrument + ", grade=" + grade
+				+ ", dateAssigned=" + dateAssigned + ", dateDue=" + dateDue + "]";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+	
+
 }

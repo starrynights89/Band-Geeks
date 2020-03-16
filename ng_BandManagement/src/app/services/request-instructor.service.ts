@@ -44,7 +44,7 @@ export class RequestInstructorService {
     } else {
       // If there is an id, we are...
       // updating an existing resource
-      const url = this.appUrl + 'request/' + request.requestId;
+      const url = this.appUrl + request.requestId;
       return this.http.put(url, body, { headers: this.headers, withCredentials: true })
       .pipe(map(
         resp => resp as Request

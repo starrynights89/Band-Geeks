@@ -18,7 +18,6 @@ import com.bandgeeks.utils.LogUtil;
 @Repository
 public class InstrumentHibernate implements InstrumentDAO {
 
-
 	private Logger log = Logger.getLogger(InstrumentHibernate.class);
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	
@@ -105,7 +104,6 @@ public class InstrumentHibernate implements InstrumentDAO {
 			s.close();
 		}
 	}
-
 	@Override
 	public Instrument getInstrumentByName(String name) {
 		// Get instrument by name
