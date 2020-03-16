@@ -58,7 +58,7 @@ private HibernateUtil hu = HibernateUtil.getInstance();
 	@Override
 	public Set<Inventory> getInventory() {
 		Session s = hu.getSession();
-		String query = "FROM inventory";
+		String query = "FROM Inventory";
 		Query<Inventory> q = s.createQuery(query, Inventory.class);
 		List<Inventory> inventoryList = q.getResultList();
 		Set<Inventory> inventorySet = new HashSet<Inventory>();

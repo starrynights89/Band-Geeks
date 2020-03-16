@@ -4,7 +4,6 @@ export class User {
     lastname: string;
     username: string;
     password: string;
-    level: string;
 
 
 }

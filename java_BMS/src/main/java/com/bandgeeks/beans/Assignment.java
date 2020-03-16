@@ -46,9 +46,12 @@ public class Assignment {
 	@Column(name = "date_due")
 	private Date dateDue;
 	
+	@Column(name = "date_submitted")
+	private Date dateSubmitted;
 	
-	
-	
+	@Column(name = "status")
+	private String status;
+
 
 	public Assignment() {
 		super();
@@ -58,9 +61,8 @@ public class Assignment {
 
 
 
-
 	public Assignment(int id, int studentId, int instructorId, int assignmentTypeId, String instrument, String grade,
-			Date dateAssigned, Date dateDue) {
+			Date dateAssigned, Date dateDue, Date dateSubmitted, String status) {
 		super();
 		this.id = id;
 		this.studentId = studentId;
@@ -70,139 +72,89 @@ public class Assignment {
 		this.grade = grade;
 		this.dateAssigned = dateAssigned;
 		this.dateDue = dateDue;
+		this.dateSubmitted = dateSubmitted;
+		this.status = status;
 	}
-
-
-
-
 
 	public int getId() {
 		return id;
 	}
 
-
-
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
-
-
 
 	public int getStudentId() {
 		return studentId;
 	}
 
-
-
-
-
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-
-
-
-
 
 	public int getInstructorId() {
 		return instructorId;
 	}
 
-
-
-
-
 	public void setInstructorId(int instructorId) {
 		this.instructorId = instructorId;
 	}
-
-
-
-
 
 	public int getAssignmentTypeId() {
 		return assignmentTypeId;
 	}
 
-
-
-
-
 	public void setAssignmentTypeId(int assignmentTypeId) {
 		this.assignmentTypeId = assignmentTypeId;
 	}
-
-
-
-
 
 	public String getInstrument() {
 		return instrument;
 	}
 
-
-
-
-
 	public void setInstrument(String instrument) {
 		this.instrument = instrument;
 	}
-
-
-
-
 
 	public String getGrade() {
 		return grade;
 	}
 
-
-
-
-
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-
-
-
-
 
 	public Date getDateAssigned() {
 		return dateAssigned;
 	}
 
-
-
-
-
 	public void setDateAssigned(Date dateAssigned) {
 		this.dateAssigned = dateAssigned;
 	}
-
-
-
-
 
 	public Date getDateDue() {
 		return dateDue;
 	}
 
-
-
-
-
 	public void setDateDue(Date dateDue) {
 		this.dateDue = dateDue;
 	}
 
+	public Date getDateSubmitted() {
+		return dateSubmitted;
+	}
 
+	public void setDateSubmitted(Date dateSubmitted) {
+		this.dateSubmitted = dateSubmitted;
+	}
 
+	public String getStatus() {
+		return status;
+	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	@Override
 	public int hashCode() {
@@ -211,17 +163,15 @@ public class Assignment {
 		result = prime * result + assignmentTypeId;
 		result = prime * result + ((dateAssigned == null) ? 0 : dateAssigned.hashCode());
 		result = prime * result + ((dateDue == null) ? 0 : dateDue.hashCode());
+		result = prime * result + ((dateSubmitted == null) ? 0 : dateSubmitted.hashCode());
 		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
 		result = prime * result + id;
 		result = prime * result + instructorId;
 		result = prime * result + ((instrument == null) ? 0 : instrument.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + studentId;
 		return result;
 	}
-
-
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -244,6 +194,11 @@ public class Assignment {
 				return false;
 		} else if (!dateDue.equals(other.dateDue))
 			return false;
+		if (dateSubmitted == null) {
+			if (other.dateSubmitted != null)
+				return false;
+		} else if (!dateSubmitted.equals(other.dateSubmitted))
+			return false;
 		if (grade == null) {
 			if (other.grade != null)
 				return false;
@@ -258,24 +213,27 @@ public class Assignment {
 				return false;
 		} else if (!instrument.equals(other.instrument))
 			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
 		if (studentId != other.studentId)
 			return false;
 		return true;
 	}
 
-
-
-
-
 	@Override
 	public String toString() {
 		return "Assignment [id=" + id + ", studentId=" + studentId + ", instructorId=" + instructorId
 				+ ", assignmentTypeId=" + assignmentTypeId + ", instrument=" + instrument + ", grade=" + grade
-				+ ", dateAssigned=" + dateAssigned + ", dateDue=" + dateDue + "]";
+				+ ", dateAssigned=" + dateAssigned + ", dateDue=" + dateDue + ", dateSubmitted=" + dateSubmitted
+				+ ", status=" + status + "]";
 	}
-
-
-
+	
+	
+	
+	
 
 
 

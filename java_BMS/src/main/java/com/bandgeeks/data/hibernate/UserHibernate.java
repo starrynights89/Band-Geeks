@@ -1,5 +1,7 @@
 package com.bandgeeks.data.hibernate;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -105,5 +107,16 @@ public class UserHibernate implements UserDAO {
 		} finally {
 			s.close();
 		}
+	}
+
+	@Override
+	public List<User> getUsers() {
+		Session s = hu.getSession();
+		String query = "FROM User";
+		Query<User> q = s.createQuery(query, User.class);
+		List<User> userList = q.getResultList();
+		s.close();
+		return userList;
+
 	}
 }

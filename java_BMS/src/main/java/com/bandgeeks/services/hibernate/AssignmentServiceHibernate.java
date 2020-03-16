@@ -66,9 +66,9 @@ public class AssignmentServiceHibernate implements AssignmentService{
 	}
 
 	@Override
-	public List<Assignment> getAllAssignments(int instructorId) {
+	public List<Assignment> getAllAssignments(int instructorId, int studentId) {
 		// TODO Auto-generated method stub
-		return assgnDAO.getAllAssignments(instructorId);
+		return assgnDAO.getAllAssignments(instructorId, studentId);
 	}
 
 	@Override
@@ -82,6 +82,27 @@ public class AssignmentServiceHibernate implements AssignmentService{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean turnInAssignment(int id) {
+		// Turn in assignment.
+		Assignment a = getAssignmentById(id);
+		LocalDate dateSubmitted = LocalDate.now() ;
+		Date sub = Date.valueOf(dateSubmitted);
+		a.setDateSubmitted(sub);
+		
+		if(a.getDateDue().compareTo(a.getDateSubmitted()) >= 0) {
+			
+			a.setStatus("On Time");
+		}
+		
+		else if(a.getDateDue().compareTo(a.getDateSubmitted()) < 0) {
+			
+			a.setStatus("Late");
+		}
+		return assgnDAO.updateAssignment(a);
+	}
+
 	
 
 }
