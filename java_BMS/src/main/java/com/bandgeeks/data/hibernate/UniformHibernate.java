@@ -19,7 +19,7 @@ public class UniformHibernate implements UniformDAO{
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	
 	@Override
-	public Integer createCourse(Uniform uniform) {
+	public Integer createUniform(Uniform uniform) {
 		Session s = hu.getSession();
 		Transaction tx = null;
 		try {
