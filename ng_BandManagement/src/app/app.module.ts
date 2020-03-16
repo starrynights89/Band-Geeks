@@ -21,6 +21,7 @@ import { AssignmentService } from './services/assignment.service';
 import { ChatterService } from './services/chatter.service';
 import { ChatUsersService } from './services/chat-users.service';
 import { ChatterComponent } from './chatter/chatter.component';
+import { ProductListComponent } from './products/product-list.component';
 import { RequestsInstructorComponent } from './requests-instructor/requests-instructor.component';
 import { RequestInstructorService } from './services/request-instructor.service';
 import { InstrumentService } from './services/instrument.service';
@@ -40,6 +41,7 @@ import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.co
     ChatHomeComponent,
     AssignmentsComponent,
     ChatterComponent,
+    ProductListComponent,
     RequestsInstructorComponent,
     RequestsInstructorComponent,
     RequestsTeacherComponent

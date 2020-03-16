@@ -8,7 +8,7 @@ import { ProductService } from './product.service';
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit{
-    pageTitle: string = 'Product List';
+    pageTitle: string = 'Inventory List';
 
     _listFilter:string;
     errorMessage: string;
@@ -30,9 +30,12 @@ export class ProductListComponent implements OnInit{
     performFilter(filterBy:string): IProduct[]{
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product: IProduct) =>
-            product.instrumentName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+            product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
-
+    addItem(productId: number):void{
+        console.log(productId);
+        this.productService.addRequest(productId)
+    }
     ngOnInit(): void{
         this.productService.getProducts().subscribe({
             next: products => {
