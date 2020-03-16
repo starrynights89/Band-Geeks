@@ -4,7 +4,8 @@
 detail into the DOM-->
 <mdb-card *ngIf="loggedUser">
   <!-- Card Image -->
-  <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
+  <mdb-card-img *ngIf="isInstructor()" src="assets/pics/UIHere.png" alt="Card image cap"></mdb-card-img>
+  <mdb-card-img *ngIf="isStudent()" src="assets/pics/UIHere.png" alt="Card image cap"></mdb-card-img>
   <!-- Card Content -->
   <mdb-card-body>
     <!-- Title -->
@@ -22,11 +23,13 @@ detail into the DOM-->
     <mdb-card-text>
       <div *ngIf="isInstructor()">
         <div><span>id: </span>{{ loggedUser.instructor.id }}</div>
+        <div><span>User Type: Instructor</span></div>
       </div>
     </mdb-card-text>
     <mdb-card-text>
       <div *ngIf="isStudent()">
         <div><span>id: </span>{{ loggedUser.student.id }}</div>
+        <div><span>User Type: Student</span></div>
       </div>
     </mdb-card-text>
   </mdb-card-body>
