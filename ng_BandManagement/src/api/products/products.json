@@ -1,27 +1,41 @@
 [
   {
-    "instrumentId": 1,
-    "instrumentName": "Trumpet(Gold)"
+    "productId": 1,
+    "productName": "Trumpet(Gold)"
     
   },
   {
-    "instrumentId": 2,
-    "instrumentName": "Trumpet(Silver)"
+    "productId": 2,
+    "productName": "Trumpet(Silver)"
    
   },
   {
-    "instrumentId": 5,
-    "instrumentName": "Tombone"
+    "productId": 5,
+    "productName": "Trombone"
    
   },
   {
-    "instrumentId": 8,
-    "instrumentName": "Sax"
+    "productId": 4,
+    "productName": "Uniform"
     
   },
   {
-    "instrumentId": 10,
-    "instrumentName": "Clarenet"
+    "productId": 6,
+    "productName": "Marching Uniform"
     
+  },
+  {
+    "productId": 8,
+    "productName": "Saxophone"
+    
+  },
+  {
+    "productId": 9,
+    "productName": "Jazz Uniform"
+    
+  },
+  {
+    "productId": 10,
+    "productName": "Clarinet"
   }
 ]
