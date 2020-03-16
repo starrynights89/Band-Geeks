@@ -84,8 +84,8 @@ public class ChatterController {
 			return ResponseEntity.status(201).body(cServ.createMessage(c));
 		}
 		
-		@PutMapping(value="/chat/{id}")
-		public ResponseEntity<Boolean> getAssignment(@RequestBody Chatter c) {
+		@PutMapping(value="/chat")
+		public ResponseEntity<Chatter> getAssignment(@RequestBody Chatter c) {
 			
 			return ResponseEntity.ok(cServ.updateMessage(c));
 		}

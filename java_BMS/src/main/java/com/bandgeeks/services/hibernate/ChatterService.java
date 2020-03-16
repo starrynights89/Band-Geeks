@@ -9,6 +9,6 @@ import com.bandgeeks.beans.Course;
 public interface ChatterService {
 	public Chatter createMessage(Chatter message);
 	public List<Chatter> getAllUnreadMessages(int userId);
-	public boolean updateMessage(Chatter message);
+	public Chatter updateMessage(Chatter message);
 
 }

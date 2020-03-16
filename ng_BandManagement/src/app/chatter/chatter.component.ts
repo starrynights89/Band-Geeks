@@ -14,6 +14,7 @@ export class ChatterComponent implements OnInit {
   public messages: Chatter[];
   public message: Chatter;
   public chatUsers: User[];
+  public reply: string;
 
   constructor(
     public route: Router,
@@ -70,9 +71,11 @@ export class ChatterComponent implements OnInit {
 
   Reply(id: number): void {
        //Create message
+       
       this.message = new Chatter();
       this.message.reciever = id;
       this.message.read = "N";
+      this.message.message = this.reply;
 
       this.chatterService.updateMessage(this.message).subscribe(
       message => {

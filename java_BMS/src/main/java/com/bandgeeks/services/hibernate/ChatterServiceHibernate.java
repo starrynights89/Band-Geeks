@@ -45,7 +45,7 @@ public class ChatterServiceHibernate implements ChatterService{
 	}
 
 	@Override
-	public boolean updateMessage(Chatter message) {
+	public Chatter updateMessage(Chatter message) {
 		return cDAO.updateMessage(message);
 	}
 

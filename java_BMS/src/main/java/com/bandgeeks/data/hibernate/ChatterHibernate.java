@@ -15,7 +15,6 @@ import com.bandgeeks.utils.HibernateUtil;
 import com.bandgeeks.utils.LogUtil;
 
 @Repository
-
 public class ChatterHibernate implements ChatterDAO {
 	private static HibernateUtil hu = HibernateUtil.getInstance();
 
@@ -59,7 +58,7 @@ public class ChatterHibernate implements ChatterDAO {
 	}
 
 	@Override
-	public boolean updateMessage(Chatter message) {
+	public Chatter updateMessage(Chatter message) {
 		log.trace("Updating message "+ message);
 		Session s = hu.getSession();
 		Transaction tx = null;
@@ -70,14 +69,14 @@ public class ChatterHibernate implements ChatterDAO {
 		} catch(Exception e) {
 			if (tx != null) {
 				tx.rollback();
-				return false;
+				return null;
 			}
 			LogUtil.logException(e, ChatterHibernate.class);
 		} finally {
 			s.close();
 		}
 
-		return true;
+		return message;
 	}
 
 }
