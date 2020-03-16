@@ -7,6 +7,9 @@ import { Uniform } from '../classes/uniform';
 import { InstrumentService } from '../services/instrument.service';
 import { UniformService } from '../services/uniform.service';
 import { Inventory } from '../classes/inventory';
+import { Currentuser } from '../classes/currentuser';
+import { LoginService } from '../services/login.service';
+import { Status } from '../classes/status';
 
 @Component({
   selector: 'app-requests-instructor',
@@ -21,14 +24,16 @@ export class RequestsInstructorComponent implements OnInit {
   public inventory: Inventory;
   public instrument: Instrument;
   public uniform: Uniform;
+
   constructor(
     public route: Router,
     private requestInstructorService: RequestInstructorService,
     private instrumentService: InstrumentService,
-    private uniformService: UniformService
+    private uniformService: UniformService,
+    private loginService: LoginService
   ) { }
 public itemName: String; 
-
+ 
 
   ngOnInit(): void {
       //get instruments
@@ -71,17 +76,45 @@ public itemName: String;
 
   }
 
-  acceptReq():void {
+  acceptReq(request: Request):void {
+    console.log(request);
+    let today = new Date();
+    let sixMon = new Date(today.getTime() + (180*24*60*60*1000))
+    request.status = new Status();
+    request.status.statusId = 2;
+    request.status.statusType = 'ACCEPTED';
+    request.checkIn = today;
+    request.checkOut = sixMon;
+    request.instructor = this.loginService.getInstructor();
+    console.log(request);
+    this.requestInstructorService.updateRequest(request).subscribe(
+      request => {
+        this.request = request;
+        console.log("Request "+ this.request);
+        this.route.navigate(['/requests/instructor']);
+      }
+    );
+  }
+  rejectReq(request: Request): void {
+    console.log(request);
+    request.status.statusId = 3;
+    request.status.statusType = 'REJECTED';
+    request.instructor =this.loginService.getInstructor();
+    console.log(request);
+    this.requestInstructorService.updateRequest(request).subscribe(
+      request => {
+        this.request = request;
+        console.log("Request "+ this.request);
+        this.route.navigate(['/requests/instructor']);
+      }
+    );
 
   }
-  rejectReq(): void {
-    
-  }
-  getItemName(inventory): String{
-    if (inventory instanceof Instrument){
-      return inventory.instrumentName;
+  isInstrument(inventory): boolean{
+    if (inventory.instrumentName){
+      return true;
     }else{
-      return inventory.uniformName;
+      return false;
     }
   }
 

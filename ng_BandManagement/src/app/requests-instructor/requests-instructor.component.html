@@ -211,15 +211,15 @@
                       <tr *ngFor="let r of requestList;" id='{{r.requestId}}'>
                         <td>{{r.requestId}}</td>
                         <td>{{r.inventory.id}}</td>
-                        <td *ngIf = "r.inventory instanceof Instrument; else elseBlock">{{r.inventory.instrumentName}}</td>
+                        <td *ngIf = "isInstrument(r.inventory) == true; else elseBlock">{{r.inventory.instrumentName}}</td>
                             <ng-template #elseBlock>{{r.inventory.uniformName}}</ng-template>
                         <td>{{r.student.firstname + ' ' + r.student.lastname}}</td>
                         <td>{{r.checkIn}}</td>
                         <td>{{r.checkOut}}</td>
                         <td>{{r.instructor.firstname + ' ' + r.instructor.lastname}}</td>
                         <td>{{r.status.statusType}}</td>
-                        <td> <button class="btn btn-success" (click)="acceptReq()">Accept</button></td>
-                        <td> <button class="btn btn-danger" (click)="rejectReq()">Reject</button></td>
+                        <td> <button class="btn btn-success" (click)="acceptReq(r)">Accept</button></td>
+                        <td> <button class="btn btn-danger" (click)="rejectReq(r)">Reject</button></td>
                       </tr>
 
                     </tbody>
