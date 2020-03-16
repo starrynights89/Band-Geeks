@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { UrlService } from './url.service';
+import { Chatter } from '../classes/chatter';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { UrlService } from './url.service';
-import { Assignment } from '../classes/assignment';
-
-
 @Injectable()
-export class AssignmentService {
-  private appUrl = this.urlService.getUrl() + 'assignments';
+export class ChatterService {
+  private appUrl = this.urlService.getUrl() + 'chat';
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(
@@ -18,37 +15,41 @@ export class AssignmentService {
     private urlService: UrlService
   ) { }
 
-  getAllAssignments(): Observable<Assignment[]> {
+  getMessages(): Observable<Chatter[]> {
     return this.http.get(this.appUrl, { withCredentials: true })
       .pipe(map(
-        resp => resp as Assignment[]
+        resp => resp as Chatter[]
       ));
   }
-  getAssignment(id: number): Observable<Assignment> {
+
+  getMessage(id: number): Observable<Chatter> {
     return this.http.get(this.appUrl + '/' + id, { withCredentials: true })
       .pipe(map(
-        resp => resp as Assignment
+        resp => resp as Chatter
       ));
   }
-  
-  updateAssignment(assignment: Assignment): Observable<Assignment> {
-    const body = JSON.stringify(assignment);
-    console.log("Assignment "+assignment);
-    if (!assignment.id) {
+
+  updateMessage(chatter: Chatter): Observable<Chatter> {
+    const body = JSON.stringify(chatter);
+    console.log("Message"+chatter);
+    if (!chatter.id) {
       // If there is not id on the assignment, it is not from the database.
       // That means we are trying to make a new one!
       return this.http.post(this.appUrl, body,
         { headers: this.headers, withCredentials: true }).pipe(
-        map( resp => resp as Assignment )
+        map( resp => resp as Chatter )
       );
     } else {
       // If there is an id, we are...
       // updating an existing resource
-      const url = this.appUrl + '/' + assignment.id + '/' + assignment.grade;
+      const url = this.appUrl;
       return this.http.put(url, body, { headers: this.headers, withCredentials: true })
       .pipe(map(
-        resp => resp as Assignment
+        resp => resp as Chatter
       ));
     }
   }
+
+
+
 }

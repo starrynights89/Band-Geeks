@@ -1,19 +1,10 @@
 package com.bandgeeks.beans;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -30,11 +21,6 @@ public class Course {
 	private Integer courseId;
 	@Column(name = "course_name")
 	private String courseName;
-//	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-//	@JoinColumn(name="course_instructor_id")
-//	private Instructor instructor;
-//	@OneToMany(fetch=FetchType.LAZY, mappedBy="course")
-//	private Set<Student> students = new HashSet<Student>();
 	
 	public Course() {
 		super();

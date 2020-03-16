@@ -1,3 +1,5 @@
+<div *ngIf = isInstructor()>
+
   <!-- Card Narrower -->
   <div class="card card-cascade narrower">
   
@@ -54,6 +56,106 @@
   
   </div>
   <!-- Card Narrower -->
+
+</div>
+
+<div *ngIf = isStudent()>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Student ID</th>
+      <th>Assignment Type ID</th>
+      <th>Instrument Type ID</th>
+      <th>Date Assigned</th>
+      <th>Date Due</th>
+      <th>Date Submitted</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let a of assignments;" id='assignmentRow'>
+      <td>{{a.id}}</td>
+      <td>{{a.studentId}}</td>
+      <td>{{a.assignmentTypeId}}</td>
+      <td>{{a.instrumentTypeId}}</td>
+      <td>{{a.dateAssigned | date: 'MM-dd'}}</td>
+      <td>{{a.dateDue | date: 'MM-dd'}}</td>
+      <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
+      <td>{{a.status}}</td>
+
+      <button id="turninbtn" class="btn btn-warning" data-toggle="modal" data-target="#modalSubscriptionForm4" (click)="set(a.id)">Turn In</button>
+
+    </tr>
+    <tbody>
+      
+  </table>
+
+
+</div>
+
+<div class="modal fade" id="modalSubscriptionForm4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Have You completed the Assignment?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body mx-3 text-center">
+        <button class="btn btn-success" data-dismiss="modal" (click)="submit()">Yes</button>
+        <button class="btn btn-danger" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,15 +230,18 @@ aria-hidden="true">
 
       <table class="table">
         <tbody>
-          <tr>
-            <td>ID</td>
-            <td>Student ID</td>
-            <td>Assignment Type ID</td>
-            <td>Instrument Type ID</td>
-            <td>Date Assigned</td>
-            <td>Date Due</td>
-            <td>Action</td>
-          </tr>
+            <tr>
+              <th>ID</th>
+              <th>Student ID</th>
+              <th>Assignment Type ID</th>
+              <th>Instrument Type ID</th>
+              <th>Date Assigned</th>
+              <th>Date Due</th>
+              <th>Date Submitted</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+            
           
           <tr *ngFor="let a of assignments;" id='assignmentRow'>
             <td>{{a.id}}</td>
@@ -145,6 +250,8 @@ aria-hidden="true">
             <td>{{a.instrumentTypeId}}</td>
             <td>{{a.dateAssigned | date: 'MM-dd'}}</td>
             <td>{{a.dateDue | date: 'MM-dd'}}</td>
+            <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
+            <td>{{a.status}}</td>
 
             <button id="gradebtn" class="btn btn-success" data-toggle="modal" data-target="#orangeModalSubscription" (click)="set(a.id)">Grade</button>
 
@@ -186,3 +293,6 @@ aria-hidden="true">
   <!--/.Content-->
 </div>
 </div>
+
+
+

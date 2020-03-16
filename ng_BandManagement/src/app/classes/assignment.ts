@@ -7,6 +7,8 @@ export class Assignment {
     grade: string;
     dateAssigned: Date;
     dateDue: Date;
+    dateSubmitted: Date;
+    status: string;
 
 
 }

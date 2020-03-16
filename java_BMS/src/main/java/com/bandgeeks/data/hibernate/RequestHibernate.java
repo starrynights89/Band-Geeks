@@ -59,7 +59,7 @@ public class RequestHibernate implements RequestDAO{
 	@Override
 	public Set<Request> getRequests() {
 		Session s = hu.getSession();
-		String query = "FROM Request";
+		String query = "FROM requests";
 		Query<Request> q = s.createQuery(query, Request.class);
 		List<Request> requestList = q.getResultList();
 		Set<Request> requestSet = new HashSet<Request>();

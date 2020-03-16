@@ -34,9 +34,6 @@ public class Request {
 	@JoinColumn(name="req_student_id")
 	private Student student;
 	
-	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="req_instructor_id")
-	private Instructor instructor;
 	
 	@Column(name = "check_in")
 	private Timestamp checkIn;
@@ -78,7 +75,6 @@ public class Request {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.status = status;
-		this.instructor = instructor;
 	}
 
 	public Integer getRequestId() {
@@ -135,7 +131,6 @@ public class Request {
 		int result = 1;
 		result = prime * result + ((checkIn == null) ? 0 : checkIn.hashCode());
 		result = prime * result + ((checkOut == null) ? 0 : checkOut.hashCode());
-		result = prime * result + ((instructor == null) ? 0 : instructor.hashCode());
 		result = prime * result + ((inventory == null) ? 0 : inventory.hashCode());
 		result = prime * result + ((requestId == null) ? 0 : requestId.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
@@ -161,11 +156,6 @@ public class Request {
 			if (other.checkOut != null)
 				return false;
 		} else if (!checkOut.equals(other.checkOut))
-			return false;
-		if (instructor == null) {
-			if (other.instructor != null)
-				return false;
-		} else if (!instructor.equals(other.instructor))
 			return false;
 		if (inventory == null) {
 			if (other.inventory != null)
