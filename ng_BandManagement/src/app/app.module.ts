@@ -21,6 +21,12 @@ import { AssignmentService } from './services/assignment.service';
 import { ChatterService } from './services/chatter.service';
 import { ChatUsersService } from './services/chat-users.service';
 import { ChatterComponent } from './chatter/chatter.component';
+import { RequestsInstructorComponent } from './requests-instructor/requests-instructor.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { RequestInstructorService } from './services/request-instructor.service';
+import { InstrumentService } from './services/instrument.service';
+import { UniformService } from './services/uniform.service';
+import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +39,11 @@ import { ChatterComponent } from './chatter/chatter.component';
     ChatComponent,
     ChatHomeComponent,
     AssignmentsComponent,
-    ChatterComponent
-    ],
+    ChatterComponent,
+    InventoryComponent,
+    RequestsInstructorComponent,
+    RequestsTeacherComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -48,7 +57,11 @@ import { ChatterComponent } from './chatter/chatter.component';
     AssignmentTypeService,
     AssignmentService,
     ChatterService,
-    ChatUsersService
+    ChatUsersService,
+    RequestInstructorService,
+    InstrumentService,
+    UniformService
+
 
   ],
   bootstrap: [AppComponent]

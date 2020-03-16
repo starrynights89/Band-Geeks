@@ -1,0 +1,7 @@
+#viewInventoryModal {
+    width: 75%
+}
+
+.modal-body {
+  overflow-x: auto;
+}

@@ -1,0 +1,241 @@
+<!-- Card Narrower -->
+<div class="card card-cascade narrower">
+  
+    <!-- Card image -->
+    <div class="view view-cascade overlay">
+      <img class="card-img-top img-fluid" src="assets/pics/1.jpg"
+        alt="Card image cap Responsive image">
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+  
+    <!-- Card content -->
+    <div class="card-body card-body-cascade text-center">
+  
+      <!-- Label -->
+      <h5 class="pink-text pb-2 pt-1"><mdb-icon fas icon="file-alt"></mdb-icon> Create Inventory</h5>
+      <!-- Title -->
+      <h4 class="font-weight-bold card-title">Create New Inventory</h4>
+      <!-- Text -->
+      <p class="card-text">Instructions on how to create inventory goes here.</p>
+      <!-- Button -->
+      <button id="AddInvButton" class="btn btn-primary" data-toggle="modal" data-target="#modalSubscriptionForm">Create Inventory</button>
+  
+    </div>
+  
+  </div>
+  <!-- Card Narrower -->
+  <div class="card card-cascade narrower text-center">
+  
+    <!-- Card image -->
+    <div class="view view-cascade overlay">
+      <img class="card-img-top img-fluid" src="assets/pics/8.jpg"
+        alt="Card image cap Responsive image">
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+  
+    <!-- Card content -->
+    <div class="card-body card-body-cascade">
+  
+      <!-- Label -->
+      <h5 class="pink-text pb-2 pt-1"><mdb-icon fas icon="scroll"></mdb-icon> View Inventory</h5>
+      <!-- Title -->
+      <h4 class="font-weight-bold card-title">View all inventory</h4>
+      <!-- Text -->
+      <p class="card-text">Click below to view a list of all inventory.</p>
+      <!-- Button -->
+      <button id="viewInvButton" class="btn btn-primary" data-toggle="modal" data-target="#viewInventoryModal">View Inventory</button>
+
+  
+    </div>
+  
+  </div>
+    <!-- Card Narrower -->
+    <div class="card card-cascade narrower text-center">
+  
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+          <img class="card-img-top img-fluid" src="assets/pics/4.jpg"
+            alt="Card image cap Responsive image">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+      
+        <!-- Card content -->
+        <div class="card-body card-body-cascade">
+      
+          <!-- Label -->
+          <h5 class="pink-text pb-2 pt-1"><mdb-icon fas icon="scroll"></mdb-icon> Make Action on Requests</h5>
+          <!-- Title -->
+          <h4 class="font-weight-bold card-title">Make Action on Requests</h4>
+          <!-- Text -->
+          <p class="card-text">Click below to view request history and make decisions on requests.</p>
+          <!-- Button -->
+          <button id="reqButton" class="btn btn-primary" data-toggle="modal" data-target="#viewReqModal">View Requests</button>
+        </div>
+      
+        </div>
+
+
+  <!-- MODALS -->
+  <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Create Inventory</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body mx-3">
+               
+        <!-- <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory Type:</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item">Select an option</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id = "instrumentopt" value = "instrument">Instrument</a>
+                <a class="dropdown-item" id = "uniformopt" value = "uniform">Uniform</a>
+            </div>
+        </div> -->
+
+        <div>
+          <select #InvType class="mdb-select md-form colorful-select dropdown-primary" id= "InvType">
+            <option value="0">Select Inventory Type:</option>
+            <option value="1">Instrument</option>
+            <option value="2">Uniform</option>
+          </select>
+        </div>
+
+        <div class="md-form">
+        
+          <label for = "inventoryBox">Name of Instrument/Uniform:</label><br>
+          <input #inventoryBox class = "form-control" type = "text" id = "inventoryBox" >
+ 
+        </div>
+      
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="submit(InvType.value, inventoryBox.value)">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--View Table-->
+
+<div id="viewInventoryModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="classModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <div id = "viewmodaltitle"><h4 class="modal-title" id="classModalLabel">
+                    Inventory List
+                  </h4></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                
+                </div>
+                <div class="modal-body mx-5">
+                  <table id="inTable" class="table">
+                    <thead>
+                        <strong>Instruments</strong>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Inventory Number:</th>
+                        <th>Instrument:</th>
+                      </tr>
+                      <tr *ngFor="let i of instrumentList;" id='{{i.id}}'>
+                        <td>{{i.id}}</td>
+                        <td>{{i.instrumentName}}</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+                  <table id="unTable" class="table">
+                    <thead>
+                        <strong>Uniforms</strong>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Inventory Number:</th>
+                        <th>Uniform:</th>
+                      </tr>
+                      <tr *ngFor="let u of uniformList;" id='{{u.id}}'>
+                        <td>{{u.id}}</td>
+                        <td>{{u.uniformName}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+<!--Request Table-->
+
+<div id="viewReqModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="classModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <div id = "viewmodaltitle"><h4 class="modal-title" id="classModalLabel">
+                    Inventory List
+                  </h4></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                
+                </div>
+                <div class="modal-body mx-5">
+                  <table id="reqTable" class="table">
+                    <thead>
+                        <strong>Requests</strong>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Request Number:</th>
+                        <th>Inventory Number:</th>
+                        <th>Item Name:</th>
+                        <th>Student Name:</th>
+                        <th>Check Out Date:</th>
+                        <th>Date Due:</th>
+                        <th>Approved By:</th>
+                        <th>Status:</th>
+                        <th>Accept:</th>
+                        <th>Reject:</th>
+
+                      </tr>
+                      <tr *ngFor="let r of requestList;" id='{{r.requestId}}'>
+                        <td>{{r.requestId}}</td>
+                        <td>{{r.inventory.id}}</td>
+                        <td *ngIf = "isInstrument(r.inventory) == true; else elseBlock">{{r.inventory.instrumentName}}</td>
+                            <ng-template #elseBlock>{{r.inventory.uniformName}}</ng-template>
+                        <td>{{r.student.firstname + ' ' + r.student.lastname}}</td>
+                        <td>{{r.checkIn | date: 'MM-dd'}}</td>
+                        <td>{{r.checkOut | date: 'MM-dd'}}</td>
+                        <td>{{r.instructor.firstname + ' ' + r.instructor.lastname}}</td>
+                        <td>{{r.status.statusType}}</td>
+                        <td> <button class="btn btn-success" (click)="acceptReq(r)">Accept</button></td>
+                        <td> <button class="btn btn-danger" (click)="rejectReq(r)">Reject</button></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  
+
+
+
+

@@ -69,6 +69,7 @@ public class AssignmentServiceHibernate implements AssignmentService{
 	public List<Assignment> getAllAssignments(int instructorId, int studentId) {
 		// TODO Auto-generated method stub
 		return assgnDAO.getAllAssignments(instructorId, studentId);
+
 	}
 
 	@Override
@@ -102,6 +103,7 @@ public class AssignmentServiceHibernate implements AssignmentService{
 		}
 		return assgnDAO.updateAssignment(a);
 	}
+
 	
 
 }

@@ -6,6 +6,7 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { ChatHomeComponent } from '../chat-home/chat-home.component';
 import { AssignmentsComponent } from '../assignments/assignments.component';
 import { ChatterComponent } from '../chatter/chatter.component';
+import { RequestsInstructorComponent } from '../requests-instructor/requests-instructor.component';
 
 // Routes tells the Router which view to display when a user clicks a
 // link or pases a URL into the browser
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'chat',
     component: ChatterComponent
+  },
+  {
+    path: 'requests/instructor',
+    component: RequestsInstructorComponent
   },
 ];
 

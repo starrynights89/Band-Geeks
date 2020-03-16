@@ -1,12 +1,22 @@
 <div id = "sidebar">
     <ul>
         <li>
-            <a *ngIf="route.url!=='/inventory'" routerLink="/inventory">
+            <div *ngIf="isInstructor(); else studentinventory">
+            <a *ngIf="route.url!=='/requests/instructor'" routerLink="/requests/instructor">
               Inventory
             </a>
-            <span *ngIf="route.url==='/inventory'" routerLink="/inventory" style = "font-weight: strong;">
+            <span *ngIf="route.url==='/requests/instructor'" routerLink="/requests/instructor" style = "font-weight: strong;">
               Inventory
             </span>
+            </div>
+            <ng-template #studentinventory >
+                <a *ngIf="route.url!=='/requests/student'" routerLink="/requests/student">
+                    Inventory
+                  </a>
+                  <span *ngIf="route.url==='/requests/student'" routerLink="/requests/student" style = "font-weight: strong;">
+                    Inventory
+                  </span>
+            </ng-template>
         </li>
         <li>
             <div *ngIf="isInstructor(); else student">
