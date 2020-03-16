@@ -95,15 +95,6 @@
 
       <div class="modal-body mx-3">
                
-        <!-- <div class="btn-group">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory Type:</button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item">Select an option</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" id = "instrumentopt" value = "instrument">Instrument</a>
-                <a class="dropdown-item" id = "uniformopt" value = "uniform">Uniform</a>
-            </div>
-        </div> -->
 
         <div>
           <select #InvType class="mdb-select md-form colorful-select dropdown-primary" id= "InvType">
@@ -143,14 +134,14 @@
                 
                 </div>
                 <div class="modal-body mx-5">
-                  <table id="inTable" class="table">
+                  <table id="inTable" class="table" aria-hidden = "true">
                     <thead>
                         <strong>Instruments</strong>
                     </thead>
                     <tbody>
                       <tr>
-                        <th>Inventory Number:</th>
-                        <th>Instrument:</th>
+                        <th id = "inum">Inventory Number:</th>
+                        <th id = "iname">Instrument:</th>
                       </tr>
                       <tr *ngFor="let i of instrumentList;" id='{{i.id}}'>
                         <td>{{i.id}}</td>
@@ -160,14 +151,14 @@
                     </tbody>
                   </table>
 
-                  <table id="unTable" class="table">
+                  <table id="unTable" class="table" aria-hidden = "true">
                     <thead>
                         <strong>Uniforms</strong>
                     </thead>
                     <tbody>
                       <tr>
-                        <th>Inventory Number:</th>
-                        <th>Uniform:</th>
+                        <th id = "inum">Inventory Number:</th>
+                        <th id = "inum">Uniform:</th>
                       </tr>
                       <tr *ngFor="let u of uniformList;" id='{{u.id}}'>
                         <td>{{u.id}}</td>
@@ -200,22 +191,22 @@
                 
                 </div>
                 <div class="modal-body mx-5">
-                  <table id="reqTable" class="table">
+                  <table id="reqTable" class="table" aria-hidden = "true">
                     <thead>
                         <strong>Requests</strong>
                     </thead>
                     <tbody>
                       <tr>
-                        <th>Request Number:</th>
-                        <th>Inventory Number:</th>
-                        <th>Item Name:</th>
-                        <th>Student Name:</th>
-                        <th>Check Out Date:</th>
-                        <th>Date Due:</th>
-                        <th>Approved By:</th>
-                        <th>Status:</th>
-                        <th>Accept:</th>
-                        <th>Reject:</th>
+                        <th id = "rnum">Request Number:</th>
+                        <th id = "inum">Inventory Number:</th>
+                        <th id = "itname">Item Name:</th>
+                        <th id = "stname">Student Name:</th>
+                        <th id = "codate">Check Out Date:</th>
+                        <th id = "duedate">Date Due:</th>
+                        <th id = "approveins">Approved By:</th>
+                        <th id = "status">Status:</th>
+                        <th id = "acc">Accept:</th>
+                        <th id = "rej">Reject:</th>
 
                       </tr>
                       <tr *ngFor="let r of requestList;" id='{{r.requestId}}'>

@@ -23,6 +23,8 @@ export class RequestsInstructorComponent implements OnInit {
   public inventory: Inventory;
   public instrument: Instrument;
   public uniform: Uniform;
+  inst: Instrument;
+  uni: Uniform;
 
   constructor(
     public route: Router,
@@ -31,7 +33,7 @@ export class RequestsInstructorComponent implements OnInit {
     private uniformService: UniformService,
     private loginService: LoginService
   ) { }
-public itemName: String; 
+public itemName: string; 
  
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ public itemName: String;
 
       this.instrumentService.updateInstrument(inst).subscribe(
       inst => {
-       inst = inst;
+       this.inst = inst;
         this.route.navigate(['/requests/instructor/']);
       }
     );
@@ -84,7 +86,7 @@ public itemName: String;
 
       this.uniformService.updateUniform(uni).subscribe(
         uni => {
-          uni = uni;
+          this.uni = uni;
           this.route.navigate(['/uniform']);
         }
       );

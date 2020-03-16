@@ -12,13 +12,12 @@ import org.springframework.stereotype.Repository;
 
 import com.bandgeeks.beans.Instrument;
 import com.bandgeeks.beans.Student;
+import com.bandgeeks.services.hibernate.RequestServiceHibernate;
 import com.bandgeeks.utils.HibernateUtil;
 import com.bandgeeks.utils.LogUtil;
 
 @Repository
 public class InstrumentHibernate implements InstrumentDAO {
-	private Logger log = Logger.getLogger(InstrumentHibernate.class);
-
 
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	
@@ -105,11 +104,9 @@ public class InstrumentHibernate implements InstrumentDAO {
 			s.close();
 		}
 	}
-
 	@Override
 	public Instrument getInstrumentByName(String name) {
 		// Get instrument by name
-		log.trace("Getting instrument "+name);
 		Session s = hu.getSession();
 		Query<Instrument> q = s.createQuery("FROM Instrument where instrumentName =:name", Instrument.class);
 		q.setParameter("name", name);

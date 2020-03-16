@@ -52,10 +52,14 @@ public class Assignment {
 	@Column(name = "status")
 	private String status;
 
+
 	public Assignment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
+
 
 	public Assignment(int id, int studentId, int instructorId, int assignmentTypeId, String instrument, String grade,
 			Date dateAssigned, Date dateDue, Date dateSubmitted, String status) {

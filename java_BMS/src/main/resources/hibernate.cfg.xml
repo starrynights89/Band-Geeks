@@ -32,9 +32,13 @@
 		<mapping class="com.bandgeeks.beans.Uniform"/>
 		<mapping class="com.bandgeeks.beans.UniformType"/>
 		<mapping class="com.bandgeeks.beans.Assignment"/>
+		<mapping class="com.bandgeeks.beans.Comment"/>
+		<mapping class="com.bandgeeks.beans.Login"/>		
 		<mapping class="com.bandgeeks.beans.Chatter"/>
 		
 		
+
+
 
 
 	</session-factory>

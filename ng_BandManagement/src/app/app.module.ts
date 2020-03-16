@@ -22,11 +22,11 @@ import { ChatterService } from './services/chatter.service';
 import { ChatUsersService } from './services/chat-users.service';
 import { ChatterComponent } from './chatter/chatter.component';
 import { RequestsInstructorComponent } from './requests-instructor/requests-instructor.component';
-import { InventoryComponent } from './inventory/inventory.component';
 import { RequestInstructorService } from './services/request-instructor.service';
 import { InstrumentService } from './services/instrument.service';
 import { UniformService } from './services/uniform.service';
 import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.co
     ChatHomeComponent,
     AssignmentsComponent,
     ChatterComponent,
-    InventoryComponent,
+    RequestsInstructorComponent,
     RequestsInstructorComponent,
     RequestsTeacherComponent
   ],
@@ -60,8 +60,10 @@ import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.co
     ChatUsersService,
     RequestInstructorService,
     InstrumentService,
-    UniformService
+  
 
+    UniformService,
+    AssignmentTypeService,
 
   ],
   bootstrap: [AppComponent]
