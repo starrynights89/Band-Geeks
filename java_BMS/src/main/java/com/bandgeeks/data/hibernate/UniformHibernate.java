@@ -56,7 +56,7 @@ public class UniformHibernate implements UniformDAO{
 	@Override
 	public Set<Uniform> getUniforms() {
 		Session s = hu.getSession();
-		String query = "FROM uniforms";
+		String query = "FROM Uniform";
 		Query<Uniform> q = s.createQuery(query, Uniform.class);
 		List<Uniform> uniformList = q.getResultList();
 		Set<Uniform> uniformSet = new HashSet<Uniform>();

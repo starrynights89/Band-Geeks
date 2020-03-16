@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="uniforms")
-@PrimaryKeyJoinColumn(name="uniforms_id")
+@PrimaryKeyJoinColumn(name="uniforms_inventory_id")
 
 
 
