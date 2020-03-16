@@ -61,17 +61,17 @@
 
 <div *ngIf = isStudent()>
   <table class="table">
-      <tr>
-        <td>ID</td>
-        <td>Student ID</td>
-        <td>Assignment Type ID</td>
-        <td>Instrument Type ID</td>
-        <td>Date Assigned</td>
-        <td>Date Due</td>
-        <td>Date Submitted</td>
-        <td>Status</td>
-        <td>Action</td>
-      </tr>
+    <tr>
+      <th>ID</th>
+      <th>Student ID</th>
+      <th>Assignment Type ID</th>
+      <th>Instrument Type ID</th>
+      <th>Date Assigned</th>
+      <th>Date Due</th>
+      <th>Date Submitted</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
     <tr *ngFor="let a of assignments;" id='assignmentRow'>
       <td>{{a.id}}</td>
       <td>{{a.studentId}}</td>
@@ -231,15 +231,15 @@ aria-hidden="true">
       <table class="table">
         <tbody>
             <tr>
-              <td>ID</td>
-              <td>Student ID</td>
-              <td>Assignment Type ID</td>
-              <td>Instrument Type ID</td>
-              <td>Date Assigned</td>
-              <td>Date Due</td>
-              <td>Date Submitted</td>
-              <td>Status</td>
-              <td>Action</td>
+              <th>ID</th>
+              <th>Student ID</th>
+              <th>Assignment Type ID</th>
+              <th>Instrument Type ID</th>
+              <th>Date Assigned</th>
+              <th>Date Due</th>
+              <th>Date Submitted</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
             
           
