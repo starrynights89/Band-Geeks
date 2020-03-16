@@ -1,7 +1,6 @@
 package com.bandgeeks.data.hibernate;
 
 import java.util.HashSet;
-
 import java.util.List;
 import java.util.Set;
 
@@ -13,17 +12,14 @@ import org.springframework.stereotype.Repository;
 
 import com.bandgeeks.beans.Instrument;
 import com.bandgeeks.beans.Student;
-
-import com.bandgeeks.services.hibernate.RequestServiceHibernate;
-
 import com.bandgeeks.utils.HibernateUtil;
 import com.bandgeeks.utils.LogUtil;
 
 @Repository
 public class InstrumentHibernate implements InstrumentDAO {
-
-
 	private Logger log = Logger.getLogger(InstrumentHibernate.class);
+
+
 	private HibernateUtil hu = HibernateUtil.getInstance();
 	
 	@Override
@@ -65,7 +61,7 @@ public class InstrumentHibernate implements InstrumentDAO {
 	@Override
 	public Set<Instrument> getInstruments() {
 		Session s = hu.getSession();
-		String query = "FROM Instrument";
+		String query = "FROM instruments";
 		Query<Instrument> q = s.createQuery(query, Instrument.class);
 		List<Instrument> instrumentList = q.getResultList();
 		Set<Instrument> instrumentSet = new HashSet<Instrument>();
