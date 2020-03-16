@@ -19,7 +19,6 @@ export class RequestsInstructorComponent implements OnInit {
   public instrumentList: Instrument[];
   public uniformList: Uniform[];
   public requestList: Request[];
-  public reqList: Request[];
   public request: Request;
   public inventory: Inventory;
   public instrument: Instrument;
@@ -58,15 +57,8 @@ public itemName: string;
           this.requestInstructorService.getAllRequests().subscribe(
             resp => {
               this.requestList = resp;
-              for (let r of this.requestList){
-                let r = new Request();
-                console.log(r);
-                this.reqList.push(r);
-              }
-    
               console.log("RequestList "+resp);
               console.log(this.requestList);
-              console.log(this.reqList)
             }
           );
   }

@@ -209,7 +209,7 @@
                         <th id = "rej">Reject:</th>
 
                       </tr>
-                      <tr *ngFor="let r of reqList;" id='{{r.requestId}}'>
+                      <tr *ngFor="let r of requestList;" id='{{r.requestId}}'>
                         <td>{{r.requestId}}</td>
                         <td>{{r.inventory.id}}</td>
                         <td *ngIf = "isInstrument(r.inventory) == true; else elseBlock">{{r.inventory.instrumentName}}</td>
