@@ -31,7 +31,7 @@ export class RequestsInstructorComponent implements OnInit {
     private uniformService: UniformService,
     private loginService: LoginService
   ) { }
-public itemName: String; 
+public itemName: string; 
  
 
   ngOnInit(): void {

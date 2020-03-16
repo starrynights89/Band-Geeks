@@ -17,7 +17,6 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatHomeComponent } from './chat-home/chat-home.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { RequestsInstructorComponent } from './requests-instructor/requests-instructor.component';
-import { InventoryComponent } from './inventory/inventory.component';
 import { RequestInstructorService } from './services/request-instructor.service';
 import { InstrumentService } from './services/instrument.service';
 import { UniformService } from './services/uniform.service';
@@ -37,7 +36,6 @@ import { AssignmentService } from './services/assignment.service';
     ChatHomeComponent,
     AssignmentsComponent,
     RequestsInstructorComponent,
-    InventoryComponent,
     RequestsInstructorComponent,
     RequestsTeacherComponent
   ],
