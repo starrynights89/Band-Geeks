@@ -79,8 +79,8 @@ public class AssignmentServiceHibernate implements AssignmentService{
 
 	@Override
 	public boolean gradeAssignment(int id, String grade) {
-		// Update grade on assignment
-		return assgnDAO.gradeAssignment(id, grade);
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
