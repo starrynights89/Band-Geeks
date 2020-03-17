@@ -27,6 +27,7 @@ import { RequestInstructorService } from './services/request-instructor.service'
 import { InstrumentService } from './services/instrument.service';
 import { UniformService } from './services/uniform.service';
 import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { RequestsTeacherComponent } from './requests-teacher/requests-teacher.co
     ProductListComponent,
     RequestsInstructorComponent,
     RequestsInstructorComponent,
-    RequestsTeacherComponent
+    RequestsTeacherComponent,
+    LoginpageComponent
   ],
   imports: [
     BrowserModule,

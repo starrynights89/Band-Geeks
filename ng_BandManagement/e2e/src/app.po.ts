@@ -44,9 +44,7 @@ export class AppPage {
   getInvButtonText(): Promise<string> {
     return element(by.id('AddInvButton')).getText() as Promise<string>;
   }
-  getMyMessagesText(): Promise<string> {
-    return element(by.class('btn-danger')).getText() as Promise<string>;
-  }
+
   getCreateAssignmentButtonText(): Promise<string> {
     return element(by.id('assignmentButton')).getText() as Promise<string>;
   }
