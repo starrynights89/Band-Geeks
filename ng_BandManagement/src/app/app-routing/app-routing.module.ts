@@ -8,13 +8,14 @@ import { AssignmentsComponent } from '../assignments/assignments.component';
 import { ChatterComponent } from '../chatter/chatter.component';
 import { ProductListComponent } from '../products/product-list.component';
 import { RequestsInstructorComponent } from '../requests-instructor/requests-instructor.component';
+import { LoginpageComponent } from '../loginpage/loginpage.component';
 
 // Routes tells the Router which view to display when a user clicks a
 // link or pases a URL into the browser
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginpageComponent
   },
   {
     path: 'assignments',
