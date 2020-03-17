@@ -163,12 +163,7 @@ it('Should See My Messages button', () => {
   page.getContactButton().click();
   browser.sleep(1000);
 
-
 });
-
-
-
-
 
 
 //Logout instructor
@@ -180,7 +175,7 @@ it('Should See My Messages button', () => {
     page.logout();
 
     expect(page.getTitleText()).toEqual('BMS');
-    browser.sleep(1000);
+    browser.sleep(500);
 
   });
 
