@@ -25,6 +25,7 @@ export class RequestsInstructorComponent implements OnInit {
   public uniform: Uniform;
   inst: Instrument;
   uni: Uniform;
+  reqList: Request[];
 
   constructor(
     public route: Router,
@@ -59,8 +60,10 @@ public itemName: string;
               this.requestList = resp;
               console.log("RequestList "+resp);
               console.log(this.requestList);
+
             }
           );
+
   }
 
   submit(type, name): void {

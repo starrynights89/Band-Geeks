@@ -215,9 +215,10 @@
                         <td *ngIf = "isInstrument(r.inventory) == true; else elseBlock">{{r.inventory.instrumentName}}</td>
                             <ng-template #elseBlock>{{r.inventory.uniformName}}</ng-template>
                         <td>{{r.student.firstname + ' ' + r.student.lastname}}</td>
-                        <td>{{r.checkIn | date: 'MM-dd'}}</td>
-                        <td>{{r.checkOut | date: 'MM-dd'}}</td>
-                        <td>{{r.instructor.firstname + ' ' + r.instructor.lastname}}</td>
+                        <td>{{r.checkIn | date: 'MM-dd-yyyy'}}</td>
+                        <td>{{r.checkOut | date: 'MM-dd-yyyy'}}</td>
+                        <td *ngIf = "(!r.instructor); else elseBlock2">Approval Pending</td>
+                          <ng-template #elseBlock2>{{r.instructor.firstname + ' ' + r.instructor.lastname}}</ng-template>
                         <td>{{r.status.statusType}}</td>
                         <td> <button class="btn btn-success" (click)="acceptReq(r)">Accept</button></td>
                         <td> <button class="btn btn-danger" (click)="rejectReq(r)">Reject</button></td>
