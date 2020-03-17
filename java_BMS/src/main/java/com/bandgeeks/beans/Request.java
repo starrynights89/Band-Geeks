@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -44,6 +45,10 @@ public class Request {
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="req_status_id")
 	private Status status;
+	
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="req_instructor_id")
+	private Instructor instructor;
 	
 	public Request() {
 		super();
@@ -183,6 +188,14 @@ public class Request {
 	@Override
 	public String toString() {
 		return "Request [requestId=" + requestId + ", inventory=" + inventory + ", student=" + student + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", status=" + status + "]";
+	}
+
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 	
 }
