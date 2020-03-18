@@ -1,176 +1,220 @@
-    
-    <div *ngIf = "messages" class = text-center >
-      <button class="btn btn-danger text-center" data-toggle="modal" data-target="#modalPoll-1" >My Messages</button>
-    </div>
-      <!-- Modal: modalPoll -->
-      <div class="modal fade right modal-sm text-center" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-          <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header">
-              <p class="heading lead">New Messages!
-              </p>
-      
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" class="black-text">×</span>
-              </button>
-            </div>
+<div class="img" class="text-center">
+  <img
+    width="500"
+    height="300"
+    src="assets/pics/messages-hi.png"
+    alt="header-img"
+  />
+</div>
+<div *ngIf="messages" class="text-center">
+  <button
+    class="btn btn-danger text-center"
+    data-toggle="modal"
+    data-target="#modalPoll-1"
+  >
+    My Messages
+  </button>
+</div>
+<!-- Modal: modalPoll -->
+<div
+  class="modal fade right modal-sm text-center"
+  id="modalPoll-1"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  data-backdrop="false"
+>
+  <div
+    class="modal-dialog modal-full-height modal-right modal-notify modal-info"
+    role="document"
+  >
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">New Messages!</p>
 
-            <div *ngFor="let m of messages;" id='newMessage'>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" class="black-text">×</span>
+        </button>
+      </div>
 
-            <!--Body-->
-            <div class="modal-body">
-              <div class="text-center">
-                <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
-                <p>
-                  <strong>Message ID: {{m.id}}</strong>
-                </p>
-                <p>Sender ID: {{m.sender}}
-                </p>
-                <p>{{m.message}}
-                </p>
-              </div>
-      
-              <hr>
+      <div *ngFor="let m of messages" id="newMessage">
+        <!--Body-->
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+            <p>
+              <strong>Message ID: {{ m.id }}</strong>
+            </p>
+            <p>Sender ID: {{ m.sender }}</p>
+            <p>{{ m.message }}</p>
+          </div>
 
-              <div class="modal fade" id="orangeModalSubscription9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-               aria-hidden="true">
-              <div class="modal-dialog modal-notify modal-success modal-sm" role="document">
-                <!--Content-->
-                <div class="modal-content">
+          <hr />
 
-                  <!--Body-->
-                  <div class="modal-body">
-                        <!--Header-->
+          <div
+            class="modal fade"
+            id="orangeModalSubscription9"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myModalLabel"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog modal-notify modal-success modal-sm"
+              role="document"
+            >
+              <!--Content-->
+              <div class="modal-content">
+                <!--Body-->
+                <div class="modal-body">
+                  <!--Header-->
                   <div class="modal-header text-center">
-                    <h4 class="modal-title black-text w-100 font-weight-bold py-2">Enter Message</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h4
+                      class="modal-title black-text w-100 font-weight-bold py-2"
+                    >
+                      Enter Message
+                    </h4>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
                       <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                   </div>
 
-                    <div class="md-form mb-5">
-                      <i class="fas fa-user prefix grey-text"></i>
-                      <input type="text" id="reply" class="form-control validate" [(ngModel)]="reply">
-                    </div>
+                  <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input
+                      type="text"
+                      id="reply"
+                      class="form-control validate"
+                      [(ngModel)]="reply"
+                    />
+                  </div>
 
                   <!--Footer-->
                   <div class="modal-footer justify-content-center">
-                    <button class="btn btn-success" data-dismiss="modal" (click)="Reply(m.sender)">Send</button>
+                    <button
+                      class="btn btn-success"
+                      data-dismiss="modal"
+                      (click)="Reply(m.sender)"
+                    >
+                      Send
+                    </button>
                   </div>
                 </div>
                 <!--/.Content-->
               </div>
             </div>
-      
-            </div>
-      
-            <!--Footer-->
-            <div class="modal-footer justify-content-center">
-              <a type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#orangeModalSubscription9" (click)="setM(m.id)" >Reply
-                <i class="fa fa-paper-plane ml-1"></i>
-              </a>
-              <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
-            </div>
-            </div>
+          </div>
+
+          <!--Footer-->
+          <div class="modal-footer justify-content-center">
+            <a
+              type="button"
+              class="btn btn-primary waves-effect waves-light"
+              data-toggle="modal"
+              data-target="#orangeModalSubscription9"
+              (click)="setM(m.id)"
+              >Reply
+              <i class="fa fa-paper-plane ml-1"></i>
+            </a>
+            <a
+              type="button"
+              class="btn btn-outline-primary waves-effect"
+              data-dismiss="modal"
+              >Cancel</a
+            >
           </div>
         </div>
-
-
       </div>
-      <!-- Modal: modalPoll -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-<div>
-    <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>First</th>
-          <th>Last</th>
-          <th>Action</th>
-        </tr>
-      <tr *ngFor="let u of chatUsers;" id='userRow'>
-        <td>{{u.id}}</td>
-        <td>{{u.firstname}}</td>
-        <td>{{u.lastname}}</td>
-     
-  
-        <button id="messagebtn" class="btn btn-primary" data-toggle="modal" data-target="#orangeModalSubscription8" (click)="set(u.id)">Message</button>
-  
-      </tr>
-      <tbody>
-        
-    </table>
-  
-  
-</div>
-
-
-
-
-
-
-<div class="modal fade" id="orangeModalSubscription8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-notify modal-success modal-sm" role="document">
-  <!--Content-->
-  <div class="modal-content">
-
-    <!--Body-->
-    <div class="modal-body">
-          <!--Header-->
-    <div class="modal-header text-center">
-      <h4 class="modal-title black-text w-100 font-weight-bold py-2">Enter Message</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true" class="white-text">&times;</span>
-      </button>
-    </div>
-
-      <div class="md-form mb-5">
-        <i class="fas fa-user prefix grey-text"></i>
-        <input type="text" class="form-control validate" [(ngModel)]="message.message" name="message">
-      </div>
-
-    <!--Footer-->
-    <div class="modal-footer justify-content-center">
-      <button class="btn btn-success" data-dismiss="modal" (click)="send()">Submit</button>
     </div>
   </div>
-  <!--/.Content-->
+  <!-- Modal: modalPoll -->
 </div>
+
+<div>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let u of chatUsers" id="userRow">
+      <td>{{ u.id }}</td>
+      <td>{{ u.firstname }}</td>
+      <td>{{ u.lastname }}</td>
+
+      <button
+        id="messagebtn"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#orangeModalSubscription8"
+        (click)="set(u.id)"
+      >
+        Message
+      </button>
+    </tr>
+    <tbody></tbody>
+  </table>
 </div>
 
+<div
+  class="modal fade"
+  id="orangeModalSubscription8"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-notify modal-success modal-sm" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Body-->
+      <div class="modal-body">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h4 class="modal-title black-text w-100 font-weight-bold py-2">
+            Enter Message
+          </h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
 
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input
+            type="text"
+            class="form-control validate"
+            [(ngModel)]="message.message"
+            name="message"
+          />
+        </div>
 
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <button class="btn btn-success" data-dismiss="modal" (click)="send()">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+</div>
