@@ -1,11 +1,19 @@
 <div id = "sidebar">
-    <ul>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar" id ="logo">
+                  <a id = "logo" href = "#">
+                <img id = "logopic" src = "assets/pics/bandgeeks.png">
+                   </a> 
+             
+                </li>
+                <li id = "buffer"></li>
         <li>
             <div *ngIf="isInstructor(); else studentinventory">
             <a *ngIf="route.url!=='/requests/instructor'" routerLink="/requests/instructor">
               Inventory
             </a>
-            <span *ngIf="route.url==='/requests/instructor'" routerLink="/requests/instructor" style = "font-weight: strong;">
+            <span *ngIf="route.url==='/requests/instructor'" routerLink="/requests/instructor" >
               Inventory
             </span>
             </div>
@@ -13,7 +21,7 @@
                 <a *ngIf="route.url!=='/requests/student'" routerLink="/requests/student">
                     Inventory
                   </a>
-                  <span *ngIf="route.url==='/requests/student'" routerLink="/requests/student" style = "font-weight: strong;">
+                  <span *ngIf="route.url==='/requests/student'" routerLink="/requests/student" >
                     Inventory
                   </span>
             </ng-template>
@@ -21,25 +29,26 @@
         <li>
             <div *ngIf="isInstructor(); else student">
             <a *ngIf="route.url!=='/assignments'" routerLink="/assignments">Assignments</a>
-            <span *ngIf="route.url==='/assignments'" style = "font-weight: strong;" routerLink="/assignments">Assignments</span>
+            <span *ngIf="route.url==='/assignments'"  routerLink="/assignments">Assignments</span>
             </div>
             <ng-template #student >
                 <a *ngIf="route.url!=='/assignments'" routerLink="/assignments">Assignments</a>
-                <span *ngIf="route.url==='/assignments'" style = "font-weight: strong;" routerLink="/assignments">Assignments</span>
+                <span *ngIf="route.url==='/assignments'"  routerLink="/assignments">Assignments</span>
             </ng-template>
 
         </li>
         <li>
             <a *ngIf="route.url!=='/chat'" routerLink="/chat">Contact</a>
-            <span *ngIf="route.url==='/chat'" style = "font-weight: strong;" routerLink="/chat">Contact</span>
+            <span *ngIf="route.url==='/chat'"  routerLink="/chat">Contact</span>
         </li>
         <li>
             <a *ngIf="route.url!=='/game'" routerLink="/game">Game</a>
-            <span *ngIf="route.url==='/game'" style = "font-weight: strong;" routerLink="/game">Game</span>
+            <span *ngIf="route.url==='/game'"  routerLink="/game">Game</span>
         </li>
         <li>
             <a *ngIf="route.url!=='/home'" routerLink="/home">User Info</a>
-            <span *ngIf="route.url==='/home'" style = "font-weight: strong;" routerLink="/home">User Info</span>
+            <span *ngIf="route.url==='/home'"  routerLink="/home">User Info</span>
         </li>
     </ul>
+    </nav>
 </div>
