@@ -97,3 +97,36 @@
 #logo{
     margin: auto;
 }
+
+#invSpan {
+    color: white;
+    display: block;
+    padding: 30px 25px 30px 40px; 
+    background-color: #79aefe;
+}
+#assnSpan {
+    color: white;
+    display: block;
+    padding: 30px 25px 30px 40px; 
+    background-color: #314190;
+}
+#chatSpan {
+    color: white;
+    display: block;
+    padding: 30px 25px 30px 40px; 
+    background-color: #279636;   
+
+}
+#gameSpan {
+    color: white;
+    display: block;
+    padding: 30px 25px 30px 40px; 
+    background-color: #7d5d81;  
+}
+#userSpan {
+    color: white;
+    display: block;
+    padding: 30px 25px 30px 40px; 
+    background-color: #ead24c;  
+}
+

@@ -13,7 +13,7 @@
             <a *ngIf="route.url!=='/requests/instructor'" routerLink="/requests/instructor">
               Inventory
             </a>
-            <span *ngIf="route.url==='/requests/instructor'" routerLink="/requests/instructor" >
+            <span id = "invSpan" *ngIf="route.url==='/requests/instructor'" routerLink="/requests/instructor" >
               Inventory
             </span>
             </div>
@@ -21,7 +21,7 @@
                 <a *ngIf="route.url!=='/requests/student'" routerLink="/requests/student">
                     Inventory
                   </a>
-                  <span *ngIf="route.url==='/requests/student'" routerLink="/requests/student" >
+                  <span id = "invSpan" *ngIf="route.url==='/requests/student'" routerLink="/requests/student" >
                     Inventory
                   </span>
             </ng-template>
@@ -29,25 +29,25 @@
         <li>
             <div *ngIf="isInstructor(); else student">
             <a *ngIf="route.url!=='/assignments'" routerLink="/assignments">Assignments</a>
-            <span *ngIf="route.url==='/assignments'"  routerLink="/assignments">Assignments</span>
+            <span id = "assnSpan" *ngIf="route.url==='/assignments'"  routerLink="/assignments">Assignments</span>
             </div>
             <ng-template #student >
                 <a *ngIf="route.url!=='/assignments'" routerLink="/assignments">Assignments</a>
-                <span *ngIf="route.url==='/assignments'"  routerLink="/assignments">Assignments</span>
+                <span id = "assnSpan" *ngIf="route.url==='/assignments'"  routerLink="/assignments">Assignments</span>
             </ng-template>
 
         </li>
         <li>
             <a *ngIf="route.url!=='/chat'" routerLink="/chat">Contact</a>
-            <span *ngIf="route.url==='/chat'"  routerLink="/chat">Contact</span>
+            <span id = "chatSpan"  *ngIf="route.url==='/chat'"  routerLink="/chat">Contact</span>
         </li>
         <li>
             <a *ngIf="route.url!=='/game'" routerLink="/game">Game</a>
-            <span *ngIf="route.url==='/game'"  routerLink="/game">Game</span>
+            <span id = "gameSpan" *ngIf="route.url==='/game'"  routerLink="/game">Game</span>
         </li>
         <li>
             <a *ngIf="route.url!=='/home'" routerLink="/home">User Info</a>
-            <span *ngIf="route.url==='/home'"  routerLink="/home">User Info</span>
+            <span id = "userSpan"  *ngIf="route.url==='/home'"  routerLink="/home">User Info</span>
         </li>
     </ul>
     </nav>
