@@ -70,6 +70,21 @@ public class InstrumentHibernate implements InstrumentDAO {
 	}
 
 	@Override
+	public Set<Instrument> getUnapprovedInstruments() {
+		Session s = hu.getSession();
+		String query = "select i from Instrument i\r\n" + 
+				"join Inventory inv on i.id = inv.id\r\n" + 
+				"Left Outer join Request req on inv.id = req.inventory\r\n" + 
+				"where req.status is null or req.status != 2";
+		Query<Instrument> q = s.createQuery(query, Instrument.class);
+		List<Instrument> instrumentList = q.getResultList();
+		Set<Instrument> instrumentSet = new HashSet<Instrument>();
+		instrumentSet.addAll(instrumentList);
+		s.close();
+		return instrumentSet;
+	}
+	
+	@Override
 	public void updateInstrument(Instrument instrument) {
 		Session s = hu.getSession();
 		Transaction tx = null;

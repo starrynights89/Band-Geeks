@@ -10,6 +10,7 @@ public interface UniformDAO {
 	public Uniform getUniform(Uniform uniform);
 	public Uniform getUniformById(Integer id);
 	public Set<Uniform> getUniforms();
+	public Set<Uniform> getUnapprovedUniforms();
 	public void updateUniform(Uniform uniform);
 	public void deleteUniform(Uniform uniform);
 }
