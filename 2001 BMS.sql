@@ -302,16 +302,166 @@ insert into login(user_id, firstname, lastname, username, user_password)
     values(2, 'Bob', 'Bob', 'BBob', 'password');
 insert into login(user_id, firstname, lastname, username, user_password) 
     values(3, 'Ron', 'Swanson', 'RSwanson', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(4, 'Gaylord', 'Balcom', 'GBalcom', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(5, 'Hosea', 'Jack', 'HJack', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(6, 'Vera', 'Fuselier', 'VFuselier', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(7, 'Kacy', 'Poplar', 'KPoplar', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(8, 'Scottie', 'Wallen', 'SWallen', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(9, 'Deanna', 'Soukup', 'DSoukup', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(10, 'Brant', 'Dipaola', 'BDipaola', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(11, 'Jeffie', 'Parnell', 'JParnell', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(12, 'Monte', 'Heilig', 'MHeilig', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(13, 'Terrell', 'Metzer', 'TMetzer', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(14, 'Annelle', 'Ziolkowski', 'AZiolkowski', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(15, 'Lucila', 'Tiger', 'LTiger', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(16, 'Marybelle', 'Ensign', 'MEnsign', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(17, 'Carmen', 'Caylor', 'CCaylor', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(18, 'Melinda', 'Waiters', 'MWaiters', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(19, 'Darlene', 'Mund', 'DMund', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(20, 'Sophia', 'Williams', 'SWilliams', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(21, 'Emma', 'Alexander', 'EAlexander', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(22, 'Olivia', 'Henry', 'OHenry', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(23, 'Charlotte', 'John', 'CJohn', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(24, 'Genesis', 'James', 'GJames', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(25, 'Sofia', 'Daniel', 'SDaniel', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(26, 'Ava', 'Benjamin', 'ABenjamin', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(27, 'Chloe', 'Samuel', 'CSamuel', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(28, 'Madison', 'David', 'MDavid', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(29, 'Zoe', 'Jacob', 'ZJacob', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(30, 'Naomi', 'Anthony', 'NAnthony', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(31, 'Elijah', 'Daniel', 'EDaniel', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(32, 'Ethan', 'Dylan', 'EDylan', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(33, 'Liam', 'Christopher', 'LChristopher', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(34, 'Christian', 'Alexander', 'CAlexander', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(35, 'Ryan', 'Jacobs', 'RJacobs', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(36, 'Thomas', 'Henry', 'THenry', 'password');
+insert into login(user_id, firstname, lastname, username, user_password) 
+    values(37, 'Noah', 'James', 'NJames', 'password');
     
 -------INstructors------
 insert into instructors(instructor_id, Instructor_course_id) 
     values(3, 3);
+insert into instructors(instructor_id, Instructor_course_id) 
+    values(4, 4);
+insert into instructors(instructor_id, Instructor_course_id) 
+    values(5, 5);
+insert into instructors(instructor_id, Instructor_course_id) 
+    values(6, 2);    
+insert into instructors(instructor_id, Instructor_course_id) 
+    values(7, 1); 
     
     
+----STUDENTTS---
 insert into students(student_id, student_course_id) 
     values(2,3);
 insert into students(student_id, student_course_id) 
+    values(8,3);
+insert into students(student_id, student_course_id) 
+    values(9,3);
+insert into students(student_id, student_course_id) 
+    values(10,3);
+insert into students(student_id, student_course_id) 
+    values(11,3);
+    
+    
+    
+insert into students(student_id, student_course_id) 
     values(1,2);
+insert into students(student_id, student_course_id) 
+    values(12,2);
+insert into students(student_id, student_course_id) 
+    values(13,2);
+insert into students(student_id, student_course_id) 
+    values(14,2);
+insert into students(student_id, student_course_id) 
+    values(15,2);
+insert into students(student_id, student_course_id) 
+    values(31,2);
+insert into students(student_id, student_course_id) 
+    values(32,2);
+    
+
+insert into students(student_id, student_course_id) 
+    values(16,1);
+insert into students(student_id, student_course_id) 
+    values(17,1);
+insert into students(student_id, student_course_id) 
+    values(18,1);
+insert into students(student_id, student_course_id) 
+    values(19,1);
+insert into students(student_id, student_course_id) 
+    values(20,1);    
+insert into students(student_id, student_course_id) 
+    values(33,1);
+insert into students(student_id, student_course_id) 
+    values(34,1);     
+    
+insert into students(student_id, student_course_id) 
+    values(21,4);
+insert into students(student_id, student_course_id) 
+    values(22,4);
+insert into students(student_id, student_course_id) 
+    values(23,4);
+insert into students(student_id, student_course_id) 
+    values(24,4);
+insert into students(student_id, student_course_id) 
+    values(25,4);   
+insert into students(student_id, student_course_id) 
+    values(35,4);
+insert into students(student_id, student_course_id) 
+    values(36,4); 
+    
+insert into students(student_id, student_course_id) 
+    values(26,5);
+insert into students(student_id, student_course_id) 
+    values(27,5);
+insert into students(student_id, student_course_id) 
+    values(28,5);
+insert into students(student_id, student_course_id) 
+    values(29,5);
+insert into students(student_id, student_course_id) 
+    values(30,5); 
+insert into students(student_id, student_course_id) 
+    values(37,5); 
+        
+    
+    
+    
+    
+    
     
     ----------gradelevel--------------
 insert into grade_levels (grade_level_id, grade_level_name)
