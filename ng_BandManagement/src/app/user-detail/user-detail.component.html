@@ -22,13 +22,11 @@ detail into the DOM-->
     <!-- Text -->
     <mdb-card-text>
       <div *ngIf="isInstructor()">
-        <div><span>id: </span>{{ loggedUser.instructor.id }}</div>
         <div><span>User Type: Instructor</span></div>
       </div>
     </mdb-card-text>
     <mdb-card-text>
       <div *ngIf="isStudent()">
-        <div><span>id: </span>{{ loggedUser.student.id }}</div>
         <div><span>User Type: Student</span></div>
       </div>
     </mdb-card-text>
