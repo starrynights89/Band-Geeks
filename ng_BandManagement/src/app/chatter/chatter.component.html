@@ -1,21 +1,7 @@
-<div class="img" class="text-center">
-  <img
-    width="500"
-    height="300"
-    src="assets/pics/messages-hi.png"
-    alt="header-img"
-  />
-</div>
-<div *ngIf="messages" class="text-center">
-  <button
-    class="btn btn-danger text-center"
-    data-toggle="modal"
-    data-target="#modalPoll-1"
-  >
-    My Messages
-  </button>
-</div>
+
 <!-- Modal: modalPoll -->
+
+
 <div
   class="modal fade right modal-sm text-center"
   id="modalPoll-1"
@@ -142,32 +128,65 @@
   <!-- Modal: modalPoll -->
 </div>
 
-<div>
-  <table class="table">
-    <tr>
-      <th>ID</th>
-      <th>First</th>
-      <th>Last</th>
-      <th>Action</th>
-    </tr>
-    <tr *ngFor="let u of chatUsers" id="userRow">
-      <td>{{ u.id }}</td>
-      <td>{{ u.firstname }}</td>
-      <td>{{ u.lastname }}</td>
+<!--
 
+
+-->
+
+<!-- Card -->
+<div class="card card-cascade wider reverse">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top img-fluid img-thumbnail" src="assets/pics/5.jpg"
+      alt="Card image cap">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+    <div *ngIf="messages" class="text-center">
       <button
-        id="messagebtn"
-        class="btn btn-primary"
+        class="btn btn-danger btn-rounded btn-lg text-center"
         data-toggle="modal"
-        data-target="#orangeModalSubscription8"
-        (click)="set(u.id)"
+        data-target="#modalPoll-1"
       >
-        Message
+        My Messages
       </button>
-    </tr>
-    <tbody></tbody>
-  </table>
+    </div>
+    <div>
+      <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let u of chatUsers" id="userRow">
+          <td>{{ u.id }}</td>
+          <td>{{ u.firstname }}</td>
+          <td>{{ u.lastname }}</td>
+    
+          <button
+            id="messagebtn"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#orangeModalSubscription8"
+            (click)="set(u.id)"
+          >
+            Message
+          </button>
+        </tr>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
+
 </div>
+<!-- Card -->
 
 <div
   class="modal fade"
@@ -218,3 +237,41 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
