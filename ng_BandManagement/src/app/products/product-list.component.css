@@ -4,3 +4,8 @@ thead{
 .card{
     width: 1000px;
 }
+@media only screen and (max-width: 1200px) {
+    .card{
+        width: 500px;
+    }
+  }

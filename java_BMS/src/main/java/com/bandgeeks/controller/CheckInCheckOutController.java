@@ -39,9 +39,9 @@ public class CheckInCheckOutController {
 	public ResponseEntity<Set<IDisplayInv>> getUniform(HttpSession session) {
     	Set<IDisplayInv> iDI = new HashSet<IDisplayInv>();
     	UniformHibernate uH = new UniformHibernate();
-    	Set<Uniform> u = uH.getUniforms();
+    	Set<Uniform> u = uH.getUnapprovedUniforms();
     	InstrumentHibernate iH = new InstrumentHibernate();
-    	Set<Instrument> i = iH.getInstruments();
+    	Set<Instrument> i = iH.getUnapprovedInstruments();
     	iDI.addAll(u);
     	iDI.addAll(i);
     	log.trace(session.getId());

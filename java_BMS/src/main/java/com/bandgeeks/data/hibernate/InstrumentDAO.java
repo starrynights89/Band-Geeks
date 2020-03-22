@@ -11,6 +11,7 @@ public interface InstrumentDAO {
 	public Instrument getInstrumentById(Integer id);
 	public Instrument getInstrumentByName(String name);
 	public Set<Instrument> getInstruments();
+	public Set<Instrument> getUnapprovedInstruments();
 	public void updateInstrument(Instrument instrument);
 	public void deleteInstrument(Instrument instrument);
 }
