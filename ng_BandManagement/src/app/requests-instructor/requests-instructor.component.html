@@ -219,7 +219,8 @@
                         <td>{{r.checkOut | date: 'MM-dd-yyyy'}}</td>
                         <td *ngIf = "(!r.instructor); else elseBlock2">Approval Pending</td>
                           <ng-template #elseBlock2>{{r.instructor.firstname + ' ' + r.instructor.lastname}}</ng-template>
-                        <td>{{r.status.statusType}}</td>
+                        <td *ngIf = "(!r.status); else elseBlock3">PENDING</td>
+                        <ng-template #elseBlock3>{{r.status.statusType}</ng-template>
                         <td> <button class="btn btn-success" (click)="acceptReq(r)">Accept</button></td>
                         <td> <button class="btn btn-danger" (click)="rejectReq(r)">Reject</button></td>
                       </tr>
