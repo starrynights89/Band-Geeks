@@ -48,7 +48,7 @@ drop sequence chatter_seq;
 create sequence login_seq nocache;
 create sequence courses_seq nocache;
 create sequence grade_levels_seq nocache;
-create sequence inventory_seq nocache;
+create sequence inventory_seq start with 13 nocache;
 create sequence instruments_seq nocache;
 create sequence uniforms_seq nocache;
 create sequence instrument_type_seq nocache;
