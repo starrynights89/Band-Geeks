@@ -40,13 +40,14 @@ export class LoginComponent implements OnInit {
       }
     );
 
-
   }
 
   logout() {
     this.loginService.logout().subscribe(
       resp => {
         this.loggedUser = null;
+        this.route.navigate(['/login']);
+
       }
     );
   }

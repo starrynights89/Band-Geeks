@@ -65,22 +65,23 @@
       <th>ID</th>
       <th>Student ID</th>
       <th>Assignment Type ID</th>
-      <th>Instrument Type ID</th>
       <th>Date Assigned</th>
       <th>Date Due</th>
       <th>Date Submitted</th>
       <th>Status</th>
+      <th>Grade</th>
       <th>Action</th>
     </tr>
     <tr *ngFor="let a of assignments;" id='assignmentRow'>
       <td>{{a.id}}</td>
       <td>{{a.studentId}}</td>
       <td>{{a.assignmentTypeId}}</td>
-      <td>{{a.instrumentTypeId}}</td>
       <td>{{a.dateAssigned | date: 'MM-dd'}}</td>
       <td>{{a.dateDue | date: 'MM-dd'}}</td>
       <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
       <td>{{a.status}}</td>
+      <td>{{a.grade}}</td>
+
 
       <button id="turninbtn" class="btn btn-warning" data-toggle="modal" data-target="#modalSubscriptionForm4" (click)="set(a.id)">Turn In</button>
 
@@ -221,11 +222,11 @@ aria-hidden="true">
               <th>ID</th>
               <th>Student ID</th>
               <th>Assignment Type ID</th>
-              <th>Instrument Type ID</th>
               <th>Date Assigned</th>
               <th>Date Due</th>
               <th>Date Submitted</th>
               <th>Status</th>
+              <th>Grade</th>
               <th>Action</th>
             </tr>
             
@@ -234,11 +235,12 @@ aria-hidden="true">
             <td>{{a.id}}</td>
             <td>{{a.studentId}}</td>
             <td>{{a.assignmentTypeId}}</td>
-            <td>{{a.instrumentTypeId}}</td>
             <td>{{a.dateAssigned | date: 'MM-dd'}}</td>
             <td>{{a.dateDue | date: 'MM-dd'}}</td>
             <td>{{a.dateSubmitted | date: 'MM-dd'}}</td>
             <td>{{a.status}}</td>
+            <td>{{a.grade}}</td>
+
 
             <button id="gradebtn" class="btn btn-success" data-toggle="modal" data-target="#orangeModalSubscription" (click)="set(a.id)">Grade</button>
 
