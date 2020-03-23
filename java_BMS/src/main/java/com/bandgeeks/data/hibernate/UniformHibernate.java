@@ -64,6 +64,21 @@ public class UniformHibernate implements UniformDAO{
 		s.close();
 		return uniformSet;
 	}
+	
+	@Override
+	public Set<Uniform> getUnapprovedUniforms(){
+		Session s = hu.getSession();
+		String query = "select u from Uniform u\r\n" + 
+				"join Inventory inv on u.id = inv.id\r\n" + 
+				"Left Outer join Request req on inv.id = req.inventory\r\n" + 
+				"where req.status is null or req.status != 2";
+		Query<Uniform> q = s.createQuery(query, Uniform.class);
+		List<Uniform> uniformList = q.getResultList();
+		Set<Uniform> uniformSet = new HashSet<Uniform>();
+		uniformSet.addAll(uniformList);
+		s.close();
+		return uniformSet;
+	}
 
 	@Override
 	public void updateUniform(Uniform uniform) {

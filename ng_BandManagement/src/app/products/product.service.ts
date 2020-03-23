@@ -25,7 +25,7 @@ export class ProductService{
         const body = `itemId=${productId}`;
         console.log('adding request: '+productId +' '+ this.productUrl + 'add');
         return this.http.post(this.productUrl +'add/'+productId, body, {withCredentials: true}).subscribe(
-            (response) => console.log(response));
+            (response) => alert("You have made a request"));
     }
 
     private handleError(err: HttpErrorResponse){
