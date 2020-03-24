@@ -12,11 +12,8 @@ export class AppPage {
   login(name: string, pass: string) {
     browser.sleep(500); // Only putting pauses so you can see
     element(by.id('username')).sendKeys(name);
-    browser.sleep(500);
     element(by.id('password')).sendKeys(pass);
-    browser.sleep(500);
     element(by.id('loginButton')).click();
-    browser.sleep(500);
   }
 
   getWelcomeText(): Promise<string> {
@@ -51,7 +48,6 @@ export class AppPage {
 
   logout(){
     element(by.id('logoutButton')).click();
-    browser.sleep(500);
   }
 
 }
